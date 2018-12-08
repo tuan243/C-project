@@ -1,0 +1,13 @@
+C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\bin\Debug\Restaurant_Management.exe.config
+C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\bin\Debug\Restaurant_Management.exe
+C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\bin\Debug\Restaurant_Management.pdb
+C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\obj\Debug\Restaurant_Management.csprojAssemblyReference.cache
+C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\obj\Debug\Restaurant_Management.Properties.Resources.resources
+C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\obj\Debug\Restaurant_Management.csproj.GenerateResource.cache
+C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\obj\Debug\Restaurant_Management.csproj.CoreCompileInputs.cache
+C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\obj\Debug\Restaurant_Management.exe
+C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\obj\Debug\Restaurant_Management.pdb
+C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\obj\Debug\Restaurant_Management.fLogin.resources
+C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\obj\Debug\Restaurant_Management.fMain.resources
+C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\obj\Debug\Restaurant_Management.fProfile.resources
+C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\obj\Debug\Restaurant_Management.fAdmin.resources
