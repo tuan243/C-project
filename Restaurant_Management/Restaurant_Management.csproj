@@ -46,6 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data Access Object - DAO\AccountDAO.cs" />
+    <Compile Include="Data Access Object - DAO\BillDAO.cs" />
+    <Compile Include="Data Access Object - DAO\BillinfoDAO.cs" />
+    <Compile Include="Data Access Object - DAO\DataProvider.cs" />
+    <Compile Include="Data Access Object - DAO\MenuDAO.cs" />
+    <Compile Include="Data Access Object - DAO\TableDAO.cs" />
+    <Compile Include="Data Transfer Object - DTO\Bill.cs" />
+    <Compile Include="Data Transfer Object - DTO\Billinfo.cs" />
+    <Compile Include="Data Transfer Object - DTO\RestaurantMenu.cs" />
+    <Compile Include="Data Transfer Object - DTO\Table.cs" />
     <Compile Include="fAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,5 +116,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

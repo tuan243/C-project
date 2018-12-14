@@ -29,44 +29,46 @@
         private void InitializeComponent()
         {
             this.tP_Category = new System.Windows.Forms.TabPage();
-            this.grB_C = new System.Windows.Forms.GroupBox();
-            this.Dgv_C = new System.Windows.Forms.DataGridView();
-            this.Flp_C = new System.Windows.Forms.FlowLayoutPanel();
-            this.Btn_CView = new System.Windows.Forms.Button();
-            this.Btn_CEdit = new System.Windows.Forms.Button();
-            this.Btn_CRemove = new System.Windows.Forms.Button();
-            this.Btn_CAdd = new System.Windows.Forms.Button();
             this.grB_CInfo = new System.Windows.Forms.GroupBox();
-            this.Lbl_CID = new System.Windows.Forms.Label();
-            this.Lbl_CName = new System.Windows.Forms.Label();
-            this.Txb_CID = new System.Windows.Forms.TextBox();
             this.Txb_CName = new System.Windows.Forms.TextBox();
+            this.Txb_CID = new System.Windows.Forms.TextBox();
+            this.Lbl_CName = new System.Windows.Forms.Label();
+            this.Lbl_CID = new System.Windows.Forms.Label();
+            this.grB_C = new System.Windows.Forms.GroupBox();
+            this.Flp_C = new System.Windows.Forms.FlowLayoutPanel();
+            this.Btn_CAdd = new System.Windows.Forms.Button();
+            this.Btn_CRemove = new System.Windows.Forms.Button();
+            this.Btn_CEdit = new System.Windows.Forms.Button();
+            this.Btn_CView = new System.Windows.Forms.Button();
+            this.Dgv_C = new System.Windows.Forms.DataGridView();
             this.tP_Menu = new System.Windows.Forms.TabPage();
-            this.grB_M = new System.Windows.Forms.GroupBox();
-            this.Dgv_M = new System.Windows.Forms.DataGridView();
-            this.Flp_M = new System.Windows.Forms.FlowLayoutPanel();
-            this.Btn_MView = new System.Windows.Forms.Button();
-            this.Btn_MEdit = new System.Windows.Forms.Button();
-            this.Btn_MRemove = new System.Windows.Forms.Button();
-            this.Btn_MAdd = new System.Windows.Forms.Button();
-            this.grB_MInfo = new System.Windows.Forms.GroupBox();
-            this.Lbl_MID = new System.Windows.Forms.Label();
-            this.Lbl_MName = new System.Windows.Forms.Label();
-            this.Lbl_MCategory = new System.Windows.Forms.Label();
-            this.Lbl_MPrice = new System.Windows.Forms.Label();
-            this.Txb_MID = new System.Windows.Forms.TextBox();
-            this.Txb_MName = new System.Windows.Forms.TextBox();
-            this.Txb_MPrice = new System.Windows.Forms.TextBox();
-            this.Cbb_MCategory = new System.Windows.Forms.ComboBox();
             this.grB_MFind = new System.Windows.Forms.GroupBox();
-            this.Txb_MFind = new System.Windows.Forms.TextBox();
             this.Btn_MFind = new System.Windows.Forms.Button();
+            this.Txb_MFind = new System.Windows.Forms.TextBox();
+            this.grB_MInfo = new System.Windows.Forms.GroupBox();
+            this.Cbb_MCategory = new System.Windows.Forms.ComboBox();
+            this.Txb_MPrice = new System.Windows.Forms.TextBox();
+            this.Txb_MName = new System.Windows.Forms.TextBox();
+            this.Txb_MID = new System.Windows.Forms.TextBox();
+            this.Lbl_MPrice = new System.Windows.Forms.Label();
+            this.Lbl_MCategory = new System.Windows.Forms.Label();
+            this.Lbl_MName = new System.Windows.Forms.Label();
+            this.Lbl_MID = new System.Windows.Forms.Label();
+            this.grB_M = new System.Windows.Forms.GroupBox();
+            this.Flp_M = new System.Windows.Forms.FlowLayoutPanel();
+            this.Btn_MAdd = new System.Windows.Forms.Button();
+            this.Btn_MRemove = new System.Windows.Forms.Button();
+            this.Btn_MEdit = new System.Windows.Forms.Button();
+            this.Btn_MView = new System.Windows.Forms.Button();
+            this.Dgv_M = new System.Windows.Forms.DataGridView();
             this.tP_Income = new System.Windows.Forms.TabPage();
+            this.grB_IInfo = new System.Windows.Forms.GroupBox();
+            this.grB_ISelect = new System.Windows.Forms.GroupBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.dTP_From = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             this.dTP_To = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
             this.Dgv_I = new System.Windows.Forms.DataGridView();
             this.tC_Administrator = new System.Windows.Forms.TabControl();
             this.tP_Table = new System.Windows.Forms.TabPage();
@@ -85,13 +87,9 @@
             this.Btn_TView = new System.Windows.Forms.Button();
             this.Dgv_T = new System.Windows.Forms.DataGridView();
             this.tP_AccManager = new System.Windows.Forms.TabPage();
-            this.grB_A = new System.Windows.Forms.GroupBox();
-            this.Flp_A = new System.Windows.Forms.FlowLayoutPanel();
-            this.Btn_AAdd = new System.Windows.Forms.Button();
-            this.Btn_ARemove = new System.Windows.Forms.Button();
-            this.Btn_AEdit = new System.Windows.Forms.Button();
-            this.Btn_AView = new System.Windows.Forms.Button();
-            this.Dgv_A = new System.Windows.Forms.DataGridView();
+            this.grB_AFind = new System.Windows.Forms.GroupBox();
+            this.Btn_AFind = new System.Windows.Forms.Button();
+            this.Txb_AFind = new System.Windows.Forms.TextBox();
             this.grB_AInfo = new System.Windows.Forms.GroupBox();
             this.Cbb_AType = new System.Windows.Forms.ComboBox();
             this.Lbl_AType = new System.Windows.Forms.Label();
@@ -99,23 +97,26 @@
             this.Txb_AUsername = new System.Windows.Forms.TextBox();
             this.Lbl_AName = new System.Windows.Forms.Label();
             this.Lbl_AUsername = new System.Windows.Forms.Label();
-            this.grB_AFind = new System.Windows.Forms.GroupBox();
-            this.Btn_AFind = new System.Windows.Forms.Button();
-            this.Txb_AFind = new System.Windows.Forms.TextBox();
-            this.grB_ISelect = new System.Windows.Forms.GroupBox();
-            this.grB_IInfo = new System.Windows.Forms.GroupBox();
+            this.grB_A = new System.Windows.Forms.GroupBox();
+            this.Flp_A = new System.Windows.Forms.FlowLayoutPanel();
+            this.Btn_AAdd = new System.Windows.Forms.Button();
+            this.Btn_ARemove = new System.Windows.Forms.Button();
+            this.Btn_AEdit = new System.Windows.Forms.Button();
+            this.Btn_AView = new System.Windows.Forms.Button();
+            this.Dgv_A = new System.Windows.Forms.DataGridView();
             this.tP_Category.SuspendLayout();
-            this.grB_C.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_C)).BeginInit();
-            this.Flp_C.SuspendLayout();
             this.grB_CInfo.SuspendLayout();
+            this.grB_C.SuspendLayout();
+            this.Flp_C.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_C)).BeginInit();
             this.tP_Menu.SuspendLayout();
-            this.grB_M.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_M)).BeginInit();
-            this.Flp_M.SuspendLayout();
-            this.grB_MInfo.SuspendLayout();
             this.grB_MFind.SuspendLayout();
+            this.grB_MInfo.SuspendLayout();
+            this.grB_M.SuspendLayout();
+            this.Flp_M.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_M)).BeginInit();
             this.tP_Income.SuspendLayout();
+            this.grB_ISelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_I)).BeginInit();
             this.tC_Administrator.SuspendLayout();
             this.tP_Table.SuspendLayout();
@@ -124,12 +125,11 @@
             this.Flp_T.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_T)).BeginInit();
             this.tP_AccManager.SuspendLayout();
+            this.grB_AFind.SuspendLayout();
+            this.grB_AInfo.SuspendLayout();
             this.grB_A.SuspendLayout();
             this.Flp_A.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_A)).BeginInit();
-            this.grB_AInfo.SuspendLayout();
-            this.grB_AFind.SuspendLayout();
-            this.grB_ISelect.SuspendLayout();
             this.SuspendLayout();
             // 
             // tP_Category
@@ -143,79 +143,6 @@
             this.tP_Category.TabIndex = 4;
             this.tP_Category.Text = "Category";
             this.tP_Category.UseVisualStyleBackColor = true;
-            // 
-            // grB_C
-            // 
-            this.grB_C.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grB_C.Controls.Add(this.Flp_C);
-            this.grB_C.Controls.Add(this.Dgv_C);
-            this.grB_C.Location = new System.Drawing.Point(5, 5);
-            this.grB_C.Name = "grB_C";
-            this.grB_C.Size = new System.Drawing.Size(500, 414);
-            this.grB_C.TabIndex = 14;
-            this.grB_C.TabStop = false;
-            this.grB_C.Text = "Category";
-            // 
-            // Dgv_C
-            // 
-            this.Dgv_C.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Dgv_C.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_C.Location = new System.Drawing.Point(5, 20);
-            this.Dgv_C.Name = "Dgv_C";
-            this.Dgv_C.Size = new System.Drawing.Size(407, 381);
-            this.Dgv_C.TabIndex = 0;
-            // 
-            // Flp_C
-            // 
-            this.Flp_C.Controls.Add(this.Btn_CAdd);
-            this.Flp_C.Controls.Add(this.Btn_CRemove);
-            this.Flp_C.Controls.Add(this.Btn_CEdit);
-            this.Flp_C.Controls.Add(this.Btn_CView);
-            this.Flp_C.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Flp_C.Location = new System.Drawing.Point(416, 16);
-            this.Flp_C.Name = "Flp_C";
-            this.Flp_C.Size = new System.Drawing.Size(81, 395);
-            this.Flp_C.TabIndex = 2;
-            // 
-            // Btn_CView
-            // 
-            this.Btn_CView.Location = new System.Drawing.Point(3, 96);
-            this.Btn_CView.Name = "Btn_CView";
-            this.Btn_CView.Size = new System.Drawing.Size(75, 55);
-            this.Btn_CView.TabIndex = 3;
-            this.Btn_CView.Text = "View";
-            this.Btn_CView.UseVisualStyleBackColor = true;
-            // 
-            // Btn_CEdit
-            // 
-            this.Btn_CEdit.Location = new System.Drawing.Point(3, 65);
-            this.Btn_CEdit.Name = "Btn_CEdit";
-            this.Btn_CEdit.Size = new System.Drawing.Size(75, 25);
-            this.Btn_CEdit.TabIndex = 2;
-            this.Btn_CEdit.Text = "Edit";
-            this.Btn_CEdit.UseVisualStyleBackColor = true;
-            // 
-            // Btn_CRemove
-            // 
-            this.Btn_CRemove.Location = new System.Drawing.Point(3, 34);
-            this.Btn_CRemove.Name = "Btn_CRemove";
-            this.Btn_CRemove.Size = new System.Drawing.Size(75, 25);
-            this.Btn_CRemove.TabIndex = 1;
-            this.Btn_CRemove.Text = "Remove";
-            this.Btn_CRemove.UseVisualStyleBackColor = true;
-            // 
-            // Btn_CAdd
-            // 
-            this.Btn_CAdd.Location = new System.Drawing.Point(3, 3);
-            this.Btn_CAdd.Name = "Btn_CAdd";
-            this.Btn_CAdd.Size = new System.Drawing.Size(75, 25);
-            this.Btn_CAdd.TabIndex = 0;
-            this.Btn_CAdd.Text = "Add";
-            this.Btn_CAdd.UseVisualStyleBackColor = true;
             // 
             // grB_CInfo
             // 
@@ -232,25 +159,15 @@
             this.grB_CInfo.TabStop = false;
             this.grB_CInfo.Text = "Info";
             // 
-            // Lbl_CID
+            // Txb_CName
             // 
-            this.Lbl_CID.AutoSize = true;
-            this.Lbl_CID.Location = new System.Drawing.Point(5, 25);
-            this.Lbl_CID.Name = "Lbl_CID";
-            this.Lbl_CID.Size = new System.Drawing.Size(24, 13);
-            this.Lbl_CID.TabIndex = 2;
-            this.Lbl_CID.Text = "ID :";
-            this.Lbl_CID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // Lbl_CName
-            // 
-            this.Lbl_CName.AutoSize = true;
-            this.Lbl_CName.Location = new System.Drawing.Point(5, 50);
-            this.Lbl_CName.Name = "Lbl_CName";
-            this.Lbl_CName.Size = new System.Drawing.Size(41, 13);
-            this.Lbl_CName.TabIndex = 2;
-            this.Lbl_CName.Text = "Name :";
-            this.Lbl_CName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Txb_CName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Txb_CName.Location = new System.Drawing.Point(80, 47);
+            this.Txb_CName.Name = "Txb_CName";
+            this.Txb_CName.Size = new System.Drawing.Size(140, 20);
+            this.Txb_CName.TabIndex = 7;
             // 
             // Txb_CID
             // 
@@ -263,15 +180,98 @@
             this.Txb_CID.Size = new System.Drawing.Size(140, 20);
             this.Txb_CID.TabIndex = 6;
             // 
-            // Txb_CName
+            // Lbl_CName
             // 
-            this.Txb_CName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Lbl_CName.AutoSize = true;
+            this.Lbl_CName.Location = new System.Drawing.Point(5, 50);
+            this.Lbl_CName.Name = "Lbl_CName";
+            this.Lbl_CName.Size = new System.Drawing.Size(41, 13);
+            this.Lbl_CName.TabIndex = 2;
+            this.Lbl_CName.Text = "Name :";
+            this.Lbl_CName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Lbl_CID
+            // 
+            this.Lbl_CID.AutoSize = true;
+            this.Lbl_CID.Location = new System.Drawing.Point(5, 25);
+            this.Lbl_CID.Name = "Lbl_CID";
+            this.Lbl_CID.Size = new System.Drawing.Size(24, 13);
+            this.Lbl_CID.TabIndex = 2;
+            this.Lbl_CID.Text = "ID :";
+            this.Lbl_CID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // grB_C
+            // 
+            this.grB_C.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txb_CName.Location = new System.Drawing.Point(80, 47);
-            this.Txb_CName.Name = "Txb_CName";
-            this.Txb_CName.Size = new System.Drawing.Size(140, 20);
-            this.Txb_CName.TabIndex = 7;
+            this.grB_C.Controls.Add(this.Flp_C);
+            this.grB_C.Controls.Add(this.Dgv_C);
+            this.grB_C.Location = new System.Drawing.Point(5, 5);
+            this.grB_C.Name = "grB_C";
+            this.grB_C.Size = new System.Drawing.Size(500, 414);
+            this.grB_C.TabIndex = 14;
+            this.grB_C.TabStop = false;
+            this.grB_C.Text = "Category";
+            // 
+            // Flp_C
+            // 
+            this.Flp_C.Controls.Add(this.Btn_CAdd);
+            this.Flp_C.Controls.Add(this.Btn_CRemove);
+            this.Flp_C.Controls.Add(this.Btn_CEdit);
+            this.Flp_C.Controls.Add(this.Btn_CView);
+            this.Flp_C.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Flp_C.Location = new System.Drawing.Point(416, 16);
+            this.Flp_C.Name = "Flp_C";
+            this.Flp_C.Size = new System.Drawing.Size(81, 395);
+            this.Flp_C.TabIndex = 2;
+            // 
+            // Btn_CAdd
+            // 
+            this.Btn_CAdd.Location = new System.Drawing.Point(3, 3);
+            this.Btn_CAdd.Name = "Btn_CAdd";
+            this.Btn_CAdd.Size = new System.Drawing.Size(75, 25);
+            this.Btn_CAdd.TabIndex = 0;
+            this.Btn_CAdd.Text = "Add";
+            this.Btn_CAdd.UseVisualStyleBackColor = true;
+            // 
+            // Btn_CRemove
+            // 
+            this.Btn_CRemove.Location = new System.Drawing.Point(3, 34);
+            this.Btn_CRemove.Name = "Btn_CRemove";
+            this.Btn_CRemove.Size = new System.Drawing.Size(75, 25);
+            this.Btn_CRemove.TabIndex = 1;
+            this.Btn_CRemove.Text = "Remove";
+            this.Btn_CRemove.UseVisualStyleBackColor = true;
+            // 
+            // Btn_CEdit
+            // 
+            this.Btn_CEdit.Location = new System.Drawing.Point(3, 65);
+            this.Btn_CEdit.Name = "Btn_CEdit";
+            this.Btn_CEdit.Size = new System.Drawing.Size(75, 25);
+            this.Btn_CEdit.TabIndex = 2;
+            this.Btn_CEdit.Text = "Edit";
+            this.Btn_CEdit.UseVisualStyleBackColor = true;
+            // 
+            // Btn_CView
+            // 
+            this.Btn_CView.Location = new System.Drawing.Point(3, 96);
+            this.Btn_CView.Name = "Btn_CView";
+            this.Btn_CView.Size = new System.Drawing.Size(75, 55);
+            this.Btn_CView.TabIndex = 3;
+            this.Btn_CView.Text = "View";
+            this.Btn_CView.UseVisualStyleBackColor = true;
+            // 
+            // Dgv_C
+            // 
+            this.Dgv_C.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Dgv_C.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_C.Location = new System.Drawing.Point(5, 20);
+            this.Dgv_C.Name = "Dgv_C";
+            this.Dgv_C.Size = new System.Drawing.Size(407, 381);
+            this.Dgv_C.TabIndex = 0;
             // 
             // tP_Menu
             // 
@@ -286,78 +286,33 @@
             this.tP_Menu.Text = "Menu";
             this.tP_Menu.UseVisualStyleBackColor = true;
             // 
-            // grB_M
+            // grB_MFind
             // 
-            this.grB_M.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grB_M.Controls.Add(this.Flp_M);
-            this.grB_M.Controls.Add(this.Dgv_M);
-            this.grB_M.Location = new System.Drawing.Point(5, 5);
-            this.grB_M.Name = "grB_M";
-            this.grB_M.Size = new System.Drawing.Size(500, 414);
-            this.grB_M.TabIndex = 10;
-            this.grB_M.TabStop = false;
-            this.grB_M.Text = "Menu";
+            this.grB_MFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grB_MFind.Controls.Add(this.Btn_MFind);
+            this.grB_MFind.Controls.Add(this.Txb_MFind);
+            this.grB_MFind.Location = new System.Drawing.Point(510, 5);
+            this.grB_MFind.Name = "grB_MFind";
+            this.grB_MFind.Size = new System.Drawing.Size(225, 80);
+            this.grB_MFind.TabIndex = 13;
+            this.grB_MFind.TabStop = false;
+            this.grB_MFind.Text = "Fiinding";
             // 
-            // Dgv_M
+            // Btn_MFind
             // 
-            this.Dgv_M.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Dgv_M.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_M.Location = new System.Drawing.Point(5, 20);
-            this.Dgv_M.Name = "Dgv_M";
-            this.Dgv_M.Size = new System.Drawing.Size(407, 381);
-            this.Dgv_M.TabIndex = 0;
+            this.Btn_MFind.Location = new System.Drawing.Point(145, 50);
+            this.Btn_MFind.Name = "Btn_MFind";
+            this.Btn_MFind.Size = new System.Drawing.Size(75, 23);
+            this.Btn_MFind.TabIndex = 5;
+            this.Btn_MFind.Text = "Find";
+            this.Btn_MFind.UseVisualStyleBackColor = true;
             // 
-            // Flp_M
+            // Txb_MFind
             // 
-            this.Flp_M.Controls.Add(this.Btn_MAdd);
-            this.Flp_M.Controls.Add(this.Btn_MRemove);
-            this.Flp_M.Controls.Add(this.Btn_MEdit);
-            this.Flp_M.Controls.Add(this.Btn_MView);
-            this.Flp_M.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Flp_M.Location = new System.Drawing.Point(416, 16);
-            this.Flp_M.Name = "Flp_M";
-            this.Flp_M.Size = new System.Drawing.Size(81, 395);
-            this.Flp_M.TabIndex = 2;
-            // 
-            // Btn_MView
-            // 
-            this.Btn_MView.Location = new System.Drawing.Point(3, 96);
-            this.Btn_MView.Name = "Btn_MView";
-            this.Btn_MView.Size = new System.Drawing.Size(75, 55);
-            this.Btn_MView.TabIndex = 3;
-            this.Btn_MView.Text = "View";
-            this.Btn_MView.UseVisualStyleBackColor = true;
-            // 
-            // Btn_MEdit
-            // 
-            this.Btn_MEdit.Location = new System.Drawing.Point(3, 65);
-            this.Btn_MEdit.Name = "Btn_MEdit";
-            this.Btn_MEdit.Size = new System.Drawing.Size(75, 25);
-            this.Btn_MEdit.TabIndex = 2;
-            this.Btn_MEdit.Text = "Edit";
-            this.Btn_MEdit.UseVisualStyleBackColor = true;
-            // 
-            // Btn_MRemove
-            // 
-            this.Btn_MRemove.Location = new System.Drawing.Point(3, 34);
-            this.Btn_MRemove.Name = "Btn_MRemove";
-            this.Btn_MRemove.Size = new System.Drawing.Size(75, 25);
-            this.Btn_MRemove.TabIndex = 1;
-            this.Btn_MRemove.Text = "Remove";
-            this.Btn_MRemove.UseVisualStyleBackColor = true;
-            // 
-            // Btn_MAdd
-            // 
-            this.Btn_MAdd.Location = new System.Drawing.Point(3, 3);
-            this.Btn_MAdd.Name = "Btn_MAdd";
-            this.Btn_MAdd.Size = new System.Drawing.Size(75, 25);
-            this.Btn_MAdd.TabIndex = 0;
-            this.Btn_MAdd.Text = "Add";
-            this.Btn_MAdd.UseVisualStyleBackColor = true;
+            this.Txb_MFind.Location = new System.Drawing.Point(5, 25);
+            this.Txb_MFind.Name = "Txb_MFind";
+            this.Txb_MFind.Size = new System.Drawing.Size(215, 20);
+            this.Txb_MFind.TabIndex = 4;
             // 
             // grB_MInfo
             // 
@@ -378,45 +333,33 @@
             this.grB_MInfo.TabStop = false;
             this.grB_MInfo.Text = "Info";
             // 
-            // Lbl_MID
+            // Cbb_MCategory
             // 
-            this.Lbl_MID.AutoSize = true;
-            this.Lbl_MID.Location = new System.Drawing.Point(5, 25);
-            this.Lbl_MID.Name = "Lbl_MID";
-            this.Lbl_MID.Size = new System.Drawing.Size(24, 13);
-            this.Lbl_MID.TabIndex = 2;
-            this.Lbl_MID.Text = "ID :";
-            this.Lbl_MID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Cbb_MCategory.FormattingEnabled = true;
+            this.Cbb_MCategory.Location = new System.Drawing.Point(80, 72);
+            this.Cbb_MCategory.Name = "Cbb_MCategory";
+            this.Cbb_MCategory.Size = new System.Drawing.Size(140, 21);
+            this.Cbb_MCategory.TabIndex = 8;
             // 
-            // Lbl_MName
+            // Txb_MPrice
             // 
-            this.Lbl_MName.AutoSize = true;
-            this.Lbl_MName.Location = new System.Drawing.Point(5, 50);
-            this.Lbl_MName.Name = "Lbl_MName";
-            this.Lbl_MName.Size = new System.Drawing.Size(41, 13);
-            this.Lbl_MName.TabIndex = 2;
-            this.Lbl_MName.Text = "Name :";
-            this.Lbl_MName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Txb_MPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Txb_MPrice.Location = new System.Drawing.Point(80, 98);
+            this.Txb_MPrice.Name = "Txb_MPrice";
+            this.Txb_MPrice.Size = new System.Drawing.Size(140, 20);
+            this.Txb_MPrice.TabIndex = 9;
             // 
-            // Lbl_MCategory
+            // Txb_MName
             // 
-            this.Lbl_MCategory.AutoSize = true;
-            this.Lbl_MCategory.Location = new System.Drawing.Point(5, 75);
-            this.Lbl_MCategory.Name = "Lbl_MCategory";
-            this.Lbl_MCategory.Size = new System.Drawing.Size(55, 13);
-            this.Lbl_MCategory.TabIndex = 2;
-            this.Lbl_MCategory.Text = "Category :";
-            this.Lbl_MCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // Lbl_MPrice
-            // 
-            this.Lbl_MPrice.AutoSize = true;
-            this.Lbl_MPrice.Location = new System.Drawing.Point(5, 101);
-            this.Lbl_MPrice.Name = "Lbl_MPrice";
-            this.Lbl_MPrice.Size = new System.Drawing.Size(37, 13);
-            this.Lbl_MPrice.TabIndex = 2;
-            this.Lbl_MPrice.Text = "Price :";
-            this.Lbl_MPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Txb_MName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Txb_MName.Location = new System.Drawing.Point(80, 47);
+            this.Txb_MName.Name = "Txb_MName";
+            this.Txb_MName.Size = new System.Drawing.Size(140, 20);
+            this.Txb_MName.TabIndex = 7;
             // 
             // Txb_MID
             // 
@@ -429,61 +372,118 @@
             this.Txb_MID.Size = new System.Drawing.Size(140, 20);
             this.Txb_MID.TabIndex = 6;
             // 
-            // Txb_MName
+            // Lbl_MPrice
             // 
-            this.Txb_MName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Lbl_MPrice.AutoSize = true;
+            this.Lbl_MPrice.Location = new System.Drawing.Point(5, 101);
+            this.Lbl_MPrice.Name = "Lbl_MPrice";
+            this.Lbl_MPrice.Size = new System.Drawing.Size(37, 13);
+            this.Lbl_MPrice.TabIndex = 2;
+            this.Lbl_MPrice.Text = "Price :";
+            this.Lbl_MPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Lbl_MCategory
+            // 
+            this.Lbl_MCategory.AutoSize = true;
+            this.Lbl_MCategory.Location = new System.Drawing.Point(5, 75);
+            this.Lbl_MCategory.Name = "Lbl_MCategory";
+            this.Lbl_MCategory.Size = new System.Drawing.Size(55, 13);
+            this.Lbl_MCategory.TabIndex = 2;
+            this.Lbl_MCategory.Text = "Category :";
+            this.Lbl_MCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Lbl_MName
+            // 
+            this.Lbl_MName.AutoSize = true;
+            this.Lbl_MName.Location = new System.Drawing.Point(5, 50);
+            this.Lbl_MName.Name = "Lbl_MName";
+            this.Lbl_MName.Size = new System.Drawing.Size(41, 13);
+            this.Lbl_MName.TabIndex = 2;
+            this.Lbl_MName.Text = "Name :";
+            this.Lbl_MName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Lbl_MID
+            // 
+            this.Lbl_MID.AutoSize = true;
+            this.Lbl_MID.Location = new System.Drawing.Point(5, 25);
+            this.Lbl_MID.Name = "Lbl_MID";
+            this.Lbl_MID.Size = new System.Drawing.Size(24, 13);
+            this.Lbl_MID.TabIndex = 2;
+            this.Lbl_MID.Text = "ID :";
+            this.Lbl_MID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // grB_M
+            // 
+            this.grB_M.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txb_MName.Location = new System.Drawing.Point(80, 47);
-            this.Txb_MName.Name = "Txb_MName";
-            this.Txb_MName.Size = new System.Drawing.Size(140, 20);
-            this.Txb_MName.TabIndex = 7;
+            this.grB_M.Controls.Add(this.Flp_M);
+            this.grB_M.Controls.Add(this.Dgv_M);
+            this.grB_M.Location = new System.Drawing.Point(5, 5);
+            this.grB_M.Name = "grB_M";
+            this.grB_M.Size = new System.Drawing.Size(500, 414);
+            this.grB_M.TabIndex = 10;
+            this.grB_M.TabStop = false;
+            this.grB_M.Text = "Menu";
             // 
-            // Txb_MPrice
+            // Flp_M
             // 
-            this.Txb_MPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Flp_M.Controls.Add(this.Btn_MAdd);
+            this.Flp_M.Controls.Add(this.Btn_MRemove);
+            this.Flp_M.Controls.Add(this.Btn_MEdit);
+            this.Flp_M.Controls.Add(this.Btn_MView);
+            this.Flp_M.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Flp_M.Location = new System.Drawing.Point(416, 16);
+            this.Flp_M.Name = "Flp_M";
+            this.Flp_M.Size = new System.Drawing.Size(81, 395);
+            this.Flp_M.TabIndex = 2;
+            // 
+            // Btn_MAdd
+            // 
+            this.Btn_MAdd.Location = new System.Drawing.Point(3, 3);
+            this.Btn_MAdd.Name = "Btn_MAdd";
+            this.Btn_MAdd.Size = new System.Drawing.Size(75, 25);
+            this.Btn_MAdd.TabIndex = 0;
+            this.Btn_MAdd.Text = "Add";
+            this.Btn_MAdd.UseVisualStyleBackColor = true;
+            // 
+            // Btn_MRemove
+            // 
+            this.Btn_MRemove.Location = new System.Drawing.Point(3, 34);
+            this.Btn_MRemove.Name = "Btn_MRemove";
+            this.Btn_MRemove.Size = new System.Drawing.Size(75, 25);
+            this.Btn_MRemove.TabIndex = 1;
+            this.Btn_MRemove.Text = "Remove";
+            this.Btn_MRemove.UseVisualStyleBackColor = true;
+            // 
+            // Btn_MEdit
+            // 
+            this.Btn_MEdit.Location = new System.Drawing.Point(3, 65);
+            this.Btn_MEdit.Name = "Btn_MEdit";
+            this.Btn_MEdit.Size = new System.Drawing.Size(75, 25);
+            this.Btn_MEdit.TabIndex = 2;
+            this.Btn_MEdit.Text = "Edit";
+            this.Btn_MEdit.UseVisualStyleBackColor = true;
+            // 
+            // Btn_MView
+            // 
+            this.Btn_MView.Location = new System.Drawing.Point(3, 96);
+            this.Btn_MView.Name = "Btn_MView";
+            this.Btn_MView.Size = new System.Drawing.Size(75, 55);
+            this.Btn_MView.TabIndex = 3;
+            this.Btn_MView.Text = "View";
+            this.Btn_MView.UseVisualStyleBackColor = true;
+            // 
+            // Dgv_M
+            // 
+            this.Dgv_M.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txb_MPrice.Location = new System.Drawing.Point(80, 98);
-            this.Txb_MPrice.Name = "Txb_MPrice";
-            this.Txb_MPrice.Size = new System.Drawing.Size(140, 20);
-            this.Txb_MPrice.TabIndex = 9;
-            // 
-            // Cbb_MCategory
-            // 
-            this.Cbb_MCategory.FormattingEnabled = true;
-            this.Cbb_MCategory.Location = new System.Drawing.Point(80, 72);
-            this.Cbb_MCategory.Name = "Cbb_MCategory";
-            this.Cbb_MCategory.Size = new System.Drawing.Size(140, 21);
-            this.Cbb_MCategory.TabIndex = 8;
-            // 
-            // grB_MFind
-            // 
-            this.grB_MFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.grB_MFind.Controls.Add(this.Btn_MFind);
-            this.grB_MFind.Controls.Add(this.Txb_MFind);
-            this.grB_MFind.Location = new System.Drawing.Point(510, 5);
-            this.grB_MFind.Name = "grB_MFind";
-            this.grB_MFind.Size = new System.Drawing.Size(225, 80);
-            this.grB_MFind.TabIndex = 13;
-            this.grB_MFind.TabStop = false;
-            this.grB_MFind.Text = "Fiinding";
-            // 
-            // Txb_MFind
-            // 
-            this.Txb_MFind.Location = new System.Drawing.Point(5, 25);
-            this.Txb_MFind.Name = "Txb_MFind";
-            this.Txb_MFind.Size = new System.Drawing.Size(215, 20);
-            this.Txb_MFind.TabIndex = 4;
-            // 
-            // Btn_MFind
-            // 
-            this.Btn_MFind.Location = new System.Drawing.Point(145, 50);
-            this.Btn_MFind.Name = "Btn_MFind";
-            this.Btn_MFind.Size = new System.Drawing.Size(75, 23);
-            this.Btn_MFind.TabIndex = 5;
-            this.Btn_MFind.Text = "Find";
-            this.Btn_MFind.UseVisualStyleBackColor = true;
+            this.Dgv_M.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_M.Location = new System.Drawing.Point(5, 20);
+            this.Dgv_M.Name = "Dgv_M";
+            this.Dgv_M.Size = new System.Drawing.Size(407, 381);
+            this.Dgv_M.TabIndex = 0;
             // 
             // tP_Income
             // 
@@ -498,12 +498,58 @@
             this.tP_Income.Text = "Income";
             this.tP_Income.UseVisualStyleBackColor = true;
             // 
+            // grB_IInfo
+            // 
+            this.grB_IInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grB_IInfo.Location = new System.Drawing.Point(540, 5);
+            this.grB_IInfo.Name = "grB_IInfo";
+            this.grB_IInfo.Size = new System.Drawing.Size(195, 413);
+            this.grB_IInfo.TabIndex = 4;
+            this.grB_IInfo.TabStop = false;
+            this.grB_IInfo.Text = "Info";
+            // 
+            // grB_ISelect
+            // 
+            this.grB_ISelect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grB_ISelect.Controls.Add(this.button6);
+            this.grB_ISelect.Controls.Add(this.dTP_From);
+            this.grB_ISelect.Controls.Add(this.label5);
+            this.grB_ISelect.Controls.Add(this.dTP_To);
+            this.grB_ISelect.Controls.Add(this.label4);
+            this.grB_ISelect.Location = new System.Drawing.Point(5, 5);
+            this.grB_ISelect.Name = "grB_ISelect";
+            this.grB_ISelect.Size = new System.Drawing.Size(530, 75);
+            this.grB_ISelect.TabIndex = 3;
+            this.grB_ISelect.TabStop = false;
+            this.grB_ISelect.Text = "Select";
+            // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.Location = new System.Drawing.Point(450, 22);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 45);
+            this.button6.TabIndex = 2;
+            this.button6.Text = "View";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
             // dTP_From
             // 
             this.dTP_From.Location = new System.Drawing.Point(72, 22);
             this.dTP_From.Name = "dTP_From";
             this.dTP_From.Size = new System.Drawing.Size(200, 20);
             this.dTP_From.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(30, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(26, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "To :";
             // 
             // dTP_To
             // 
@@ -520,25 +566,6 @@
             this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "From :";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "To :";
-            // 
-            // button6
-            // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Location = new System.Drawing.Point(450, 22);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 45);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "View";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // Dgv_I
             // 
@@ -740,78 +767,33 @@
             this.tP_AccManager.Text = "Account Manager";
             this.tP_AccManager.UseVisualStyleBackColor = true;
             // 
-            // grB_A
+            // grB_AFind
             // 
-            this.grB_A.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grB_A.Controls.Add(this.Flp_A);
-            this.grB_A.Controls.Add(this.Dgv_A);
-            this.grB_A.Location = new System.Drawing.Point(5, 5);
-            this.grB_A.Name = "grB_A";
-            this.grB_A.Size = new System.Drawing.Size(500, 414);
-            this.grB_A.TabIndex = 17;
-            this.grB_A.TabStop = false;
-            this.grB_A.Text = "Account List";
+            this.grB_AFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grB_AFind.Controls.Add(this.Btn_AFind);
+            this.grB_AFind.Controls.Add(this.Txb_AFind);
+            this.grB_AFind.Location = new System.Drawing.Point(510, 5);
+            this.grB_AFind.Name = "grB_AFind";
+            this.grB_AFind.Size = new System.Drawing.Size(225, 80);
+            this.grB_AFind.TabIndex = 25;
+            this.grB_AFind.TabStop = false;
+            this.grB_AFind.Text = "Fiinding";
             // 
-            // Flp_A
+            // Btn_AFind
             // 
-            this.Flp_A.Controls.Add(this.Btn_AAdd);
-            this.Flp_A.Controls.Add(this.Btn_ARemove);
-            this.Flp_A.Controls.Add(this.Btn_AEdit);
-            this.Flp_A.Controls.Add(this.Btn_AView);
-            this.Flp_A.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Flp_A.Location = new System.Drawing.Point(416, 16);
-            this.Flp_A.Name = "Flp_A";
-            this.Flp_A.Size = new System.Drawing.Size(81, 395);
-            this.Flp_A.TabIndex = 2;
+            this.Btn_AFind.Location = new System.Drawing.Point(145, 50);
+            this.Btn_AFind.Name = "Btn_AFind";
+            this.Btn_AFind.Size = new System.Drawing.Size(75, 23);
+            this.Btn_AFind.TabIndex = 5;
+            this.Btn_AFind.Text = "Find";
+            this.Btn_AFind.UseVisualStyleBackColor = true;
             // 
-            // Btn_AAdd
+            // Txb_AFind
             // 
-            this.Btn_AAdd.Location = new System.Drawing.Point(3, 3);
-            this.Btn_AAdd.Name = "Btn_AAdd";
-            this.Btn_AAdd.Size = new System.Drawing.Size(75, 25);
-            this.Btn_AAdd.TabIndex = 0;
-            this.Btn_AAdd.Text = "Add";
-            this.Btn_AAdd.UseVisualStyleBackColor = true;
-            // 
-            // Btn_ARemove
-            // 
-            this.Btn_ARemove.Location = new System.Drawing.Point(3, 34);
-            this.Btn_ARemove.Name = "Btn_ARemove";
-            this.Btn_ARemove.Size = new System.Drawing.Size(75, 25);
-            this.Btn_ARemove.TabIndex = 1;
-            this.Btn_ARemove.Text = "Remove";
-            this.Btn_ARemove.UseVisualStyleBackColor = true;
-            // 
-            // Btn_AEdit
-            // 
-            this.Btn_AEdit.Location = new System.Drawing.Point(3, 65);
-            this.Btn_AEdit.Name = "Btn_AEdit";
-            this.Btn_AEdit.Size = new System.Drawing.Size(75, 25);
-            this.Btn_AEdit.TabIndex = 2;
-            this.Btn_AEdit.Text = "Edit";
-            this.Btn_AEdit.UseVisualStyleBackColor = true;
-            // 
-            // Btn_AView
-            // 
-            this.Btn_AView.Location = new System.Drawing.Point(3, 96);
-            this.Btn_AView.Name = "Btn_AView";
-            this.Btn_AView.Size = new System.Drawing.Size(75, 55);
-            this.Btn_AView.TabIndex = 3;
-            this.Btn_AView.Text = "View";
-            this.Btn_AView.UseVisualStyleBackColor = true;
-            // 
-            // Dgv_A
-            // 
-            this.Dgv_A.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Dgv_A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_A.Location = new System.Drawing.Point(5, 20);
-            this.Dgv_A.Name = "Dgv_A";
-            this.Dgv_A.Size = new System.Drawing.Size(407, 381);
-            this.Dgv_A.TabIndex = 0;
+            this.Txb_AFind.Location = new System.Drawing.Point(5, 25);
+            this.Txb_AFind.Name = "Txb_AFind";
+            this.Txb_AFind.Size = new System.Drawing.Size(215, 20);
+            this.Txb_AFind.TabIndex = 4;
             // 
             // grB_AInfo
             // 
@@ -889,60 +871,78 @@
             this.Lbl_AUsername.Text = "UserName :";
             this.Lbl_AUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // grB_AFind
+            // grB_A
             // 
-            this.grB_AFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.grB_AFind.Controls.Add(this.Btn_AFind);
-            this.grB_AFind.Controls.Add(this.Txb_AFind);
-            this.grB_AFind.Location = new System.Drawing.Point(510, 5);
-            this.grB_AFind.Name = "grB_AFind";
-            this.grB_AFind.Size = new System.Drawing.Size(225, 80);
-            this.grB_AFind.TabIndex = 25;
-            this.grB_AFind.TabStop = false;
-            this.grB_AFind.Text = "Fiinding";
-            // 
-            // Btn_AFind
-            // 
-            this.Btn_AFind.Location = new System.Drawing.Point(145, 50);
-            this.Btn_AFind.Name = "Btn_AFind";
-            this.Btn_AFind.Size = new System.Drawing.Size(75, 23);
-            this.Btn_AFind.TabIndex = 5;
-            this.Btn_AFind.Text = "Find";
-            this.Btn_AFind.UseVisualStyleBackColor = true;
-            // 
-            // Txb_AFind
-            // 
-            this.Txb_AFind.Location = new System.Drawing.Point(5, 25);
-            this.Txb_AFind.Name = "Txb_AFind";
-            this.Txb_AFind.Size = new System.Drawing.Size(215, 20);
-            this.Txb_AFind.TabIndex = 4;
-            // 
-            // grB_ISelect
-            // 
-            this.grB_ISelect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grB_A.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grB_ISelect.Controls.Add(this.button6);
-            this.grB_ISelect.Controls.Add(this.dTP_From);
-            this.grB_ISelect.Controls.Add(this.label5);
-            this.grB_ISelect.Controls.Add(this.dTP_To);
-            this.grB_ISelect.Controls.Add(this.label4);
-            this.grB_ISelect.Location = new System.Drawing.Point(5, 5);
-            this.grB_ISelect.Name = "grB_ISelect";
-            this.grB_ISelect.Size = new System.Drawing.Size(530, 75);
-            this.grB_ISelect.TabIndex = 3;
-            this.grB_ISelect.TabStop = false;
-            this.grB_ISelect.Text = "Select";
+            this.grB_A.Controls.Add(this.Flp_A);
+            this.grB_A.Controls.Add(this.Dgv_A);
+            this.grB_A.Location = new System.Drawing.Point(5, 5);
+            this.grB_A.Name = "grB_A";
+            this.grB_A.Size = new System.Drawing.Size(500, 414);
+            this.grB_A.TabIndex = 17;
+            this.grB_A.TabStop = false;
+            this.grB_A.Text = "Account List";
             // 
-            // grB_IInfo
+            // Flp_A
             // 
-            this.grB_IInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Flp_A.Controls.Add(this.Btn_AAdd);
+            this.Flp_A.Controls.Add(this.Btn_ARemove);
+            this.Flp_A.Controls.Add(this.Btn_AEdit);
+            this.Flp_A.Controls.Add(this.Btn_AView);
+            this.Flp_A.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Flp_A.Location = new System.Drawing.Point(416, 16);
+            this.Flp_A.Name = "Flp_A";
+            this.Flp_A.Size = new System.Drawing.Size(81, 395);
+            this.Flp_A.TabIndex = 2;
+            // 
+            // Btn_AAdd
+            // 
+            this.Btn_AAdd.Location = new System.Drawing.Point(3, 3);
+            this.Btn_AAdd.Name = "Btn_AAdd";
+            this.Btn_AAdd.Size = new System.Drawing.Size(75, 25);
+            this.Btn_AAdd.TabIndex = 0;
+            this.Btn_AAdd.Text = "Add";
+            this.Btn_AAdd.UseVisualStyleBackColor = true;
+            // 
+            // Btn_ARemove
+            // 
+            this.Btn_ARemove.Location = new System.Drawing.Point(3, 34);
+            this.Btn_ARemove.Name = "Btn_ARemove";
+            this.Btn_ARemove.Size = new System.Drawing.Size(75, 25);
+            this.Btn_ARemove.TabIndex = 1;
+            this.Btn_ARemove.Text = "Remove";
+            this.Btn_ARemove.UseVisualStyleBackColor = true;
+            // 
+            // Btn_AEdit
+            // 
+            this.Btn_AEdit.Location = new System.Drawing.Point(3, 65);
+            this.Btn_AEdit.Name = "Btn_AEdit";
+            this.Btn_AEdit.Size = new System.Drawing.Size(75, 25);
+            this.Btn_AEdit.TabIndex = 2;
+            this.Btn_AEdit.Text = "Edit";
+            this.Btn_AEdit.UseVisualStyleBackColor = true;
+            // 
+            // Btn_AView
+            // 
+            this.Btn_AView.Location = new System.Drawing.Point(3, 96);
+            this.Btn_AView.Name = "Btn_AView";
+            this.Btn_AView.Size = new System.Drawing.Size(75, 55);
+            this.Btn_AView.TabIndex = 3;
+            this.Btn_AView.Text = "View";
+            this.Btn_AView.UseVisualStyleBackColor = true;
+            // 
+            // Dgv_A
+            // 
+            this.Dgv_A.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grB_IInfo.Location = new System.Drawing.Point(540, 5);
-            this.grB_IInfo.Name = "grB_IInfo";
-            this.grB_IInfo.Size = new System.Drawing.Size(195, 413);
-            this.grB_IInfo.TabIndex = 4;
-            this.grB_IInfo.TabStop = false;
-            this.grB_IInfo.Text = "Info";
+            this.Dgv_A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_A.Location = new System.Drawing.Point(5, 20);
+            this.Dgv_A.Name = "Dgv_A";
+            this.Dgv_A.Size = new System.Drawing.Size(407, 381);
+            this.Dgv_A.TabIndex = 0;
             // 
             // fAdmin
             // 
@@ -954,21 +954,24 @@
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fAdmin";
+            this.Load += new System.EventHandler(this.fAdmin_Load);
             this.tP_Category.ResumeLayout(false);
-            this.grB_C.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_C)).EndInit();
-            this.Flp_C.ResumeLayout(false);
             this.grB_CInfo.ResumeLayout(false);
             this.grB_CInfo.PerformLayout();
+            this.grB_C.ResumeLayout(false);
+            this.Flp_C.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_C)).EndInit();
             this.tP_Menu.ResumeLayout(false);
-            this.grB_M.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_M)).EndInit();
-            this.Flp_M.ResumeLayout(false);
-            this.grB_MInfo.ResumeLayout(false);
-            this.grB_MInfo.PerformLayout();
             this.grB_MFind.ResumeLayout(false);
             this.grB_MFind.PerformLayout();
+            this.grB_MInfo.ResumeLayout(false);
+            this.grB_MInfo.PerformLayout();
+            this.grB_M.ResumeLayout(false);
+            this.Flp_M.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_M)).EndInit();
             this.tP_Income.ResumeLayout(false);
+            this.grB_ISelect.ResumeLayout(false);
+            this.grB_ISelect.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_I)).EndInit();
             this.tC_Administrator.ResumeLayout(false);
             this.tP_Table.ResumeLayout(false);
@@ -978,15 +981,13 @@
             this.Flp_T.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_T)).EndInit();
             this.tP_AccManager.ResumeLayout(false);
+            this.grB_AFind.ResumeLayout(false);
+            this.grB_AFind.PerformLayout();
+            this.grB_AInfo.ResumeLayout(false);
+            this.grB_AInfo.PerformLayout();
             this.grB_A.ResumeLayout(false);
             this.Flp_A.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_A)).EndInit();
-            this.grB_AInfo.ResumeLayout(false);
-            this.grB_AInfo.PerformLayout();
-            this.grB_AFind.ResumeLayout(false);
-            this.grB_AFind.PerformLayout();
-            this.grB_ISelect.ResumeLayout(false);
-            this.grB_ISelect.PerformLayout();
             this.ResumeLayout(false);
 
         }

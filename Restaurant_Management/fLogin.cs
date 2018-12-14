@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restaurant_Management.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,11 +20,26 @@ namespace Restaurant_Management
 
         private void Btn_Login_Click(object sender, EventArgs e)
         {
-            fMain f = new fMain();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            string username = Txb_UserName.Text;
+            string password = Txb_Password.Text;
+            //if (Login(username, password))
+            //{
+                fMain f = new fMain();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Wrong Username or Password!");
+            //}
         }
+
+        //bool Login(string username, string password)
+        //{
+
+        //    return AccountDAO.Instance.Login(username, password);
+        //}
 
         private void Btn_Exit_Click(object sender, EventArgs e)
         {

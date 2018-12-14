@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restaurant_Management.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,18 @@ namespace Restaurant_Management
         {
             InitializeComponent();
         }
+
+        private void fAdmin_Load(object sender, EventArgs e)
+        {
+            loadAccount();
+        }
+
+        void loadAccount()
+        {
+            string query = "select * from dbo.Account";
+
+            Dgv_A.DataSource = DataProvider.Instance.ExecuteQuery(query);
+        }
+
     }
 }
