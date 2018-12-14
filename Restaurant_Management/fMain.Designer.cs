@@ -29,23 +29,6 @@
         private void InitializeComponent()
         {
             this.Pnl_Booking = new System.Windows.Forms.Panel();
-            this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.changeTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.staffAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.infomationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Booking_menuStrip = new System.Windows.Forms.MenuStrip();
             this.slC_Booking = new System.Windows.Forms.SplitContainer();
             this.grB_Bill = new System.Windows.Forms.GroupBox();
             this.Flp_Bmenu = new System.Windows.Forms.FlowLayoutPanel();
@@ -73,8 +56,29 @@
             this.Lbl_PhoneNum = new System.Windows.Forms.Label();
             this.Lbl_Name = new System.Windows.Forms.Label();
             this.Lbl_ID = new System.Windows.Forms.Label();
+            this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.changeTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.staffAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.infomationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Booking_menuStrip = new System.Windows.Forms.MenuStrip();
+            this.Lv_Bill = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Pnl_Booking.SuspendLayout();
-            this.Booking_menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slC_Booking)).BeginInit();
             this.slC_Booking.Panel1.SuspendLayout();
             this.slC_Booking.Panel2.SuspendLayout();
@@ -89,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Order)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUD_UnitCount)).BeginInit();
             this.grB_CustomerInfo.SuspendLayout();
+            this.Booking_menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // Pnl_Booking
@@ -101,131 +106,6 @@
             this.Pnl_Booking.Name = "Pnl_Booking";
             this.Pnl_Booking.Size = new System.Drawing.Size(834, 437);
             this.Pnl_Booking.TabIndex = 13;
-            // 
-            // optionToolStripMenuItem
-            // 
-            this.optionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator3,
-            this.addToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.changeTableToolStripMenuItem,
-            this.addOrderToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.exitToolStripMenuItem});
-            this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
-            this.optionToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.optionToolStripMenuItem.Text = "&Option";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
-            // 
-            // addToolStripMenuItem
-            // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addToolStripMenuItem.Text = "&Check Out";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
-            // 
-            // changeTableToolStripMenuItem
-            // 
-            this.changeTableToolStripMenuItem.Name = "changeTableToolStripMenuItem";
-            this.changeTableToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.changeTableToolStripMenuItem.Text = "Change &Table";
-            // 
-            // addOrderToolStripMenuItem
-            // 
-            this.addOrderToolStripMenuItem.Name = "addOrderToolStripMenuItem";
-            this.addOrderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addOrderToolStripMenuItem.Text = "&Add Order";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "&Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // staffAccountToolStripMenuItem
-            // 
-            this.staffAccountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator2,
-            this.infomationToolStripMenuItem,
-            this.toolStripSeparator5,
-            this.logOutToolStripMenuItem});
-            this.staffAccountToolStripMenuItem.Name = "staffAccountToolStripMenuItem";
-            this.staffAccountToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
-            this.staffAccountToolStripMenuItem.Text = "&Staff Account";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
-            // 
-            // infomationToolStripMenuItem
-            // 
-            this.infomationToolStripMenuItem.Name = "infomationToolStripMenuItem";
-            this.infomationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.infomationToolStripMenuItem.Text = "&Infomation";
-            this.infomationToolStripMenuItem.Click += new System.EventHandler(this.infomationToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
-            // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.logOutToolStripMenuItem.Text = "&Log out";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // adminToolStripMenuItem
-            // 
-            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator6,
-            this.managementToolStripMenuItem});
-            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.adminToolStripMenuItem.Text = "&Admin";
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
-            // 
-            // managementToolStripMenuItem
-            // 
-            this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
-            this.managementToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.managementToolStripMenuItem.Text = "&Management";
-            this.managementToolStripMenuItem.Click += new System.EventHandler(this.managementToolStripMenuItem_Click);
-            // 
-            // Booking_menuStrip
-            // 
-            this.Booking_menuStrip.AutoSize = false;
-            this.Booking_menuStrip.BackColor = System.Drawing.SystemColors.Control;
-            this.Booking_menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.optionToolStripMenuItem,
-            this.staffAccountToolStripMenuItem,
-            this.adminToolStripMenuItem});
-            this.Booking_menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.Booking_menuStrip.Name = "Booking_menuStrip";
-            this.Booking_menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.Booking_menuStrip.Size = new System.Drawing.Size(834, 24);
-            this.Booking_menuStrip.TabIndex = 11;
-            this.Booking_menuStrip.Text = "menuStrip1";
             // 
             // slC_Booking
             // 
@@ -251,6 +131,7 @@
             this.grB_Bill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grB_Bill.Controls.Add(this.Lv_Bill);
             this.grB_Bill.Controls.Add(this.Flp_Bmenu);
             this.grB_Bill.Controls.Add(this.Dgv_Bill);
             this.grB_Bill.Location = new System.Drawing.Point(5, 190);
@@ -322,7 +203,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Dgv_Bill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_Bill.Location = new System.Drawing.Point(5, 20);
+            this.Dgv_Bill.Location = new System.Drawing.Point(126, 186);
             this.Dgv_Bill.Name = "Dgv_Bill";
             this.Dgv_Bill.Size = new System.Drawing.Size(500, 218);
             this.Dgv_Bill.TabIndex = 0;
@@ -382,6 +263,7 @@
             this.Flp_Table.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Flp_Table.AutoScroll = true;
             this.Flp_Table.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Flp_Table.Location = new System.Drawing.Point(5, 20);
             this.Flp_Table.Name = "Flp_Table";
@@ -520,6 +402,162 @@
             this.Lbl_ID.Text = "ID :";
             this.Lbl_ID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // optionToolStripMenuItem
+            // 
+            this.optionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator3,
+            this.addToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.changeTableToolStripMenuItem,
+            this.addOrderToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.exitToolStripMenuItem});
+            this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
+            this.optionToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.optionToolStripMenuItem.Text = "&Option";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(143, 6);
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.addToolStripMenuItem.Text = "&Check Out";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(143, 6);
+            // 
+            // changeTableToolStripMenuItem
+            // 
+            this.changeTableToolStripMenuItem.Name = "changeTableToolStripMenuItem";
+            this.changeTableToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.changeTableToolStripMenuItem.Text = "Change &Table";
+            // 
+            // addOrderToolStripMenuItem
+            // 
+            this.addOrderToolStripMenuItem.Name = "addOrderToolStripMenuItem";
+            this.addOrderToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.addOrderToolStripMenuItem.Text = "&Add Order";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Text = "&Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // staffAccountToolStripMenuItem
+            // 
+            this.staffAccountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator2,
+            this.infomationToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.logOutToolStripMenuItem});
+            this.staffAccountToolStripMenuItem.Name = "staffAccountToolStripMenuItem";
+            this.staffAccountToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
+            this.staffAccountToolStripMenuItem.Text = "&Staff Account";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(130, 6);
+            // 
+            // infomationToolStripMenuItem
+            // 
+            this.infomationToolStripMenuItem.Name = "infomationToolStripMenuItem";
+            this.infomationToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.infomationToolStripMenuItem.Text = "&Infomation";
+            this.infomationToolStripMenuItem.Click += new System.EventHandler(this.infomationToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(130, 6);
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.logOutToolStripMenuItem.Text = "&Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // adminToolStripMenuItem
+            // 
+            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator6,
+            this.managementToolStripMenuItem});
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.adminToolStripMenuItem.Text = "&Admin";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(142, 6);
+            // 
+            // managementToolStripMenuItem
+            // 
+            this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
+            this.managementToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.managementToolStripMenuItem.Text = "&Management";
+            this.managementToolStripMenuItem.Click += new System.EventHandler(this.managementToolStripMenuItem_Click);
+            // 
+            // Booking_menuStrip
+            // 
+            this.Booking_menuStrip.AutoSize = false;
+            this.Booking_menuStrip.BackColor = System.Drawing.SystemColors.Control;
+            this.Booking_menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionToolStripMenuItem,
+            this.staffAccountToolStripMenuItem,
+            this.adminToolStripMenuItem});
+            this.Booking_menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.Booking_menuStrip.Name = "Booking_menuStrip";
+            this.Booking_menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.Booking_menuStrip.Size = new System.Drawing.Size(834, 24);
+            this.Booking_menuStrip.TabIndex = 11;
+            this.Booking_menuStrip.Text = "menuStrip1";
+            // 
+            // Lv_Bill
+            // 
+            this.Lv_Bill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.Lv_Bill.GridLines = true;
+            this.Lv_Bill.Location = new System.Drawing.Point(5, 20);
+            this.Lv_Bill.Name = "Lv_Bill";
+            this.Lv_Bill.Size = new System.Drawing.Size(500, 218);
+            this.Lv_Bill.TabIndex = 0;
+            this.Lv_Bill.UseCompatibleStateImageBehavior = false;
+            this.Lv_Bill.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Count";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Price";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Total Price";
+            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -531,9 +569,8 @@
             this.Name = "fMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.fMain_Load);
             this.Pnl_Booking.ResumeLayout(false);
-            this.Booking_menuStrip.ResumeLayout(false);
-            this.Booking_menuStrip.PerformLayout();
             this.slC_Booking.Panel1.ResumeLayout(false);
             this.slC_Booking.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.slC_Booking)).EndInit();
@@ -550,6 +587,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nUD_UnitCount)).EndInit();
             this.grB_CustomerInfo.ResumeLayout(false);
             this.grB_CustomerInfo.PerformLayout();
+            this.Booking_menuStrip.ResumeLayout(false);
+            this.Booking_menuStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -601,6 +640,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem managementToolStripMenuItem;
         private System.Windows.Forms.MenuStrip Booking_menuStrip;
+        private System.Windows.Forms.ListView Lv_Bill;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
 

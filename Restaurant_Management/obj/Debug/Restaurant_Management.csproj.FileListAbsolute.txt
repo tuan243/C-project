@@ -11,3 +11,16 @@ C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\obj\Debu
 C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\obj\Debug\Restaurant_Management.fMain.resources
 C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\obj\Debug\Restaurant_Management.fProfile.resources
 C:\Users\siper\source\repos\Restaurant_Management\Restaurant_Management\obj\Debug\Restaurant_Management.fAdmin.resources
+D:\Git\C-project\Restaurant_Management\bin\Debug\Restaurant_Management.exe.config
+D:\Git\C-project\Restaurant_Management\bin\Debug\Restaurant_Management.exe
+D:\Git\C-project\Restaurant_Management\bin\Debug\Restaurant_Management.pdb
+D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.csprojAssemblyReference.cache
+D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.fAdmin.resources
+D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.fLogin.resources
+D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.fMain.resources
+D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.fProfile.resources
+D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.Properties.Resources.resources
+D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.csproj.GenerateResource.cache
+D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.csproj.CoreCompileInputs.cache
+D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.exe
+D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.pdb
