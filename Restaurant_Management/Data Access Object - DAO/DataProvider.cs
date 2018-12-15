@@ -44,16 +44,19 @@ namespace Restaurant_Management.DAO
                 //Add data to datatable.
                 SqlCommand command = new SqlCommand(query, connection);
 
-                if(parameter!=null)
+                if (parameter != null)
                 {
                     string[] listpara = query.Split(' ');
                     int i = 0;
-                    foreach(string item in listpara)
+                    foreach (string item in listpara)
                     {
-                        command.Parameters.AddWithValue(item, parameter[i]);
-                        i++;
+                        if (item.Contains('@'))
+                        {
+                            command.Parameters.AddWithValue(item, parameter[i]);
+                            i++;
+                        }
                     }
-                }
+                } 
 
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 adapter.Fill(data);

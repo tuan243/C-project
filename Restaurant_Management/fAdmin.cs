@@ -18,10 +18,7 @@ namespace Restaurant_Management
             InitializeComponent();
         }
 
-        private void fAdmin_Load(object sender, EventArgs e)
-        {
-            loadAccount();
-        }
+        #region Method
 
         void loadAccount()
         {
@@ -30,5 +27,23 @@ namespace Restaurant_Management
             Dgv_A.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
+        void loadTable()
+        {
+            string query = "select * from dbo.ResTable";
+
+            Dgv_T.DataSource = DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        #endregion
+
+        #region Event
+
+        private void fAdmin_Load(object sender, EventArgs e)
+        {
+            loadAccount();
+            loadTable();
+        }
+
+        #endregion
     }
 }

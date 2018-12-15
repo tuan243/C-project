@@ -31,7 +31,7 @@ namespace Restaurant_Management.DAO
 
         public int Get_uncheckOutBillID_by_TableID(int id)
         {
-            string query = "UserProc_GetBill @IDTable";
+            string query = "UserProc_GetUnCheckOutBilliD @IDTable";
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
 
             if (data.Rows.Count > 0)
