@@ -38,7 +38,7 @@ namespace Restaurant_Management
                     Width = TableDAO.tableWidth, Height = TableDAO.tableHeight
                 };
                 //Set text for button.
-                btn.Text = item.Name + Environment.NewLine + "( " + item.Status + " )";
+                btn.Text = item.Name + " ( " + item.Size + " ) " + Environment.NewLine + "( " + item.Status + " )";
                 //Event click.
                 btn.Click += Btn_Click;
                 //Tag
@@ -67,6 +67,8 @@ namespace Restaurant_Management
             //int idBillinfo = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(id);
             //List<Billinfo> listBillinfo = BillinfoDAO.Instance.GetListBillinfo(idBillinfo);
 
+            //Clear listview
+            Lv_Bill.Items.Clear();
             //Get Menu
             List<RestaurantMenu> menu = MenuDAO.Instance.GetListMenubyTable(id);
 
@@ -85,11 +87,6 @@ namespace Restaurant_Management
 
         #region Event
 
-        private void Btn_Click(object sender, EventArgs e)
-        {
-            int tableID = ((sender as Button).Tag as Table).ID;
-            ShowBill(tableID);
-        }
         private void managementToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAdmin Admin = new fAdmin();
@@ -105,6 +102,20 @@ namespace Restaurant_Management
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Lv_Bill_SizeChanged(object sender, EventArgs e)
+        {
+            col_name.Width = (int)(Lv_Bill.Width / 2 - 50);
+            col_price.Width = (int)(Lv_Bill.Width * 0.245);
+            col_totalprice.Width = (int)(Lv_Bill.Width * 0.245);
+        }
+
+
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            int tableID = ((sender as Button).Tag as Table).ID;
+            ShowBill(tableID);
         }
 
         #endregion

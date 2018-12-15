@@ -19,6 +19,7 @@ namespace Restaurant_Management.DTO
 
         public Table(DataRow row)
         {
+
             this.ID = (int)row["ID"];
             this.Name = row["Name"].ToString();
             this.Status = row["Status"].ToString();

@@ -22,24 +22,25 @@ namespace Restaurant_Management
         {
             string username = Txb_UserName.Text;
             string password = Txb_Password.Text;
-            //if (Login(username, password))
-            //{
+            if (Login(username, password))
+            {
+                Txb_Password.Clear();
                 fMain f = new fMain();
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Wrong Username or Password!");
-            //}
+            }
+            else
+            {
+                MessageBox.Show("Wrong Username or Password!");
+            }
         }
 
-        //bool Login(string username, string password)
-        //{
+        bool Login(string username, string password)
+        {
 
-        //    return AccountDAO.Instance.Login(username, password);
-        //}
+            return AccountDAO.Instance.Login(username, password);
+        }
 
         private void Btn_Exit_Click(object sender, EventArgs e)
         {

@@ -31,13 +31,17 @@
             this.Pnl_Booking = new System.Windows.Forms.Panel();
             this.slC_Booking = new System.Windows.Forms.SplitContainer();
             this.grB_Bill = new System.Windows.Forms.GroupBox();
+            this.Lv_Bill = new System.Windows.Forms.ListView();
+            this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_totalprice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Flp_Bmenu = new System.Windows.Forms.FlowLayoutPanel();
             this.Btn_ViewFBill = new System.Windows.Forms.Button();
             this.Btn_Remove = new System.Windows.Forms.Button();
             this.Btn_Discount = new System.Windows.Forms.Button();
             this.nUD_Discount = new System.Windows.Forms.NumericUpDown();
             this.Btn_CheckOut = new System.Windows.Forms.Button();
-            this.Dgv_Bill = new System.Windows.Forms.DataGridView();
             this.grB_Table = new System.Windows.Forms.GroupBox();
             this.Flp_Tmenu = new System.Windows.Forms.FlowLayoutPanel();
             this.Btn_ChangeTable = new System.Windows.Forms.Button();
@@ -73,11 +77,6 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Booking_menuStrip = new System.Windows.Forms.MenuStrip();
-            this.Lv_Bill = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Pnl_Booking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slC_Booking)).BeginInit();
             this.slC_Booking.Panel1.SuspendLayout();
@@ -86,7 +85,6 @@
             this.grB_Bill.SuspendLayout();
             this.Flp_Bmenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUD_Discount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Bill)).BeginInit();
             this.grB_Table.SuspendLayout();
             this.Flp_Tmenu.SuspendLayout();
             this.grB_Order.SuspendLayout();
@@ -133,13 +131,52 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grB_Bill.Controls.Add(this.Lv_Bill);
             this.grB_Bill.Controls.Add(this.Flp_Bmenu);
-            this.grB_Bill.Controls.Add(this.Dgv_Bill);
             this.grB_Bill.Location = new System.Drawing.Point(5, 190);
             this.grB_Bill.Name = "grB_Bill";
-            this.grB_Bill.Size = new System.Drawing.Size(593, 251);
+            this.grB_Bill.Size = new System.Drawing.Size(593, 242);
             this.grB_Bill.TabIndex = 9;
             this.grB_Bill.TabStop = false;
             this.grB_Bill.Text = "Bill";
+            // 
+            // Lv_Bill
+            // 
+            this.Lv_Bill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Lv_Bill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.col_name,
+            this.col_count,
+            this.col_price,
+            this.col_totalprice});
+            this.Lv_Bill.GridLines = true;
+            this.Lv_Bill.Location = new System.Drawing.Point(5, 20);
+            this.Lv_Bill.Name = "Lv_Bill";
+            this.Lv_Bill.Size = new System.Drawing.Size(500, 215);
+            this.Lv_Bill.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.Lv_Bill.TabIndex = 0;
+            this.Lv_Bill.UseCompatibleStateImageBehavior = false;
+            this.Lv_Bill.View = System.Windows.Forms.View.Details;
+            this.Lv_Bill.SizeChanged += new System.EventHandler(this.Lv_Bill_SizeChanged);
+            // 
+            // col_name
+            // 
+            this.col_name.Text = "Name";
+            this.col_name.Width = 200;
+            // 
+            // col_count
+            // 
+            this.col_count.Text = "Count";
+            this.col_count.Width = 50;
+            // 
+            // col_price
+            // 
+            this.col_price.Text = "Price";
+            this.col_price.Width = 120;
+            // 
+            // col_totalprice
+            // 
+            this.col_totalprice.Text = "Total Price";
+            this.col_totalprice.Width = 120;
             // 
             // Flp_Bmenu
             // 
@@ -151,7 +188,7 @@
             this.Flp_Bmenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.Flp_Bmenu.Location = new System.Drawing.Point(509, 16);
             this.Flp_Bmenu.Name = "Flp_Bmenu";
-            this.Flp_Bmenu.Size = new System.Drawing.Size(81, 232);
+            this.Flp_Bmenu.Size = new System.Drawing.Size(81, 223);
             this.Flp_Bmenu.TabIndex = 2;
             // 
             // Btn_ViewFBill
@@ -196,17 +233,6 @@
             this.Btn_CheckOut.TabIndex = 12;
             this.Btn_CheckOut.Text = "Check Out";
             this.Btn_CheckOut.UseVisualStyleBackColor = true;
-            // 
-            // Dgv_Bill
-            // 
-            this.Dgv_Bill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Dgv_Bill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_Bill.Location = new System.Drawing.Point(126, 186);
-            this.Dgv_Bill.Name = "Dgv_Bill";
-            this.Dgv_Bill.Size = new System.Drawing.Size(500, 218);
-            this.Dgv_Bill.TabIndex = 0;
             // 
             // grB_Table
             // 
@@ -267,7 +293,7 @@
             this.Flp_Table.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Flp_Table.Location = new System.Drawing.Point(5, 20);
             this.Flp_Table.Name = "Flp_Table";
-            this.Flp_Table.Size = new System.Drawing.Size(498, 148);
+            this.Flp_Table.Size = new System.Drawing.Size(500, 150);
             this.Flp_Table.TabIndex = 0;
             // 
             // grB_Order
@@ -281,7 +307,7 @@
             this.grB_Order.Controls.Add(this.Btn_AddOrder);
             this.grB_Order.Location = new System.Drawing.Point(0, 105);
             this.grB_Order.Name = "grB_Order";
-            this.grB_Order.Size = new System.Drawing.Size(227, 336);
+            this.grB_Order.Size = new System.Drawing.Size(227, 327);
             this.grB_Order.TabIndex = 10;
             this.grB_Order.TabStop = false;
             this.grB_Order.Text = "Order";
@@ -297,7 +323,7 @@
             // nUD_UnitCount
             // 
             this.nUD_UnitCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.nUD_UnitCount.Location = new System.Drawing.Point(107, 302);
+            this.nUD_UnitCount.Location = new System.Drawing.Point(107, 293);
             this.nUD_UnitCount.Minimum = new decimal(new int[] {
             100,
             0,
@@ -311,7 +337,7 @@
             // 
             this.Btn_ViewFMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Btn_ViewFMenu.AutoSize = true;
-            this.Btn_ViewFMenu.Location = new System.Drawing.Point(3, 300);
+            this.Btn_ViewFMenu.Location = new System.Drawing.Point(3, 291);
             this.Btn_ViewFMenu.Name = "Btn_ViewFMenu";
             this.Btn_ViewFMenu.Size = new System.Drawing.Size(89, 25);
             this.Btn_ViewFMenu.TabIndex = 4;
@@ -321,7 +347,7 @@
             // Btn_AddOrder
             // 
             this.Btn_AddOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_AddOrder.Location = new System.Drawing.Point(154, 300);
+            this.Btn_AddOrder.Location = new System.Drawing.Point(154, 291);
             this.Btn_AddOrder.Name = "Btn_AddOrder";
             this.Btn_AddOrder.Size = new System.Drawing.Size(70, 25);
             this.Btn_AddOrder.TabIndex = 4;
@@ -527,37 +553,6 @@
             this.Booking_menuStrip.TabIndex = 11;
             this.Booking_menuStrip.Text = "menuStrip1";
             // 
-            // Lv_Bill
-            // 
-            this.Lv_Bill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.Lv_Bill.GridLines = true;
-            this.Lv_Bill.Location = new System.Drawing.Point(5, 20);
-            this.Lv_Bill.Name = "Lv_Bill";
-            this.Lv_Bill.Size = new System.Drawing.Size(500, 218);
-            this.Lv_Bill.TabIndex = 0;
-            this.Lv_Bill.UseCompatibleStateImageBehavior = false;
-            this.Lv_Bill.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Name";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Count";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Price";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Total Price";
-            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -578,7 +573,6 @@
             this.grB_Bill.ResumeLayout(false);
             this.Flp_Bmenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nUD_Discount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Bill)).EndInit();
             this.grB_Table.ResumeLayout(false);
             this.Flp_Tmenu.ResumeLayout(false);
             this.grB_Order.ResumeLayout(false);
@@ -604,7 +598,6 @@
         private System.Windows.Forms.Button Btn_Discount;
         private System.Windows.Forms.NumericUpDown nUD_Discount;
         private System.Windows.Forms.Button Btn_CheckOut;
-        private System.Windows.Forms.DataGridView Dgv_Bill;
         private System.Windows.Forms.GroupBox grB_Table;
         private System.Windows.Forms.FlowLayoutPanel Flp_Tmenu;
         private System.Windows.Forms.Button Btn_ChangeTable;
@@ -641,10 +634,10 @@
         private System.Windows.Forms.ToolStripMenuItem managementToolStripMenuItem;
         private System.Windows.Forms.MenuStrip Booking_menuStrip;
         private System.Windows.Forms.ListView Lv_Bill;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader col_name;
+        private System.Windows.Forms.ColumnHeader col_count;
+        private System.Windows.Forms.ColumnHeader col_price;
+        private System.Windows.Forms.ColumnHeader col_totalprice;
     }
 }
 

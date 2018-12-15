@@ -96,6 +96,7 @@
             this.Txb_Password.Name = "Txb_Password";
             this.Txb_Password.Size = new System.Drawing.Size(272, 20);
             this.Txb_Password.TabIndex = 1;
+            this.Txb_Password.Text = "1";
             this.Txb_Password.UseSystemPasswordChar = true;
             // 
             // Lbl_Password
@@ -128,6 +129,7 @@
             this.Txb_UserName.Name = "Txb_UserName";
             this.Txb_UserName.Size = new System.Drawing.Size(271, 20);
             this.Txb_UserName.TabIndex = 0;
+            this.Txb_UserName.Text = "Admin_01";
             // 
             // Lbl_UserName
             // 

@@ -77,4 +77,4 @@ select * from dbo.Bill
 select * from dbo.Billinfo
 select * from dbo.food
 select * from dbo.Category
-
+select * from dbo.ResTable
