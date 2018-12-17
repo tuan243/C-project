@@ -65,13 +65,11 @@ namespace Restaurant_Management
 
         void ShowBill(int id)
         {
-            ////Get Billinfo
-            //int idBillinfo = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(id);
-            //List<Billinfo> listBillinfo = BillinfoDAO.Instance.GetListBillinfo(idBillinfo);
 
             //Change currency format to VND.
             CultureInfo culture = new CultureInfo("vi-VN");
             //Thread.CurrentThread.CurrentCulture = culture;
+
             //Clear listview.
             Lv_Bill.Items.Clear();
             //Get Menu

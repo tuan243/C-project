@@ -50,10 +50,12 @@
     <Compile Include="Data Access Object - DAO\BillDAO.cs" />
     <Compile Include="Data Access Object - DAO\BillinfoDAO.cs" />
     <Compile Include="Data Access Object - DAO\DataProvider.cs" />
+    <Compile Include="Data Access Object - DAO\FoodDAO.cs" />
     <Compile Include="Data Access Object - DAO\MenuDAO.cs" />
     <Compile Include="Data Access Object - DAO\TableDAO.cs" />
     <Compile Include="Data Transfer Object - DTO\Bill.cs" />
     <Compile Include="Data Transfer Object - DTO\Billinfo.cs" />
+    <Compile Include="Data Transfer Object - DTO\Food.cs" />
     <Compile Include="Data Transfer Object - DTO\RestaurantMenu.cs" />
     <Compile Include="Data Transfer Object - DTO\Table.cs" />
     <Compile Include="fAdmin.cs">

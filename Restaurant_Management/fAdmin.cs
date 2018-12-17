@@ -1,4 +1,5 @@
 ﻿using Restaurant_Management.DAO;
+using Restaurant_Management.Data_Transfer_Object___DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,10 @@ namespace Restaurant_Management
             string query = "select * from dbo.Food";
 
             Dgv_M.DataSource = DataProvider.Instance.ExecuteQuery(query);
+
+            List<Food> foods = new List<Food>();
+            foods.
+
         }
 
         #endregion
@@ -53,5 +58,10 @@ namespace Restaurant_Management
         }
 
         #endregion
+
+        private void Dgv_A_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

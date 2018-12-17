@@ -943,6 +943,7 @@
             this.Dgv_A.Name = "Dgv_A";
             this.Dgv_A.Size = new System.Drawing.Size(407, 381);
             this.Dgv_A.TabIndex = 0;
+            this.Dgv_A.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_A_CellValueChanged);
             // 
             // fAdmin
             // 
