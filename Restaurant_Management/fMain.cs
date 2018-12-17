@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -67,20 +69,26 @@ namespace Restaurant_Management
             //int idBillinfo = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(id);
             //List<Billinfo> listBillinfo = BillinfoDAO.Instance.GetListBillinfo(idBillinfo);
 
-            //Clear listview
+            //Change currency format to VND.
+            CultureInfo culture = new CultureInfo("vi-VN");
+            //Thread.CurrentThread.CurrentCulture = culture;
+            //Clear listview.
             Lv_Bill.Items.Clear();
             //Get Menu
             List<RestaurantMenu> menu = MenuDAO.Instance.GetListMenubyTable(id);
-
+            //Bill total price.
+            float total = 0;
             foreach(RestaurantMenu item in menu)
             {
                 ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
-                lsvItem.SubItems.Add(item.Count.ToString());
-                lsvItem.SubItems.Add(item.Price.ToString());
-                lsvItem.SubItems.Add(item.TotalPrice.ToString());
-
+                lsvItem.SubItems.Add(item.Count.ToString("N0"));
+                lsvItem.SubItems.Add(item.Price.ToString("C0", culture));
+                lsvItem.SubItems.Add(item.TotalPrice.ToString("C0", culture));
+                //Update total.
+                total = total + item.TotalPrice;
                 Lv_Bill.Items.Add(lsvItem);
             }
+            txb_Total.Text = total.ToString("C0", culture);
         }
 
         #endregion
@@ -118,8 +126,7 @@ namespace Restaurant_Management
             ShowBill(tableID);
         }
 
+
         #endregion
-
-
     }
 }

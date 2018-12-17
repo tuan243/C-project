@@ -58,7 +58,7 @@ as
 begin
 	select f.name, bi.count, f.price, f.price*bi.count as TotalPrice
 	from dbo.Billinfo as bi, dbo.Bill as b, dbo.Food as f
-	where bi.IDBill = b.ID and bi.IDFood = f.ID and b.IDTable = @IDTable
+	where bi.IDBill = b.ID and bi.IDFood = f.ID and b.Status = 0 and b.IDTable = @IDTable
 end
 go
 
