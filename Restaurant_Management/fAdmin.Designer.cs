@@ -296,7 +296,7 @@
             this.grB_MFind.Size = new System.Drawing.Size(225, 80);
             this.grB_MFind.TabIndex = 13;
             this.grB_MFind.TabStop = false;
-            this.grB_MFind.Text = "Fiinding";
+            this.grB_MFind.Text = "Finding";
             // 
             // Btn_MFind
             // 
@@ -777,7 +777,7 @@
             this.grB_AFind.Size = new System.Drawing.Size(225, 80);
             this.grB_AFind.TabIndex = 25;
             this.grB_AFind.TabStop = false;
-            this.grB_AFind.Text = "Fiinding";
+            this.grB_AFind.Text = "Finding";
             // 
             // Btn_AFind
             // 

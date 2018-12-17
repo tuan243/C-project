@@ -34,6 +34,13 @@ namespace Restaurant_Management
             Dgv_T.DataSource = DataProvider.Instance.ExecuteQuery(query);
         }
 
+        void LoadFood()
+        {
+            string query = "select * from dbo.Food";
+
+            Dgv_M.DataSource = DataProvider.Instance.ExecuteQuery(query);
+        }
+
         #endregion
 
         #region Event
@@ -42,6 +49,7 @@ namespace Restaurant_Management
         {
             loadAccount();
             loadTable();
+            LoadFood();
         }
 
         #endregion
