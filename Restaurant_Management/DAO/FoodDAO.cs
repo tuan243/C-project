@@ -1,5 +1,4 @@
-﻿using Restaurant_Management.DAO;
-using Restaurant_Management.Data_Transfer_Object___DTO;
+﻿using Restaurant_Management.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurant_Management.Data_Access_Object___DAO
+namespace Restaurant_Management.DAO
 {
     public class FoodDAO
     {
@@ -29,11 +28,28 @@ namespace Restaurant_Management.Data_Access_Object___DAO
 
         private FoodDAO() { }
 
-        public List<Food> GetListFood()
+        public List<Food> GetListFoodByCategoryID(int id)
         {
             List<Food> ListF = new List<Food>();
+            string query = "UserProc_GetFoodByCategoryID @ID";
 
-            DataTable data = DataProvider.Instance.ExecuteQuery("select * from dbo.Food");
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
+
+            foreach (DataRow item in data.Rows)
+            {
+                Food F = new Food(item);
+                ListF.Add(F);
+            }
+
+            return ListF;
+        }
+
+        public List<Food> GeAllListFood()
+        {
+            List<Food> ListF = new List<Food>();
+            string query = "select * from dbo.food";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow item in data.Rows)
             {

@@ -63,3 +63,21 @@ end
 go
 
 exec USerProc_GetMenu @IDTable = 1
+go
+
+create proc UserProc_changeFName
+@IDFood int, @Name varchar(100)
+as
+begin
+	update dbo.Food set Name = @Name where ID = @IDFood
+end
+go
+
+create proc UserProc_changeFPrice
+@IDFood int, @Price float
+as
+begin
+	update dbo.Food set Price = @Price where ID = @IDFood
+end
+go
+

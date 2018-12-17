@@ -57,6 +57,7 @@
             this.col_Fsize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cbb_Catergory = new System.Windows.Forms.ComboBox();
             this.nUD_UnitCount = new System.Windows.Forms.NumericUpDown();
+            this.Lbl_OrderCategory = new System.Windows.Forms.Label();
             this.Btn_ViewFMenu = new System.Windows.Forms.Button();
             this.Btn_AddOrder = new System.Windows.Forms.Button();
             this.grB_CustomerInfo = new System.Windows.Forms.GroupBox();
@@ -83,7 +84,6 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Booking_menuStrip = new System.Windows.Forms.MenuStrip();
-            this.Lbl_OrderCategory = new System.Windows.Forms.Label();
             this.Pnl_Booking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slC_Booking)).BeginInit();
             this.slC_Booking.Panel1.SuspendLayout();
@@ -148,6 +148,8 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.Lbl_TotalPrice);
             this.panel1.Controls.Add(this.txb_Total);
             this.panel1.Location = new System.Drawing.Point(5, 208);
@@ -157,6 +159,8 @@
             // 
             // Lbl_TotalPrice
             // 
+            this.Lbl_TotalPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.Lbl_TotalPrice.AutoSize = true;
             this.Lbl_TotalPrice.Location = new System.Drawing.Point(205, 9);
             this.Lbl_TotalPrice.Name = "Lbl_TotalPrice";
@@ -166,6 +170,9 @@
             // 
             // txb_Total
             // 
+            this.txb_Total.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txb_Total.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txb_Total.Location = new System.Drawing.Point(250, 5);
             this.txb_Total.Name = "txb_Total";
@@ -361,6 +368,7 @@
             this.Lv_SelectFood.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.col_Fname,
             this.col_Fsize});
+            this.Lv_SelectFood.FullRowSelect = true;
             this.Lv_SelectFood.GridLines = true;
             this.Lv_SelectFood.Location = new System.Drawing.Point(5, 50);
             this.Lv_SelectFood.Name = "Lv_SelectFood";
@@ -372,11 +380,12 @@
             // col_Fname
             // 
             this.col_Fname.Text = "Name";
-            this.col_Fname.Width = 150;
+            this.col_Fname.Width = 135;
             // 
             // col_Fsize
             // 
             this.col_Fsize.Text = "Size";
+            this.col_Fsize.Width = 75;
             // 
             // cbb_Catergory
             // 
@@ -387,6 +396,7 @@
             this.cbb_Catergory.Name = "cbb_Catergory";
             this.cbb_Catergory.Size = new System.Drawing.Size(125, 21);
             this.cbb_Catergory.TabIndex = 8;
+            this.cbb_Catergory.SelectedIndexChanged += new System.EventHandler(this.cbb_Catergory_SelectedIndexChanged);
             // 
             // nUD_UnitCount
             // 
@@ -400,6 +410,16 @@
             this.nUD_UnitCount.Name = "nUD_UnitCount";
             this.nUD_UnitCount.Size = new System.Drawing.Size(40, 20);
             this.nUD_UnitCount.TabIndex = 6;
+            // 
+            // Lbl_OrderCategory
+            // 
+            this.Lbl_OrderCategory.AutoSize = true;
+            this.Lbl_OrderCategory.Location = new System.Drawing.Point(5, 23);
+            this.Lbl_OrderCategory.Name = "Lbl_OrderCategory";
+            this.Lbl_OrderCategory.Size = new System.Drawing.Size(55, 13);
+            this.Lbl_OrderCategory.TabIndex = 0;
+            this.Lbl_OrderCategory.Text = "Category :";
+            this.Lbl_OrderCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Btn_ViewFMenu
             // 
@@ -597,12 +617,12 @@
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(142, 6);
             // 
             // managementToolStripMenuItem
             // 
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
-            this.managementToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.managementToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.managementToolStripMenuItem.Text = "&Management";
             this.managementToolStripMenuItem.Click += new System.EventHandler(this.managementToolStripMenuItem_Click);
             // 
@@ -620,16 +640,6 @@
             this.Booking_menuStrip.Size = new System.Drawing.Size(839, 24);
             this.Booking_menuStrip.TabIndex = 11;
             this.Booking_menuStrip.Text = "menuStrip1";
-            // 
-            // Lbl_OrderCategory
-            // 
-            this.Lbl_OrderCategory.AutoSize = true;
-            this.Lbl_OrderCategory.Location = new System.Drawing.Point(5, 23);
-            this.Lbl_OrderCategory.Name = "Lbl_OrderCategory";
-            this.Lbl_OrderCategory.Size = new System.Drawing.Size(55, 13);
-            this.Lbl_OrderCategory.TabIndex = 0;
-            this.Lbl_OrderCategory.Text = "Category :";
-            this.Lbl_OrderCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // fMain
             // 

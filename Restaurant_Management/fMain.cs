@@ -20,10 +20,6 @@ namespace Restaurant_Management
         {
             InitializeComponent();
         }
-        private void fMain_Load(object sender, EventArgs e)
-        {
-            LoadTable();
-        }
 
         #region Method
 
@@ -40,7 +36,7 @@ namespace Restaurant_Management
                     Width = TableDAO.tableWidth, Height = TableDAO.tableHeight
                 };
                 //Set text for button.
-                btn.Text = item.Name + " ( " + item.Size + " ) " + Environment.NewLine + "( " + item.Status + " )";
+                btn.Text = item.Name + " ( " + item.Size + " )" + Environment.NewLine + "( " + item.Status + " )";
                 //Event click.
                 btn.Click += Btn_Click;
                 //Tag
@@ -65,7 +61,6 @@ namespace Restaurant_Management
 
         void ShowBill(int id)
         {
-
             //Change currency format to VND.
             CultureInfo culture = new CultureInfo("vi-VN");
             //Thread.CurrentThread.CurrentCulture = culture;
@@ -89,9 +84,42 @@ namespace Restaurant_Management
             txb_Total.Text = total.ToString("C0", culture);
         }
 
+        void LoadCategory()
+        {
+            Category AllCategory = new Category(0, "All Category");
+            List<Category> ListCa = CategoryDAO.Instance.GetCategory();
+            ListCa.Insert(0, AllCategory);
+            cbb_Catergory.DataSource = ListCa;
+            cbb_Catergory.DisplayMember = "Name";
+        }
+
+        void LoadFoodListByCategory(int id)
+        {
+            List<Food> ListF;
+            if (cbb_Catergory.SelectedIndex == 0)
+            {
+                ListF = FoodDAO.Instance.GeAllListFood();
+            }
+            else
+                ListF = FoodDAO.Instance.GetListFoodByCategoryID(id);
+            foreach(Food item in ListF)
+            {
+                ListViewItem lsvItem = new ListViewItem(item.Name.ToString());
+                lsvItem.SubItems.Add(item.Size.ToString());
+
+                Lv_SelectFood.Items.Add(lsvItem);
+            }
+        }
+
         #endregion
 
         #region Event
+
+        private void fMain_Load(object sender, EventArgs e)
+        {
+            LoadTable();
+            LoadCategory();
+        }
 
         private void managementToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -124,7 +152,21 @@ namespace Restaurant_Management
             ShowBill(tableID);
         }
 
+        private void cbb_Catergory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Lv_SelectFood.Items.Clear();
+            ComboBox cb = sender as ComboBox;
+            if (cb.SelectedItem == null)
+                return;
+
+            Category selected = cb.SelectedItem as Category;
+            int id = selected.ID;
+
+            LoadFoodListByCategory(id);
+        }
+
 
         #endregion
+
     }
 }

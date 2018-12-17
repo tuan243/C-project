@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurant_Management.Data_Transfer_Object___DTO
+namespace Restaurant_Management.DTO
 {
     public class Food
     {
