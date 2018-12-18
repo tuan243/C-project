@@ -74,12 +74,14 @@ namespace Restaurant_Management
             foreach(RestaurantMenu item in menu)
             {
                 ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
+                lsvItem.SubItems.Add(item.Size.ToString());
                 lsvItem.SubItems.Add(item.Count.ToString("N0"));
                 lsvItem.SubItems.Add(item.Price.ToString("C0", culture));
                 lsvItem.SubItems.Add(item.TotalPrice.ToString("C0", culture));
                 //Update total.
                 total = total + item.TotalPrice;
                 Lv_Bill.Items.Add(lsvItem);
+                lsvItem.Tag = item;
             }
             txb_Total.Text = total.ToString("C0", culture);
         }
@@ -107,6 +109,7 @@ namespace Restaurant_Management
                 ListViewItem lsvItem = new ListViewItem(item.Name.ToString());
                 lsvItem.SubItems.Add(item.Size.ToString());
 
+                lsvItem.Tag = item;
                 Lv_SelectFood.Items.Add(lsvItem);
             }
         }
@@ -140,15 +143,14 @@ namespace Restaurant_Management
 
         private void Lv_Bill_SizeChanged(object sender, EventArgs e)
         {
-            col_name.Width = (int)(Lv_Bill.Width / 2 - 50);
-            col_price.Width = (int)(Lv_Bill.Width * 0.245);
-            col_totalprice.Width = (int)(Lv_Bill.Width * 0.245);
+            col_name.Width = (int)(Lv_Bill.Width * 2 / 5);           
+            col_totalprice.Width = (int)(Lv_Bill.Width - 225 - col_name.Width);
         }
-
 
         private void Btn_Click(object sender, EventArgs e)
         {
             int tableID = ((sender as Button).Tag as Table).ID;
+            Lv_Bill.Tag = (sender as Button).Tag;
             ShowBill(tableID);
         }
 
@@ -165,8 +167,36 @@ namespace Restaurant_Management
             LoadFoodListByCategory(id);
         }
 
+        private void Btn_AddOrder_Click(object sender, EventArgs e)
+        {           
+            Table table = Lv_Bill.Tag as Table;
+            int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
+           
+            int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
+            int count = (int)nUD_UnitCount.Value;
+
+            if(idBill==-1)
+            {
+                BillDAO.Instance.InsertBill(table.ID);
+                idBill = BillDAO.Instance.GetMaxID();               
+            }
+            BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
+            ShowBill(table.ID);
+        }
+
+        private void Btn_Remove_Click(object sender, EventArgs e)
+        {
+            Table table = Lv_Bill.Tag as Table;
+            int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
+            int idFood = (Lv_Bill.SelectedItems[0].Tag as RestaurantMenu).ID;
+
+            if (idBill != -1)
+            {
+                BillinfoDAO.Instance.RemoveItemInBillInfo(idBill, idFood);
+            }
+            ShowBill(table.ID);
+        }
 
         #endregion
-
     }
 }

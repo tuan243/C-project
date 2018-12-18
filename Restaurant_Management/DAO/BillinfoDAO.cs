@@ -43,5 +43,17 @@ namespace Restaurant_Management.DAO
 
             return ListBillinfo;
         }
+
+        public void InsertBillInfo(int idBill, int idFood, int count)
+        {
+            string query = "UserProc_InsertBillInfo @IDBill , @IDFood , @Count";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { idBill, idFood, count });
+        }
+
+        public void RemoveItemInBillInfo(int idBill, int idFood)
+        {
+            string query = "UserProc_RemoveItemInBillInfo @IDBill , @IDFood";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { idBill, idFood });
+        }
     }
 }

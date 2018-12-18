@@ -65,6 +65,33 @@ go
 exec USerProc_GetMenu @IDTable = 1
 go
 
+create proc UserProc_GetFoodByCategoryID
+@ID int
+as
+begin
+	select * from dbo.Food where Fcategory = @ID
+end
+go
+
+create proc UserProc_InsertBill
+@IDTable int
+as
+begin
+	insert into  dbo.Bill ( dateCheckIn, dateCheckOut, IDTable, Status )
+	values ( GETDATE(), null, @IDTable, 0 )
+end
+go
+
+create proc UserProc_InsertBillInfo
+@IDBill int, @IDFood int, @Count int
+as
+begin
+	
+	insert into dbo.Billinfo ( IDBill, IDFood, Count)
+	values ( @IDBill, @IDFood , @Count )
+end
+go
+
 create proc UserProc_changeFName
 @IDFood int, @Name varchar(100)
 as
@@ -81,3 +108,4 @@ begin
 end
 go
 
+select max(ID) from dbo.Bill
