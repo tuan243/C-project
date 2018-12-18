@@ -226,6 +226,25 @@ namespace Restaurant_Management
             LoadTable();
         }
 
+        private void Btn_ViewFMenu_Click(object sender, EventArgs e)
+        {
+            Table table = Lv_Bill.Tag as Table;
+            fFullMenuList menuList = new fFullMenuList();
+            menuList.Text = "Full Menu List adding to " + table.Name;
+            menuList.Tag = table;
+            menuList.ShowDialog();
+            ShowBill(table.ID);
+            LoadTable();
+        }
+
         #endregion
+
+        private void fMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Do you want to log out and exit?", "Log out and Exit", MessageBoxButtons.OKCancel) != DialogResult.OK)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

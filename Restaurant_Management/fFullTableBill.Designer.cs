@@ -202,6 +202,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.grB_Bill);
             this.Name = "fFullTableBill";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fFullTableBill";
             this.Load += new System.EventHandler(this.fFullTableBill_Load);
             this.grB_Bill.ResumeLayout(false);

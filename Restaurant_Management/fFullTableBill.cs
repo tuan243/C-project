@@ -75,7 +75,7 @@ namespace Restaurant_Management
                 if (MessageBox.Show("Check Out " + table.Name + " ?", "Check Out", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     BillDAO.Instance.CheckOut(idBill);
-                    ShowBill(table.ID);
+                    this.Close();
                 }
             }
         }
