@@ -62,5 +62,11 @@ namespace Restaurant_Management.DAO
             }
         }
 
+        public void CheckOut(int id)
+        {
+            string query = " UserProc_CheckOut @IDBill";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
+        }
+
     }
 }

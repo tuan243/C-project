@@ -248,6 +248,7 @@
             this.Btn_ViewFBill.TabIndex = 15;
             this.Btn_ViewFBill.Text = "View Full";
             this.Btn_ViewFBill.UseVisualStyleBackColor = true;
+            this.Btn_ViewFBill.Click += new System.EventHandler(this.Btn_ViewFBill_Click);
             // 
             // Btn_Remove
             // 
@@ -283,6 +284,7 @@
             this.Btn_CheckOut.TabIndex = 12;
             this.Btn_CheckOut.Text = "Check Out";
             this.Btn_CheckOut.UseVisualStyleBackColor = true;
+            this.Btn_CheckOut.Click += new System.EventHandler(this.Btn_CheckOut_Click);
             // 
             // grB_Table
             // 

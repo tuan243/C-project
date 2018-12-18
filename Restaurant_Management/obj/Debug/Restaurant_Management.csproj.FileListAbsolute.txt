@@ -24,3 +24,4 @@ D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.csproj.Ge
 D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.csproj.CoreCompileInputs.cache
 D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.exe
 D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.pdb
+D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.fFullTableBill.resources

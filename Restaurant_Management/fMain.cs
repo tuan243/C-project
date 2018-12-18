@@ -25,6 +25,7 @@ namespace Restaurant_Management
 
         void LoadTable()
         {
+            Flp_Table.Controls.Clear();
             //Load tableList from database.
             List<Table> tableList = TableDAO.Instance.LoadTableList();
 
@@ -182,6 +183,7 @@ namespace Restaurant_Management
             }
             BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
             ShowBill(table.ID);
+            LoadTable();
         }
 
         private void Btn_Remove_Click(object sender, EventArgs e)
@@ -195,6 +197,33 @@ namespace Restaurant_Management
                 BillinfoDAO.Instance.RemoveItemInBillInfo(idBill, idFood);
             }
             ShowBill(table.ID);
+        }
+
+        private void Btn_CheckOut_Click(object sender, EventArgs e)
+        {
+            Table table = Lv_Bill.Tag as Table;
+
+            int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
+            if (idBill != -1)
+            {
+                if (MessageBox.Show("Check Out " + table.Name + " ?", "Check Out", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    BillDAO.Instance.CheckOut(idBill);
+                    ShowBill(table.ID);
+                    LoadTable();
+                }
+            }
+        }
+
+        private void Btn_ViewFBill_Click(object sender, EventArgs e)
+        {
+            Table table = Lv_Bill.Tag as Table;
+            fFullTableBill tableBill = new fFullTableBill();
+            tableBill.Text = "Full Table Bill " + table.Name;
+            tableBill.Tag = table;
+            tableBill.ShowDialog();
+            ShowBill(table.ID);
+            LoadTable();
         }
 
         #endregion
