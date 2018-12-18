@@ -20,15 +20,12 @@ namespace Restaurant_Management
         {
             InitializeComponent();
         }
-        private void fMain_Load(object sender, EventArgs e)
-        {
-            LoadTable();
-        }
 
         #region Method
 
         void LoadTable()
         {
+            Flp_Table.Controls.Clear();
             //Load tableList from database.
             List<Table> tableList = TableDAO.Instance.LoadTableList();
 
@@ -40,7 +37,7 @@ namespace Restaurant_Management
                     Width = TableDAO.tableWidth, Height = TableDAO.tableHeight
                 };
                 //Set text for button.
-                btn.Text = item.Name + " ( " + item.Size + " ) " + Environment.NewLine + "( " + item.Status + " )";
+                btn.Text = item.Name + " ( " + item.Size + " )" + Environment.NewLine + "( " + item.Status + " )";
                 //Event click.
                 btn.Click += Btn_Click;
                 //Tag
@@ -65,13 +62,10 @@ namespace Restaurant_Management
 
         void ShowBill(int id)
         {
-            ////Get Billinfo
-            //int idBillinfo = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(id);
-            //List<Billinfo> listBillinfo = BillinfoDAO.Instance.GetListBillinfo(idBillinfo);
-
             //Change currency format to VND.
             CultureInfo culture = new CultureInfo("vi-VN");
             //Thread.CurrentThread.CurrentCulture = culture;
+
             //Clear listview.
             Lv_Bill.Items.Clear();
             //Get Menu
@@ -81,19 +75,55 @@ namespace Restaurant_Management
             foreach(RestaurantMenu item in menu)
             {
                 ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
+                lsvItem.SubItems.Add(item.Size.ToString());
                 lsvItem.SubItems.Add(item.Count.ToString("N0"));
                 lsvItem.SubItems.Add(item.Price.ToString("C0", culture));
                 lsvItem.SubItems.Add(item.TotalPrice.ToString("C0", culture));
                 //Update total.
                 total = total + item.TotalPrice;
                 Lv_Bill.Items.Add(lsvItem);
+                lsvItem.Tag = item;
             }
             txb_Total.Text = total.ToString("C0", culture);
+        }
+
+        void LoadCategory()
+        {
+            Category AllCategory = new Category(0, "All Category");
+            List<Category> ListCa = CategoryDAO.Instance.GetCategory();
+            ListCa.Insert(0, AllCategory);
+            cbb_Catergory.DataSource = ListCa;
+            cbb_Catergory.DisplayMember = "Name";
+        }
+
+        void LoadFoodListByCategory(int id)
+        {
+            List<Food> ListF;
+            if (cbb_Catergory.SelectedIndex == 0)
+            {
+                ListF = FoodDAO.Instance.GeAllListFood();
+            }
+            else
+                ListF = FoodDAO.Instance.GetListFoodByCategoryID(id);
+            foreach(Food item in ListF)
+            {
+                ListViewItem lsvItem = new ListViewItem(item.Name.ToString());
+                lsvItem.SubItems.Add(item.Size.ToString());
+
+                lsvItem.Tag = item;
+                Lv_SelectFood.Items.Add(lsvItem);
+            }
         }
 
         #endregion
 
         #region Event
+
+        private void fMain_Load(object sender, EventArgs e)
+        {
+            LoadTable();
+            LoadCategory();
+        }
 
         private void managementToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -114,18 +144,87 @@ namespace Restaurant_Management
 
         private void Lv_Bill_SizeChanged(object sender, EventArgs e)
         {
-            col_name.Width = (int)(Lv_Bill.Width / 2 - 50);
-            col_price.Width = (int)(Lv_Bill.Width * 0.245);
-            col_totalprice.Width = (int)(Lv_Bill.Width * 0.245);
+            col_name.Width = (int)(Lv_Bill.Width * 2 / 5);           
+            col_totalprice.Width = (int)(Lv_Bill.Width - 225 - col_name.Width);
         }
-
 
         private void Btn_Click(object sender, EventArgs e)
         {
             int tableID = ((sender as Button).Tag as Table).ID;
+            Lv_Bill.Tag = (sender as Button).Tag;
             ShowBill(tableID);
         }
 
+        private void cbb_Catergory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Lv_SelectFood.Items.Clear();
+            ComboBox cb = sender as ComboBox;
+            if (cb.SelectedItem == null)
+                return;
+
+            Category selected = cb.SelectedItem as Category;
+            int id = selected.ID;
+
+            LoadFoodListByCategory(id);
+        }
+
+        private void Btn_AddOrder_Click(object sender, EventArgs e)
+        {           
+            Table table = Lv_Bill.Tag as Table;
+            int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
+           
+            int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
+            int count = (int)nUD_UnitCount.Value;
+
+            if(idBill==-1)
+            {
+                BillDAO.Instance.InsertBill(table.ID);
+                idBill = BillDAO.Instance.GetMaxID();               
+            }
+            BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
+            ShowBill(table.ID);
+            LoadTable();
+        }
+
+        private void Btn_Remove_Click(object sender, EventArgs e)
+        {
+            Table table = Lv_Bill.Tag as Table;
+            int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
+            int idFood = (Lv_Bill.SelectedItems[0].Tag as RestaurantMenu).ID;
+
+            if (idBill != -1)
+            {
+                BillinfoDAO.Instance.RemoveItemInBillInfo(idBill, idFood);
+            }
+            ShowBill(table.ID);
+        }
+
+        private void Btn_CheckOut_Click(object sender, EventArgs e)
+        {
+            Table table = Lv_Bill.Tag as Table;
+
+            int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
+            if (idBill != -1)
+            {
+                if (MessageBox.Show("Check Out " + table.Name + " ?", "Check Out", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    BillDAO.Instance.CheckOut(idBill);
+                    ShowBill(table.ID);
+                    LoadTable();
+                }
+            }
+        }
+
+        private void Btn_ViewFBill_Click(object sender, EventArgs e)
+        {
+            Table table = Lv_Bill.Tag as Table;
+            fFullTableBill tableBill = new fFullTableBill();
+            tableBill.Text = "Full Table Bill " + table.Name;
+            tableBill.Tag = table;
+            tableBill.ShowDialog();
+            ShowBill(table.ID);
+            LoadTable();
+        }
 
         #endregion
     }

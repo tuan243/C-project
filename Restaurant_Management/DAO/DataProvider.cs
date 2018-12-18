@@ -84,8 +84,11 @@ namespace Restaurant_Management.DAO
                     int i = 0;
                     foreach (string item in listpara)
                     {
-                        command.Parameters.AddWithValue(item, parameter[i]);
-                        i++;
+                        if (item.Contains('@'))
+                        {
+                            command.Parameters.AddWithValue(item, parameter[i]);
+                            i++;
+                        }
                     }
                 }
 
@@ -114,8 +117,11 @@ namespace Restaurant_Management.DAO
                     int i = 0;
                     foreach (string item in listpara)
                     {
-                        command.Parameters.AddWithValue(item, parameter[i]);
-                        i++;
+                        if (item.Contains('@'))
+                        {
+                            command.Parameters.AddWithValue(item, parameter[i]);
+                            i++;
+                        }
                     }
                 }
 

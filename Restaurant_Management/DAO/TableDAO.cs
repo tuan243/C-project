@@ -11,7 +11,7 @@ namespace Restaurant_Management.DAO
     public class TableDAO
     {
         //Width and Height for button Table.
-        public static int tableWidth = 75;
+        public static int tableWidth = 90;
         public static int tableHeight = 50;
         //Create Singleton.
         private static TableDAO instance;

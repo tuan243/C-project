@@ -69,12 +69,14 @@ create table Billinfo
 go
 
 
---update dbo.ResTable set status =N'Có người' where ID = 91
+
 --update dbo.ResTable set status =N'Đã được đặt' where ID = 90
 
 
 select * from dbo.Bill
 select * from dbo.Billinfo
-select * from dbo.food
+select * from dbo.Food
 select * from dbo.Category
 select * from dbo.ResTable
+
+delete from dbo.Billinfo where ID >= 2

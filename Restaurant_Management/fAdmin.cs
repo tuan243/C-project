@@ -20,11 +20,23 @@ namespace Restaurant_Management
 
         #region Method
 
+        void ResizeColumnDGV(DataGridView data)
+        {
+            for (int i = 0; i < data.ColumnCount; i++)
+            {
+                if (i != data.ColumnCount - 1)
+                    data.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                else
+                    data.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+        }
+
         void loadAccount()
         {
             string query = "select * from dbo.Account";
 
             Dgv_A.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            ResizeColumnDGV(Dgv_A);
         }
 
         void loadTable()
@@ -32,13 +44,23 @@ namespace Restaurant_Management
             string query = "select * from dbo.ResTable";
 
             Dgv_T.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            ResizeColumnDGV(Dgv_T);
+        }
+
+        void LoadCategory()
+        {
+            string query = "select * from dbo.Category";
+
+            Dgv_C.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            ResizeColumnDGV(Dgv_C);
         }
 
         void LoadFood()
         {
-            string query = "select * from dbo.Food";
+            string query = "select * from dbo.food";
 
             Dgv_M.DataSource = DataProvider.Instance.ExecuteQuery(query);
+            ResizeColumnDGV(Dgv_M);
         }
 
         #endregion
@@ -50,8 +72,14 @@ namespace Restaurant_Management
             loadAccount();
             loadTable();
             LoadFood();
+            LoadCategory();
         }
 
         #endregion
+
+        private void Dgv_A_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

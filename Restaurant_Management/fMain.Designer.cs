@@ -57,6 +57,7 @@
             this.col_Fsize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cbb_Catergory = new System.Windows.Forms.ComboBox();
             this.nUD_UnitCount = new System.Windows.Forms.NumericUpDown();
+            this.Lbl_OrderCategory = new System.Windows.Forms.Label();
             this.Btn_ViewFMenu = new System.Windows.Forms.Button();
             this.Btn_AddOrder = new System.Windows.Forms.Button();
             this.grB_CustomerInfo = new System.Windows.Forms.GroupBox();
@@ -83,7 +84,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Booking_menuStrip = new System.Windows.Forms.MenuStrip();
-            this.Lbl_OrderCategory = new System.Windows.Forms.Label();
+            this.col_Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Pnl_Booking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slC_Booking)).BeginInit();
             this.slC_Booking.Panel1.SuspendLayout();
@@ -148,6 +149,8 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.Lbl_TotalPrice);
             this.panel1.Controls.Add(this.txb_Total);
             this.panel1.Location = new System.Drawing.Point(5, 208);
@@ -157,6 +160,8 @@
             // 
             // Lbl_TotalPrice
             // 
+            this.Lbl_TotalPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.Lbl_TotalPrice.AutoSize = true;
             this.Lbl_TotalPrice.Location = new System.Drawing.Point(205, 9);
             this.Lbl_TotalPrice.Name = "Lbl_TotalPrice";
@@ -166,11 +171,14 @@
             // 
             // txb_Total
             // 
+            this.txb_Total.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txb_Total.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txb_Total.Location = new System.Drawing.Point(250, 5);
             this.txb_Total.Name = "txb_Total";
             this.txb_Total.ReadOnly = true;
-            this.txb_Total.Size = new System.Drawing.Size(245, 20);
+            this.txb_Total.Size = new System.Drawing.Size(250, 20);
             this.txb_Total.TabIndex = 0;
             this.txb_Total.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -181,13 +189,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Lv_Bill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.col_name,
+            this.col_Size,
             this.col_count,
             this.col_price,
             this.col_totalprice});
+            this.Lv_Bill.FullRowSelect = true;
             this.Lv_Bill.GridLines = true;
             this.Lv_Bill.Location = new System.Drawing.Point(5, 20);
             this.Lv_Bill.Name = "Lv_Bill";
-            this.Lv_Bill.Size = new System.Drawing.Size(503, 185);
+            this.Lv_Bill.Size = new System.Drawing.Size(500, 185);
             this.Lv_Bill.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.Lv_Bill.TabIndex = 0;
             this.Lv_Bill.UseCompatibleStateImageBehavior = false;
@@ -209,13 +219,13 @@
             // 
             this.col_price.Text = "Price";
             this.col_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.col_price.Width = 120;
+            this.col_price.Width = 75;
             // 
             // col_totalprice
             // 
             this.col_totalprice.Text = "Total Price";
             this.col_totalprice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.col_totalprice.Width = 120;
+            this.col_totalprice.Width = 75;
             // 
             // Flp_Bmenu
             // 
@@ -238,6 +248,7 @@
             this.Btn_ViewFBill.TabIndex = 15;
             this.Btn_ViewFBill.Text = "View Full";
             this.Btn_ViewFBill.UseVisualStyleBackColor = true;
+            this.Btn_ViewFBill.Click += new System.EventHandler(this.Btn_ViewFBill_Click);
             // 
             // Btn_Remove
             // 
@@ -247,6 +258,7 @@
             this.Btn_Remove.TabIndex = 13;
             this.Btn_Remove.Text = "Remove";
             this.Btn_Remove.UseVisualStyleBackColor = true;
+            this.Btn_Remove.Click += new System.EventHandler(this.Btn_Remove_Click);
             // 
             // Btn_Discount
             // 
@@ -272,6 +284,7 @@
             this.Btn_CheckOut.TabIndex = 12;
             this.Btn_CheckOut.Text = "Check Out";
             this.Btn_CheckOut.UseVisualStyleBackColor = true;
+            this.Btn_CheckOut.Click += new System.EventHandler(this.Btn_CheckOut_Click);
             // 
             // grB_Table
             // 
@@ -332,7 +345,7 @@
             this.Flp_Table.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Flp_Table.Location = new System.Drawing.Point(5, 20);
             this.Flp_Table.Name = "Flp_Table";
-            this.Flp_Table.Size = new System.Drawing.Size(503, 150);
+            this.Flp_Table.Size = new System.Drawing.Size(500, 150);
             this.Flp_Table.TabIndex = 0;
             // 
             // grB_Order
@@ -361,6 +374,7 @@
             this.Lv_SelectFood.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.col_Fname,
             this.col_Fsize});
+            this.Lv_SelectFood.FullRowSelect = true;
             this.Lv_SelectFood.GridLines = true;
             this.Lv_SelectFood.Location = new System.Drawing.Point(5, 50);
             this.Lv_SelectFood.Name = "Lv_SelectFood";
@@ -372,11 +386,12 @@
             // col_Fname
             // 
             this.col_Fname.Text = "Name";
-            this.col_Fname.Width = 150;
+            this.col_Fname.Width = 120;
             // 
             // col_Fsize
             // 
             this.col_Fsize.Text = "Size";
+            this.col_Fsize.Width = 75;
             // 
             // cbb_Catergory
             // 
@@ -387,6 +402,7 @@
             this.cbb_Catergory.Name = "cbb_Catergory";
             this.cbb_Catergory.Size = new System.Drawing.Size(125, 21);
             this.cbb_Catergory.TabIndex = 8;
+            this.cbb_Catergory.SelectedIndexChanged += new System.EventHandler(this.cbb_Catergory_SelectedIndexChanged);
             // 
             // nUD_UnitCount
             // 
@@ -400,6 +416,16 @@
             this.nUD_UnitCount.Name = "nUD_UnitCount";
             this.nUD_UnitCount.Size = new System.Drawing.Size(40, 20);
             this.nUD_UnitCount.TabIndex = 6;
+            // 
+            // Lbl_OrderCategory
+            // 
+            this.Lbl_OrderCategory.AutoSize = true;
+            this.Lbl_OrderCategory.Location = new System.Drawing.Point(5, 23);
+            this.Lbl_OrderCategory.Name = "Lbl_OrderCategory";
+            this.Lbl_OrderCategory.Size = new System.Drawing.Size(55, 13);
+            this.Lbl_OrderCategory.TabIndex = 0;
+            this.Lbl_OrderCategory.Text = "Category :";
+            this.Lbl_OrderCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Btn_ViewFMenu
             // 
@@ -421,6 +447,7 @@
             this.Btn_AddOrder.TabIndex = 4;
             this.Btn_AddOrder.Text = "Add";
             this.Btn_AddOrder.UseVisualStyleBackColor = true;
+            this.Btn_AddOrder.Click += new System.EventHandler(this.Btn_AddOrder_Click);
             // 
             // grB_CustomerInfo
             // 
@@ -597,12 +624,12 @@
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(142, 6);
             // 
             // managementToolStripMenuItem
             // 
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
-            this.managementToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.managementToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.managementToolStripMenuItem.Text = "&Management";
             this.managementToolStripMenuItem.Click += new System.EventHandler(this.managementToolStripMenuItem_Click);
             // 
@@ -621,15 +648,11 @@
             this.Booking_menuStrip.TabIndex = 11;
             this.Booking_menuStrip.Text = "menuStrip1";
             // 
-            // Lbl_OrderCategory
+            // col_Size
             // 
-            this.Lbl_OrderCategory.AutoSize = true;
-            this.Lbl_OrderCategory.Location = new System.Drawing.Point(5, 23);
-            this.Lbl_OrderCategory.Name = "Lbl_OrderCategory";
-            this.Lbl_OrderCategory.Size = new System.Drawing.Size(55, 13);
-            this.Lbl_OrderCategory.TabIndex = 0;
-            this.Lbl_OrderCategory.Text = "Category :";
-            this.Lbl_OrderCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.col_Size.Text = "Size";
+            this.col_Size.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.col_Size.Width = 75;
             // 
             // fMain
             // 
@@ -724,6 +747,7 @@
         private System.Windows.Forms.ComboBox cbb_Catergory;
         private System.Windows.Forms.ColumnHeader col_Fsize;
         private System.Windows.Forms.Label Lbl_OrderCategory;
+        private System.Windows.Forms.ColumnHeader col_Size;
     }
 }
 

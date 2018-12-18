@@ -40,8 +40,6 @@ namespace Restaurant_Management.DAO
                 RestaurantMenu menu = new RestaurantMenu(item);
                 listMenu.Add(menu);
             }
-
-
             return listMenu;
         }
     }

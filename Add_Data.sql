@@ -452,3 +452,9 @@ go
 
 --insert BillInfo
 insert into dbo.Billinfo ( IDBill, IDFood, Count ) values ( 1, 1, 2 )
+
+
+
+go
+
+update dbo.Food set Name =N'Chưa đặt tên' where Name = N''
