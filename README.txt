@@ -10,4 +10,7 @@ sử dụng database:
 7/ chọn test connection
 8/ chọn advanced, copy cái dòng text bên trên nút OK
 9/ trong project mở DataProvider.cs (thư mục DAO), paste cái text vừa copy vô connectionStr
+<<<<<<< HEAD
 t là tuấn
+ahihi
+>>>>>>> cabb713bdb94032b75da1f4d7fba2b372b59f860
