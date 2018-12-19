@@ -69,12 +69,14 @@ namespace Restaurant_Management
         private void Btn_CheckOut_Click(object sender, EventArgs e)
         {
             Table table = this.Tag as Table;
+            int discount = (int)nUD_Discount.Value;
             int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
             if (idBill != -1)
             {
-                if (MessageBox.Show("Check Out " + table.Name + " ?", "Check Out", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                string temp = string.Format("Check Out {0} ?\nTổng tiền : {1}\n Discount : {2}", table.Name, txb_Total.Text, discount);
+                if (MessageBox.Show(temp, "Check Out", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill);
+                    BillDAO.Instance.CheckOut(idBill, discount);
                     this.Close();
                 }
             }
