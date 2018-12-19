@@ -1,4 +1,4 @@
-# C-project
+﻿# C-project
 sử dụng database:
 1/ mở project
 2/ mở SQL management studio, execute 3 file .sql trong project 
@@ -10,3 +10,4 @@ sử dụng database:
 7/ chọn test connection
 8/ chọn advanced, copy cái dòng text bên trên nút OK
 9/ trong project mở DataProvider.cs (thư mục DAO), paste cái text vừa copy vô connectionStr
+ahihi
