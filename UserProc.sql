@@ -187,3 +187,19 @@ begin
 	where  b.Status = 0 and bi.IDBill = b.ID and b.IDTable = @iDTable
 end
 go
+
+create proc UserProc_GetAccountByUsername 
+@username varchar(100)
+as
+begin
+	select * from dbo.Account where Username = @username
+end
+go
+
+create proc UserProc_ChangePassWord
+@username varchar(100), @newpass varchar(100)
+as
+begin
+	update dbo.Account set Password = @newpass where Username = @username
+end
+go

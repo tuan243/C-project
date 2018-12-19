@@ -73,7 +73,7 @@ go
 
 --update dbo.ResTable set status =N'Đã được đặt' where ID = 90
 
-
+select * from dbo.Account
 select * from dbo.Bill
 select * from dbo.Billinfo
 select * from dbo.Food

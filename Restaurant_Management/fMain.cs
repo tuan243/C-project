@@ -142,6 +142,7 @@ namespace Restaurant_Management
         private void infomationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fProfile Profile = new fProfile();
+            Profile.Tag = this.Tag;
             Profile.ShowDialog();
         }
 

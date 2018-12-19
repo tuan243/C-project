@@ -26,6 +26,7 @@ namespace Restaurant_Management
             {
                 Txb_Password.Clear();
                 fMain f = new fMain();
+                f.Tag = AccountDAO.Instance.GetAccountByUsername(username);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
@@ -38,7 +39,6 @@ namespace Restaurant_Management
 
         bool Login(string username, string password)
         {
-
             return AccountDAO.Instance.Login(username, password);
         }
 
