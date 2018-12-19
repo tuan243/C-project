@@ -36,6 +36,7 @@
             this.txb_Total = new System.Windows.Forms.TextBox();
             this.Lv_Bill = new System.Windows.Forms.ListView();
             this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_totalprice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -47,8 +48,8 @@
             this.Btn_CheckOut = new System.Windows.Forms.Button();
             this.grB_Table = new System.Windows.Forms.GroupBox();
             this.Flp_Tmenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.Btn_ChangeTable = new System.Windows.Forms.Button();
-            this.Cbb_Table = new System.Windows.Forms.ComboBox();
+            this.Btn_SwitchTable = new System.Windows.Forms.Button();
+            this.Cbb_SwitchTable = new System.Windows.Forms.ComboBox();
             this.Btn_CombineTable = new System.Windows.Forms.Button();
             this.Flp_Table = new System.Windows.Forms.FlowLayoutPanel();
             this.grB_Order = new System.Windows.Forms.GroupBox();
@@ -84,7 +85,9 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Booking_menuStrip = new System.Windows.Forms.MenuStrip();
-            this.col_Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Cbb_CombineTable = new System.Windows.Forms.ComboBox();
+            this.Flp_SwitchTable = new System.Windows.Forms.FlowLayoutPanel();
+            this.Flp_CombineTable = new System.Windows.Forms.FlowLayoutPanel();
             this.Pnl_Booking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slC_Booking)).BeginInit();
             this.slC_Booking.Panel1.SuspendLayout();
@@ -100,6 +103,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nUD_UnitCount)).BeginInit();
             this.grB_CustomerInfo.SuspendLayout();
             this.Booking_menuStrip.SuspendLayout();
+            this.Flp_SwitchTable.SuspendLayout();
+            this.Flp_CombineTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // Pnl_Booking
@@ -155,7 +160,7 @@
             this.panel1.Controls.Add(this.txb_Total);
             this.panel1.Location = new System.Drawing.Point(5, 208);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(503, 30);
+            this.panel1.Size = new System.Drawing.Size(500, 30);
             this.panel1.TabIndex = 3;
             // 
             // Lbl_TotalPrice
@@ -208,6 +213,11 @@
             // 
             this.col_name.Text = "Name";
             this.col_name.Width = 200;
+            // 
+            // col_Size
+            // 
+            this.col_Size.Text = "Size";
+            this.col_Size.Width = 75;
             // 
             // col_count
             // 
@@ -301,35 +311,35 @@
             // 
             // Flp_Tmenu
             // 
-            this.Flp_Tmenu.Controls.Add(this.Btn_ChangeTable);
-            this.Flp_Tmenu.Controls.Add(this.Cbb_Table);
-            this.Flp_Tmenu.Controls.Add(this.Btn_CombineTable);
+            this.Flp_Tmenu.Controls.Add(this.Flp_SwitchTable);
+            this.Flp_Tmenu.Controls.Add(this.Flp_CombineTable);
             this.Flp_Tmenu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Flp_Tmenu.Location = new System.Drawing.Point(512, 16);
+            this.Flp_Tmenu.Location = new System.Drawing.Point(509, 16);
             this.Flp_Tmenu.Name = "Flp_Tmenu";
-            this.Flp_Tmenu.Size = new System.Drawing.Size(81, 161);
+            this.Flp_Tmenu.Size = new System.Drawing.Size(84, 161);
             this.Flp_Tmenu.TabIndex = 1;
             // 
-            // Btn_ChangeTable
+            // Btn_SwitchTable
             // 
-            this.Btn_ChangeTable.Location = new System.Drawing.Point(3, 3);
-            this.Btn_ChangeTable.Name = "Btn_ChangeTable";
-            this.Btn_ChangeTable.Size = new System.Drawing.Size(75, 25);
-            this.Btn_ChangeTable.TabIndex = 4;
-            this.Btn_ChangeTable.Text = "Change";
-            this.Btn_ChangeTable.UseVisualStyleBackColor = true;
+            this.Btn_SwitchTable.Location = new System.Drawing.Point(3, 3);
+            this.Btn_SwitchTable.Name = "Btn_SwitchTable";
+            this.Btn_SwitchTable.Size = new System.Drawing.Size(75, 25);
+            this.Btn_SwitchTable.TabIndex = 4;
+            this.Btn_SwitchTable.Text = "Switch";
+            this.Btn_SwitchTable.UseVisualStyleBackColor = true;
+            this.Btn_SwitchTable.Click += new System.EventHandler(this.Btn_SwitchTable_Click);
             // 
-            // Cbb_Table
+            // Cbb_SwitchTable
             // 
-            this.Cbb_Table.FormattingEnabled = true;
-            this.Cbb_Table.Location = new System.Drawing.Point(3, 34);
-            this.Cbb_Table.Name = "Cbb_Table";
-            this.Cbb_Table.Size = new System.Drawing.Size(75, 21);
-            this.Cbb_Table.TabIndex = 5;
+            this.Cbb_SwitchTable.FormattingEnabled = true;
+            this.Cbb_SwitchTable.Location = new System.Drawing.Point(3, 34);
+            this.Cbb_SwitchTable.Name = "Cbb_SwitchTable";
+            this.Cbb_SwitchTable.Size = new System.Drawing.Size(75, 21);
+            this.Cbb_SwitchTable.TabIndex = 5;
             // 
             // Btn_CombineTable
             // 
-            this.Btn_CombineTable.Location = new System.Drawing.Point(3, 61);
+            this.Btn_CombineTable.Location = new System.Drawing.Point(3, 3);
             this.Btn_CombineTable.Name = "Btn_CombineTable";
             this.Btn_CombineTable.Size = new System.Drawing.Size(75, 25);
             this.Btn_CombineTable.TabIndex = 4;
@@ -625,12 +635,12 @@
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(142, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
             // 
             // managementToolStripMenuItem
             // 
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
-            this.managementToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.managementToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.managementToolStripMenuItem.Text = "&Management";
             this.managementToolStripMenuItem.Click += new System.EventHandler(this.managementToolStripMenuItem_Click);
             // 
@@ -649,11 +659,31 @@
             this.Booking_menuStrip.TabIndex = 11;
             this.Booking_menuStrip.Text = "menuStrip1";
             // 
-            // col_Size
+            // Cbb_CombineTable
             // 
-            this.col_Size.Text = "Size";
-            this.col_Size.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.col_Size.Width = 75;
+            this.Cbb_CombineTable.FormattingEnabled = true;
+            this.Cbb_CombineTable.Location = new System.Drawing.Point(3, 34);
+            this.Cbb_CombineTable.Name = "Cbb_CombineTable";
+            this.Cbb_CombineTable.Size = new System.Drawing.Size(75, 21);
+            this.Cbb_CombineTable.TabIndex = 5;
+            // 
+            // Flp_SwitchTable
+            // 
+            this.Flp_SwitchTable.Controls.Add(this.Btn_SwitchTable);
+            this.Flp_SwitchTable.Controls.Add(this.Cbb_SwitchTable);
+            this.Flp_SwitchTable.Location = new System.Drawing.Point(3, 3);
+            this.Flp_SwitchTable.Name = "Flp_SwitchTable";
+            this.Flp_SwitchTable.Size = new System.Drawing.Size(78, 61);
+            this.Flp_SwitchTable.TabIndex = 6;
+            // 
+            // Flp_CombineTable
+            // 
+            this.Flp_CombineTable.Controls.Add(this.Btn_CombineTable);
+            this.Flp_CombineTable.Controls.Add(this.Cbb_CombineTable);
+            this.Flp_CombineTable.Location = new System.Drawing.Point(3, 70);
+            this.Flp_CombineTable.Name = "Flp_CombineTable";
+            this.Flp_CombineTable.Size = new System.Drawing.Size(78, 61);
+            this.Flp_CombineTable.TabIndex = 7;
             // 
             // fMain
             // 
@@ -687,6 +717,8 @@
             this.grB_CustomerInfo.PerformLayout();
             this.Booking_menuStrip.ResumeLayout(false);
             this.Booking_menuStrip.PerformLayout();
+            this.Flp_SwitchTable.ResumeLayout(false);
+            this.Flp_CombineTable.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -704,8 +736,8 @@
         private System.Windows.Forms.Button Btn_CheckOut;
         private System.Windows.Forms.GroupBox grB_Table;
         private System.Windows.Forms.FlowLayoutPanel Flp_Tmenu;
-        private System.Windows.Forms.Button Btn_ChangeTable;
-        private System.Windows.Forms.ComboBox Cbb_Table;
+        private System.Windows.Forms.Button Btn_SwitchTable;
+        private System.Windows.Forms.ComboBox Cbb_SwitchTable;
         private System.Windows.Forms.Button Btn_CombineTable;
         private System.Windows.Forms.FlowLayoutPanel Flp_Table;
         private System.Windows.Forms.GroupBox grB_Order;
@@ -750,6 +782,9 @@
         private System.Windows.Forms.ColumnHeader col_Fsize;
         private System.Windows.Forms.Label Lbl_OrderCategory;
         private System.Windows.Forms.ColumnHeader col_Size;
+        private System.Windows.Forms.ComboBox Cbb_CombineTable;
+        private System.Windows.Forms.FlowLayoutPanel Flp_SwitchTable;
+        private System.Windows.Forms.FlowLayoutPanel Flp_CombineTable;
     }
 }
 

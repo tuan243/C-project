@@ -328,6 +328,7 @@
             this.MaximumSize = new System.Drawing.Size(451, 364);
             this.MinimumSize = new System.Drawing.Size(451, 364);
             this.Name = "fProfile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fProfile";
             this.Load += new System.EventHandler(this.fProfile_Load);
             this.panel1.ResumeLayout(false);
