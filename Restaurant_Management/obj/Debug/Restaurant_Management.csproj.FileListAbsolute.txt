@@ -25,3 +25,4 @@ D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.csproj.Co
 D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.exe
 D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.pdb
 D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.fFullTableBill.resources
+D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.fFullMenuList.resources

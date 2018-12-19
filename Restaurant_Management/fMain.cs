@@ -125,6 +125,14 @@ namespace Restaurant_Management
             LoadCategory();
         }
 
+        private void fMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Do you want to log out and exit?", "Log out and Exit", MessageBoxButtons.OKCancel) != DialogResult.OK)
+            {
+                e.Cancel = true;
+            }
+        }
+
         private void managementToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAdmin Admin = new fAdmin();
@@ -134,6 +142,7 @@ namespace Restaurant_Management
         private void infomationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fProfile Profile = new fProfile();
+            Profile.Tag = this.Tag;
             Profile.ShowDialog();
         }
 
@@ -202,13 +211,13 @@ namespace Restaurant_Management
         private void Btn_CheckOut_Click(object sender, EventArgs e)
         {
             Table table = Lv_Bill.Tag as Table;
-
+            int discount = (int)nUD_Discount.Value;
             int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
             if (idBill != -1)
             {
                 if (MessageBox.Show("Check Out " + table.Name + " ?", "Check Out", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill);
+                    BillDAO.Instance.CheckOut(idBill, discount);
                     ShowBill(table.ID);
                     LoadTable();
                 }
@@ -222,6 +231,17 @@ namespace Restaurant_Management
             tableBill.Text = "Full Table Bill " + table.Name;
             tableBill.Tag = table;
             tableBill.ShowDialog();
+            ShowBill(table.ID);
+            LoadTable();
+        }
+
+        private void Btn_ViewFMenu_Click(object sender, EventArgs e)
+        {
+            Table table = Lv_Bill.Tag as Table;
+            fFullMenuList menuList = new fFullMenuList();
+            menuList.Text = "Full Menu List adding to " + table.Name;
+            menuList.Tag = table;
+            menuList.ShowDialog();
             ShowBill(table.ID);
             LoadTable();
         }

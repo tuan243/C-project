@@ -50,7 +50,8 @@ create table Bill
 	dateCheckIn date not null default getdate(),
 	dateCheckOut date,
 	IDTable int not null,
-	Status int not null default 0 -- 1: đã thanh toán || 0: chưa thanh toán
+	Status int not null default 0, -- 1: đã thanh toán || 0: chưa thanh toán
+	Discount int not null default 0
 
 	foreign key (IDTable) references dbo.ResTable(id)
 )
@@ -72,7 +73,7 @@ go
 
 --update dbo.ResTable set status =N'Đã được đặt' where ID = 90
 
-
+select * from dbo.Account
 select * from dbo.Bill
 select * from dbo.Billinfo
 select * from dbo.Food
@@ -80,3 +81,11 @@ select * from dbo.Category
 select * from dbo.ResTable
 
 delete from dbo.Billinfo where ID >= 2
+
+update dbo.ResTable set Status = N'Trống' where Size = 4
+go
+
+alter table dbo.Bill
+add Discount int
+
+update dbo.Bill set Discount = 0

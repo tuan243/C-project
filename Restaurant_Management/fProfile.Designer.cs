@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Btn_ChangePass = new System.Windows.Forms.Button();
             this.Btn_Cancel = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Txb_Confirm = new System.Windows.Forms.TextBox();
@@ -41,7 +41,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.Txb_OldPass = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -67,7 +66,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.Btn_Close);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -78,7 +76,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.Btn_ChangePass);
             this.groupBox2.Controls.Add(this.Btn_Cancel);
             this.groupBox2.Controls.Add(this.panel4);
             this.groupBox2.Controls.Add(this.panel7);
@@ -90,15 +88,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Password Option";
             // 
-            // button2
+            // Btn_ChangePass
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(260, 125);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Change";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Btn_ChangePass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_ChangePass.Location = new System.Drawing.Point(260, 125);
+            this.Btn_ChangePass.Name = "Btn_ChangePass";
+            this.Btn_ChangePass.Size = new System.Drawing.Size(75, 23);
+            this.Btn_ChangePass.TabIndex = 6;
+            this.Btn_ChangePass.Text = "Change";
+            this.Btn_ChangePass.UseVisualStyleBackColor = true;
+            this.Btn_ChangePass.Click += new System.EventHandler(this.Btn_ChangePass_Click);
             // 
             // Btn_Cancel
             // 
@@ -203,16 +202,6 @@
             this.label2.Size = new System.Drawing.Size(112, 19);
             this.label2.TabIndex = 0;
             this.label2.Text = "Old Password :";
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(265, 299);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Update";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -340,6 +329,7 @@
             this.MinimumSize = new System.Drawing.Size(451, 364);
             this.Name = "fProfile";
             this.Text = "fProfile";
+            this.Load += new System.EventHandler(this.fProfile_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -372,10 +362,9 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox Txb_UserName;
         private System.Windows.Forms.Label Lbl_UserName;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button Btn_Close;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Btn_ChangePass;
         private System.Windows.Forms.Button Btn_Cancel;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox Txb_Confirm;
