@@ -60,6 +60,12 @@ namespace Restaurant_Management
             }
         }
 
+        void LoadComboBoxTable(ComboBox cbb, string status)
+        {
+            cbb.DataSource = TableDAO.Instance.LoadTableListByStatus(status);
+            cbb.DisplayMember = "Name";
+        }
+
         void ShowBill(int id)
         {
             //Change currency format to VND.
@@ -84,6 +90,7 @@ namespace Restaurant_Management
                 Lv_Bill.Items.Add(lsvItem);
                 lsvItem.Tag = item;
             }
+            txb_Total.Tag = total;
             txb_Total.Text = total.ToString("C0", culture);
         }
 
@@ -121,6 +128,16 @@ namespace Restaurant_Management
 
         private void fMain_Load(object sender, EventArgs e)
         {
+            if((this.Tag as Account).Type == 0)
+            {
+                adminToolStripMenuItem.Visible = false;
+                staffAccountToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                adminToolStripMenuItem.Visible = true;
+                staffAccountToolStripMenuItem.Visible = false;
+            }
             LoadTable();
             LoadCategory();
         }
@@ -159,8 +176,21 @@ namespace Restaurant_Management
 
         private void Btn_Click(object sender, EventArgs e)
         {
+            Table table = ((Button)sender).Tag as Table;
+            grB_Bill.Text = "Bill of " + table.Name;
             int tableID = ((sender as Button).Tag as Table).ID;
             Lv_Bill.Tag = (sender as Button).Tag;
+
+            if(table.Status == "Trống")
+            {
+                Flp_Tmenu.Enabled = false;
+            }
+            else if(table.Status == "Có người")
+            {
+                Flp_Tmenu.Enabled = true;
+                LoadComboBoxTable(Cbb_SwitchTable, "Trống");
+                LoadComboBoxTable(Cbb_CombineTable, "Có người");
+            }
             ShowBill(tableID);
         }
 
@@ -178,21 +208,26 @@ namespace Restaurant_Management
         }
 
         private void Btn_AddOrder_Click(object sender, EventArgs e)
-        {           
+        {
             Table table = Lv_Bill.Tag as Table;
-            int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
-           
-            int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
-            int count = (int)nUD_UnitCount.Value;
-
-            if(idBill==-1)
+            if (table == null)
+                MessageBox.Show("Please select table first !", "Warning", MessageBoxButtons.OK);
+            else
             {
-                BillDAO.Instance.InsertBill(table.ID);
-                idBill = BillDAO.Instance.GetMaxID();               
+                int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
+
+                int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
+                int count = (int)nUD_UnitCount.Value;
+
+                if (idBill == -1)
+                {
+                    BillDAO.Instance.InsertBill(table.ID);
+                    idBill = BillDAO.Instance.GetMaxID();
+                }
+                BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
+                ShowBill(table.ID);
+                LoadTable();
             }
-            BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
-            ShowBill(table.ID);
-            LoadTable();
         }
 
         private void Btn_Remove_Click(object sender, EventArgs e)
@@ -211,14 +246,43 @@ namespace Restaurant_Management
         private void Btn_CheckOut_Click(object sender, EventArgs e)
         {
             Table table = Lv_Bill.Tag as Table;
+            CultureInfo culture = new CultureInfo("vi-VN");
+
             int discount = (int)nUD_Discount.Value;
+            float Total = (float)txb_Total.Tag;
+            float FinalTotal = Total * (100 - discount) / 100;
             int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
             if (idBill != -1)
             {
-                if (MessageBox.Show("Check Out " + table.Name + " ?", "Check Out", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                string str = "Totol Price is : " + Total.ToString("C0", culture) +
+                             Environment.NewLine + "Discount is : " + discount + "%" +
+                             Environment.NewLine + "Final price is : " + FinalTotal.ToString("C0", culture);
+
+                if (MessageBox.Show(str, "Check Out "+table.Name, MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     BillDAO.Instance.CheckOut(idBill, discount);
                     ShowBill(table.ID);
+                    LoadTable();
+                }
+            }
+        }
+
+        private void Btn_SwitchTable_Click(object sender, EventArgs e)
+        {
+            if (Lv_Bill.Tag as Table == null)
+                MessageBox.Show("Please select the table you want to switch first !", "Warning", MessageBoxButtons.OK);
+            else
+            {
+                Table FTable = Lv_Bill.Tag as Table;
+                Table STable = Cbb_SwitchTable.SelectedItem as Table;
+                string str = "Switch " + FTable.Name + " and " + STable.Name;
+                if (MessageBox.Show(str, "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    int idFirstTable = FTable.ID;
+                    int idSecondTable = STable.ID;
+                    TableDAO.Instance.SwitchTable(idFirstTable, idSecondTable);
+
+
                     LoadTable();
                 }
             }
@@ -247,5 +311,7 @@ namespace Restaurant_Management
         }
 
         #endregion
+
+
     }
 }

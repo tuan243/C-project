@@ -47,5 +47,27 @@ namespace Restaurant_Management.DAO
 
             return tableList;
         }
+
+        public List<Table> LoadTableListByStatus(string status)
+        {
+            List<Table> tableList = new List<Table>();
+
+            string query = "UserProc_GetListTableByStatus @status";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { status });
+
+            foreach (DataRow item in data.Rows)
+            {
+                Table table = new Table(item);
+                tableList.Add(table);
+            }
+
+            return tableList;
+        }
+
+        public void SwitchTable(int idFirstTable, int idSecondTable)
+        {
+            string query = "UserProc_SwitchTable @idFirstTable , @idSecondTable";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { idFirstTable, idSecondTable });
+        }
     }
 }

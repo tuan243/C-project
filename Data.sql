@@ -80,12 +80,5 @@ select * from dbo.Food
 select * from dbo.Category
 select * from dbo.ResTable
 
-delete from dbo.Billinfo where ID >= 2
-
 update dbo.ResTable set Status = N'Trống' where Size = 4
 go
-
-alter table dbo.Bill
-add Discount int
-
-update dbo.Bill set Discount = 0
