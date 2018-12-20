@@ -437,6 +437,7 @@
             this.Btn_ViewFMenu.TabIndex = 4;
             this.Btn_ViewFMenu.Text = "View Full Menu";
             this.Btn_ViewFMenu.UseVisualStyleBackColor = true;
+            this.Btn_ViewFMenu.Click += new System.EventHandler(this.Btn_ViewFMenu_Click);
             // 
             // Btn_AddOrder
             // 
@@ -665,6 +666,7 @@
             this.Name = "fMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fMain_FormClosing);
             this.Load += new System.EventHandler(this.fMain_Load);
             this.Pnl_Booking.ResumeLayout(false);
             this.slC_Booking.Panel1.ResumeLayout(false);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restaurant_Management.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -35,6 +36,23 @@ namespace Restaurant_Management.DAO
 
 
             return result.Rows.Count > 0;
+        }
+
+        public Account GetAccountByUsername(string username)
+        {
+            string query = "UserProc_GetAccountByUsername @username";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
+
+            DataRow item = result.Rows[0];
+            Account acc = new Account(item);
+
+            return acc;
+        }
+
+        public void ChangePassword(string username, string newpassword)
+        {
+            string query = "UserProc_ChangePassWord @username , @newpass";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { username, newpassword });
         }
     }
 }

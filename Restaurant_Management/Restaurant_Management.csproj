@@ -54,6 +54,7 @@
     <Compile Include="DAO\FoodDAO.cs" />
     <Compile Include="DAO\MenuDAO.cs" />
     <Compile Include="DAO\TableDAO.cs" />
+    <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Bill.cs" />
     <Compile Include="DTO\Billinfo.cs" />
     <Compile Include="DTO\Category.cs" />
@@ -65,6 +66,12 @@
     </Compile>
     <Compile Include="fAdmin.Designer.cs">
       <DependentUpon>fAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fFullMenuList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fFullMenuList.Designer.cs">
+      <DependentUpon>fFullMenuList.cs</DependentUpon>
     </Compile>
     <Compile Include="fFullTableBill.cs">
       <SubType>Form</SubType>
@@ -94,6 +101,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fAdmin.resx">
       <DependentUpon>fAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fFullMenuList.resx">
+      <DependentUpon>fFullMenuList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fFullTableBill.resx">
       <DependentUpon>fFullTableBill.cs</DependentUpon>

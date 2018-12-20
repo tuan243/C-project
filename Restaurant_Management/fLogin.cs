@@ -26,6 +26,7 @@ namespace Restaurant_Management
             {
                 Txb_Password.Clear();
                 fMain f = new fMain();
+                f.Tag = AccountDAO.Instance.GetAccountByUsername(username);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
@@ -38,7 +39,6 @@ namespace Restaurant_Management
 
         bool Login(string username, string password)
         {
-
             return AccountDAO.Instance.Login(username, password);
         }
 
@@ -49,7 +49,7 @@ namespace Restaurant_Management
 
         private void FLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Do you want to exit?", "Exit", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Do you want to exit?", "Exit", MessageBoxButtons.OKCancel) != DialogResult.OK)
             {
                 e.Cancel = true;
             }

@@ -25,6 +25,7 @@ D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.csproj.Co
 D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.exe
 D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.pdb
 D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.fFullTableBill.resources
+<<<<<<< HEAD
 D:\UIT DOCUMENTS\Csharp Language\QLNH\C-project\Restaurant_Management\bin\Debug\Restaurant_Management.exe.config
 D:\UIT DOCUMENTS\Csharp Language\QLNH\C-project\Restaurant_Management\bin\Debug\Restaurant_Management.exe
 D:\UIT DOCUMENTS\Csharp Language\QLNH\C-project\Restaurant_Management\bin\Debug\Restaurant_Management.pdb
@@ -39,3 +40,6 @@ D:\UIT DOCUMENTS\Csharp Language\QLNH\C-project\Restaurant_Management\obj\Debug\
 D:\UIT DOCUMENTS\Csharp Language\QLNH\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.csproj.CoreCompileInputs.cache
 D:\UIT DOCUMENTS\Csharp Language\QLNH\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.exe
 D:\UIT DOCUMENTS\Csharp Language\QLNH\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.pdb
+=======
+D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.fFullMenuList.resources
+>>>>>>> 53c34ee532ba19a9b28190f902e8d78e81d94d01
