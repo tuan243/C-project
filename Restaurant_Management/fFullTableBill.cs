@@ -77,6 +77,7 @@ namespace Restaurant_Management
                 if (MessageBox.Show(temp, "Check Out", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     BillDAO.Instance.CheckOut(idBill, discount);
+                    TableDAO.Instance.ChangeTableStatus(table.ID, "Trống");
                     this.Close();
                 }
             }

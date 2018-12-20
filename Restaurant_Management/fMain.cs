@@ -214,6 +214,10 @@ namespace Restaurant_Management
                 MessageBox.Show("Please select table first !", "Warning", MessageBoxButtons.OK);
             else
             {
+                if(table.Status == "Trống")
+                {
+                    TableDAO.Instance.ChangeTableStatus(table.ID, "Có người");
+                }
                 int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
 
                 int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
@@ -261,6 +265,7 @@ namespace Restaurant_Management
                 if (MessageBox.Show(str, "Check Out "+table.Name, MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     BillDAO.Instance.CheckOut(idBill, discount);
+                    TableDAO.Instance.ChangeTableStatus(table.ID, "Trống");
                     ShowBill(table.ID);
                     LoadTable();
                 }
