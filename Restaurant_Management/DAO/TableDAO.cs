@@ -82,10 +82,10 @@ namespace Restaurant_Management.DAO
             DataProvider.Instance.ExecuteNonQuery(query, new object[] { idFirstTable, idSecondTable });
         }
 
-        public void ChangeTableStatus(int id, string status)
-        {
-            string query = "UserProc_ChangeTableStatus @IDTable , @Status";
-            DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, status });
-        }
+        //public void ChangeTableStatus(int id, string status)
+        //{
+        //    string query = "UserProc_ChangeTableStatus @IDTable , @Status";
+        //    DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, status });
+        //}
     }
 }

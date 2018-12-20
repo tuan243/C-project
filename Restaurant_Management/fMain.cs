@@ -50,7 +50,7 @@ namespace Restaurant_Management
                         btn.BackColor = Color.LightGreen;
                         break;
                     case "Có người":
-                        btn.BackColor = Color.Yellow;
+                        btn.BackColor = Color.OrangeRed;
                         break;
                     default:
                         btn.BackColor = Color.BlueViolet;
@@ -197,29 +197,21 @@ namespace Restaurant_Management
         private void Btn_AddOrder_Click(object sender, EventArgs e)
         {
             Table table = Lv_Bill.Tag as Table;
-            if (table == null)
-                MessageBox.Show("Please select table first !", "Warning", MessageBoxButtons.OK);
-            else
-            {
-                if(table.Status == "Trống")
-                {
-                    TableDAO.Instance.ChangeTableStatus(table.ID, "Có người");
-                }
-                int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
-                if (table.Status == "Trống")
-                    TableDAO.Instance.ChangeTableStatus(table.ID, "Có người");
-                int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
-                int count = (int)nUD_UnitCount.Value;
+            int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
+            if (table.Status == "Trống")
+                TableDAO.Instance.ChangeTableStatus(table.ID, "Có người");
+            int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
+            int count = (int)nUD_UnitCount.Value;
 
-                if (idBill == -1)
-                {
-                    BillDAO.Instance.InsertBill(table.ID);
-                    idBill = BillDAO.Instance.GetMaxID();
-                }
-                BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
-                ShowBill(table.ID);
-                LoadTable();
+            if (idBill == -1)
+            {
+                BillDAO.Instance.InsertBill(table.ID);
+                idBill = BillDAO.Instance.GetMaxID();
             }
+            BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
+
+            ShowBill(table.ID);
+            LoadTable();
         }
 
         private void Btn_Remove_Click(object sender, EventArgs e)
@@ -254,7 +246,6 @@ namespace Restaurant_Management
                 {
                     TableDAO.Instance.ChangeTableStatus(table.ID, "Trống");
                     BillDAO.Instance.CheckOut(idBill, discount);
-                    TableDAO.Instance.ChangeTableStatus(table.ID, "Trống");
                     ShowBill(table.ID);
                     LoadTable();
                 }
@@ -293,22 +284,19 @@ namespace Restaurant_Management
 
         private void Btn_SwitchTable_Click(object sender, EventArgs e)
         {
-            if (Lv_Bill.Tag as Table == null)
-                MessageBox.Show("Please select the table you want to switch first !", "Warning", MessageBoxButtons.OK);
-            else
+            Table FTable = Lv_Bill.Tag as Table;
+            Table STable = Cbb_SwitchTable.SelectedItem as Table;
+            string str = "Switch " + FTable.Name + " and " + STable.Name;
+            if (MessageBox.Show(str, "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Table FTable = Lv_Bill.Tag as Table;
-                Table STable = Cbb_SwitchTable.SelectedItem as Table;
-                string str = "Switch " + FTable.Name + " and " + STable.Name;
-                if (MessageBox.Show(str, "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    int idFirstTable = FTable.ID;
-                    int idSecondTable = STable.ID;
-                    TableDAO.Instance.SwitchTable(idFirstTable, idSecondTable);
+                if (STable.Status == "Trống")
+                    TableDAO.Instance.ChangeTableStatus(STable.ID, "Có người");
+                int idFirstTable = FTable.ID;
+                int idSecondTable = STable.ID;
+                TableDAO.Instance.SwitchTable(idFirstTable, idSecondTable);
 
-                    ShowBill(FTable.ID);
-                    LoadTable();
-                }
+                ShowBill(FTable.ID);
+                LoadTable();
             }
         }
 
