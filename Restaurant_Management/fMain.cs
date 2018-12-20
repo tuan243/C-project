@@ -34,12 +34,18 @@ namespace Restaurant_Management
                 //Create button.
                 Button btn = new Button()
                 {
-                    Width = TableDAO.tableWidth, Height = TableDAO.tableHeight
-                };
+                    Width = TableDAO.tableWidth, Height = TableDAO.tableHeight,
+                    FlatStyle = System.Windows.Forms.FlatStyle.Flat,
+            };
+                btn.FlatAppearance.BorderSize = 4;
+                
+                btn.FlatAppearance.BorderColor = Color.LightGreen;
                 //Set text for button.
                 btn.Text = item.Name + " ( " + item.Size + " )" + Environment.NewLine + "( " + item.Status + " )";
                 //Event click.
                 btn.Click += Btn_Click;
+                btn.Leave += new EventHandler(Btn_Leave);
+                btn.GotFocus += new EventHandler(Btn_GotFocus);
                 //Tag
                 btn.Tag = item;
                 //Set backcolor.
@@ -58,6 +64,18 @@ namespace Restaurant_Management
                 //Add to FlowlayoutPanel.
                 Flp_Table.Controls.Add(btn);
             }
+        }
+
+        private void Btn_Leave(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.FlatAppearance.BorderColor = Color.LightGreen;
+        }
+
+        private void Btn_GotFocus(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.FlatAppearance.BorderColor = Color.Blue;
         }
 
         void ShowBill(int id)
@@ -123,6 +141,7 @@ namespace Restaurant_Management
         {
             LoadTable();
             LoadCategory();
+            
         }
 
         private void fMain_FormClosing(object sender, FormClosingEventArgs e)

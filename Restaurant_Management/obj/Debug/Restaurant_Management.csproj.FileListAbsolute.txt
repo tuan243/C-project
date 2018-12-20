@@ -26,3 +26,19 @@ D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.exe
 D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.pdb
 D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.fFullTableBill.resources
 D:\Git\C-project\Restaurant_Management\obj\Debug\Restaurant_Management.fFullMenuList.resources
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\bin\Debug\Restaurant_Management.exe.config
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\bin\Debug\Restaurant_Management.exe
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\bin\Debug\Restaurant_Management.pdb
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\obj\Debug\Restaurant_Management.csprojAssemblyReference.cache
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\obj\Debug\Restaurant_Management.fAdmin.resources
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\obj\Debug\Restaurant_Management.fFullMenuList.resources
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\obj\Debug\Restaurant_Management.fFullTableBill.resources
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\obj\Debug\Restaurant_Management.fLogin.resources
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\obj\Debug\Restaurant_Management.fMain.resources
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\obj\Debug\Restaurant_Management.fProfile.resources
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\obj\Debug\Restaurant_Management.Properties.Resources.resources
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\obj\Debug\Restaurant_Management.csproj.GenerateResource.cache
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\obj\Debug\Restaurant_Management.csproj.CoreCompileInputs.cache
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\obj\Debug\Restaurant_Management.exe
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\obj\Debug\Restaurant_Management.pdb
+E:\Do an C sharp\C-project - Copy\Restaurant_Management\obj\Debug\Restaurant_Management.Form1.resources
