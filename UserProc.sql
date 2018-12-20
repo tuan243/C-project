@@ -155,7 +155,7 @@ begin
 end
 go
 
-create proc UserProc_SwitchTable
+drop proc UserProc_SwitchTable
 @idFirstTable int, @idSecondTable int
 as
 begin
@@ -180,20 +180,21 @@ begin
 	begin
 		update dbo.Billinfo set IDBill = @idSecondBill where ID in ( select * from dbo.fIDBillInfo )
 		update dbo.ResTable set Status = N'Trống' where ID = @idFirstTable
+		update dbo.ResTable set Status = N'Có người' where ID = @idSecondBill
 	end
 	else
 	begin
 		select ID into sIDBillinfo from dbo.Billinfo where IDBill = @idSecondBill
 		update dbo.Billinfo set IDBill = @idFirstBill where ID in ( select * from dbo.sIDBillInfo )
 		update dbo.Billinfo set IDBill = @idSecondBill where ID in ( select * from dbo.fIDBillInfo )
-
+		drop table dbo.sIDBillInfo
 	end
 	drop table dbo.fIDBillinfo
-	drop table dbo.sIDBillInfo
+
 end
 go
 
-exec UserProc_SwitchTable @idFirstTable = 1 , @idSecondTable = 3
+exec UserProc_SwitchTable @idFirstTable = 1 , @idSecondTable = 2
 go
 
 create proc UserProc_CombineTable
@@ -243,3 +244,4 @@ go
 --	where  b.Status = 0 and bi.IDBill = b.ID and b.IDTable = @iDTable
 --end
 --go
+
