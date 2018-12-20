@@ -48,6 +48,12 @@ namespace Restaurant_Management.DAO
             return tableList;
         }
 
+        public void ChangeTableStatus(int id, string status)
+        {
+            string query = "UserProc_ChangeTableStatus @IDTable , @Status";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, status });
+        }
+
         public List<Table> LoadTableListByStatus(string status)
         {
             List<Table> tableList = new List<Table>();
