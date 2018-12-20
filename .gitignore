@@ -126,6 +126,9 @@ _ReSharper*/
 # TeamCity is a build add-in
 _TeamCity*
 
+# DatapProvider sql
+DataProvider.cs
+
 # DotCover is a Code Coverage Tool
 *.dotCover
 

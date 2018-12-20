@@ -34,13 +34,14 @@ namespace Restaurant_Management
                 //Create button.
                 Button btn = new Button()
                 {
-                    Width = TableDAO.tableWidth, Height = TableDAO.tableHeight
+                    Width = TableDAO.tableWidth, Height = TableDAO.tableHeight,
                 };
                 //Set text for button.
                 btn.Text = item.Name + " ( " + item.Size + " )" + Environment.NewLine + "( " + item.Status + " )";
                 //Event click.
                 btn.Click += Btn_Click;
                 //Tag
+                btn.FlatStyle = FlatStyle.Flat;
                 btn.Tag = item;
                 //Set backcolor.
                 switch(item.Status)
@@ -49,7 +50,7 @@ namespace Restaurant_Management
                         btn.BackColor = Color.LightGreen;
                         break;
                     case "Có người":
-                        btn.BackColor = Color.OrangeRed;
+                        btn.BackColor = Color.Yellow;
                         break;
                     default:
                         btn.BackColor = Color.BlueViolet;
