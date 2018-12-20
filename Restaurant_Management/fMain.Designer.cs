@@ -139,15 +139,14 @@
             // 
             // grB_Bill
             // 
-            this.grB_Bill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.grB_Bill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grB_Bill.Controls.Add(this.panel1);
             this.grB_Bill.Controls.Add(this.Lv_Bill);
             this.grB_Bill.Controls.Add(this.Flp_Bmenu);
-            this.grB_Bill.Location = new System.Drawing.Point(5, 190);
+            this.grB_Bill.Location = new System.Drawing.Point(5, 191);
             this.grB_Bill.Name = "grB_Bill";
-            this.grB_Bill.Size = new System.Drawing.Size(596, 243);
+            this.grB_Bill.Size = new System.Drawing.Size(596, 242);
             this.grB_Bill.TabIndex = 9;
             this.grB_Bill.TabStop = false;
             this.grB_Bill.Text = "Bill";
@@ -158,7 +157,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.Lbl_TotalPrice);
             this.panel1.Controls.Add(this.txb_Total);
-            this.panel1.Location = new System.Drawing.Point(5, 208);
+            this.panel1.Location = new System.Drawing.Point(5, 207);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(500, 30);
             this.panel1.TabIndex = 3;
@@ -202,7 +201,7 @@
             this.Lv_Bill.GridLines = true;
             this.Lv_Bill.Location = new System.Drawing.Point(5, 20);
             this.Lv_Bill.Name = "Lv_Bill";
-            this.Lv_Bill.Size = new System.Drawing.Size(500, 185);
+            this.Lv_Bill.Size = new System.Drawing.Size(500, 184);
             this.Lv_Bill.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.Lv_Bill.TabIndex = 0;
             this.Lv_Bill.UseCompatibleStateImageBehavior = false;
@@ -247,7 +246,7 @@
             this.Flp_Bmenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.Flp_Bmenu.Location = new System.Drawing.Point(512, 16);
             this.Flp_Bmenu.Name = "Flp_Bmenu";
-            this.Flp_Bmenu.Size = new System.Drawing.Size(81, 224);
+            this.Flp_Bmenu.Size = new System.Drawing.Size(81, 223);
             this.Flp_Bmenu.TabIndex = 2;
             // 
             // Btn_ViewFBill
@@ -298,13 +297,14 @@
             // 
             // grB_Table
             // 
-            this.grB_Table.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.grB_Table.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grB_Table.Controls.Add(this.Flp_Tmenu);
             this.grB_Table.Controls.Add(this.Flp_Table);
             this.grB_Table.Location = new System.Drawing.Point(5, 5);
             this.grB_Table.Name = "grB_Table";
-            this.grB_Table.Size = new System.Drawing.Size(596, 180);
+            this.grB_Table.Size = new System.Drawing.Size(596, 183);
             this.grB_Table.TabIndex = 7;
             this.grB_Table.TabStop = false;
             this.grB_Table.Text = "Table";
@@ -316,7 +316,7 @@
             this.Flp_Tmenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.Flp_Tmenu.Location = new System.Drawing.Point(509, 16);
             this.Flp_Tmenu.Name = "Flp_Tmenu";
-            this.Flp_Tmenu.Size = new System.Drawing.Size(84, 161);
+            this.Flp_Tmenu.Size = new System.Drawing.Size(84, 164);
             this.Flp_Tmenu.TabIndex = 1;
             // 
             // Flp_SwitchTable
@@ -373,6 +373,14 @@
             this.Cbb_CombineTable.Size = new System.Drawing.Size(75, 21);
             this.Cbb_CombineTable.TabIndex = 5;
             // 
+            // Cbb_CombineTable
+            // 
+            this.Cbb_CombineTable.FormattingEnabled = true;
+            this.Cbb_CombineTable.Location = new System.Drawing.Point(3, 34);
+            this.Cbb_CombineTable.Name = "Cbb_CombineTable";
+            this.Cbb_CombineTable.Size = new System.Drawing.Size(75, 21);
+            this.Cbb_CombineTable.TabIndex = 5;
+            // 
             // Flp_Table
             // 
             this.Flp_Table.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -382,7 +390,7 @@
             this.Flp_Table.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Flp_Table.Location = new System.Drawing.Point(5, 20);
             this.Flp_Table.Name = "Flp_Table";
-            this.Flp_Table.Size = new System.Drawing.Size(500, 150);
+            this.Flp_Table.Size = new System.Drawing.Size(500, 153);
             this.Flp_Table.TabIndex = 0;
             // 
             // grB_Order
