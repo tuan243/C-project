@@ -69,15 +69,22 @@ namespace Restaurant_Management
         private void Btn_CheckOut_Click(object sender, EventArgs e)
         {
             Table table = this.Tag as Table;
+            CultureInfo culture = new CultureInfo("vi-VN");
+
             int discount = (int)nUD_Discount.Value;
+            float Total = (float)txb_Total.Tag;
+            float FinalTotal = Total * (100 - discount) / 100;
             int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
             if (idBill != -1)
             {
-                string temp = string.Format("Check Out {0} ?\nTổng tiền : {1}\n Discount : {2}", table.Name, txb_Total.Text, discount);
-                if (MessageBox.Show(temp, "Check Out", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                string str = "Totol Price is : " + Total.ToString("C0", culture) +
+                             Environment.NewLine + "Discount is : " + discount + "%" +
+                             Environment.NewLine + "Final price is : " + FinalTotal.ToString("C0", culture);
+
+                if (MessageBox.Show(str, "Check Out " + table.Name, MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill, discount);
                     TableDAO.Instance.ChangeTableStatus(table.ID, "Trống");
+                    BillDAO.Instance.CheckOut(idBill, discount, FinalTotal);
                     this.Close();
                 }
             }

@@ -47,10 +47,10 @@
             this.Txb_MFind = new System.Windows.Forms.TextBox();
             this.grB_MInfo = new System.Windows.Forms.GroupBox();
             this.Cbb_MCategory = new System.Windows.Forms.ComboBox();
-            this.Txb_MPrice = new System.Windows.Forms.TextBox();
+            this.Txb_MSize = new System.Windows.Forms.TextBox();
             this.Txb_MName = new System.Windows.Forms.TextBox();
             this.Txb_MID = new System.Windows.Forms.TextBox();
-            this.Lbl_MPrice = new System.Windows.Forms.Label();
+            this.Lbl_MSize = new System.Windows.Forms.Label();
             this.Lbl_MCategory = new System.Windows.Forms.Label();
             this.Lbl_MName = new System.Windows.Forms.Label();
             this.Lbl_MID = new System.Windows.Forms.Label();
@@ -64,7 +64,7 @@
             this.tP_Income = new System.Windows.Forms.TabPage();
             this.grB_IInfo = new System.Windows.Forms.GroupBox();
             this.grB_ISelect = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.Btn_ViewIncome = new System.Windows.Forms.Button();
             this.dTP_From = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.dTP_To = new System.Windows.Forms.DateTimePicker();
@@ -104,6 +104,8 @@
             this.Btn_AEdit = new System.Windows.Forms.Button();
             this.Btn_AView = new System.Windows.Forms.Button();
             this.Dgv_A = new System.Windows.Forms.DataGridView();
+            this.Lbl_MPrice = new System.Windows.Forms.Label();
+            this.Txb_MPrice = new System.Windows.Forms.TextBox();
             this.tP_Category.SuspendLayout();
             this.grB_CInfo.SuspendLayout();
             this.grB_C.SuspendLayout();
@@ -267,6 +269,7 @@
             this.Dgv_C.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Dgv_C.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Dgv_C.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_C.Location = new System.Drawing.Point(5, 20);
             this.Dgv_C.Name = "Dgv_C";
@@ -320,9 +323,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grB_MInfo.Controls.Add(this.Cbb_MCategory);
             this.grB_MInfo.Controls.Add(this.Txb_MPrice);
+            this.grB_MInfo.Controls.Add(this.Txb_MSize);
             this.grB_MInfo.Controls.Add(this.Txb_MName);
             this.grB_MInfo.Controls.Add(this.Txb_MID);
             this.grB_MInfo.Controls.Add(this.Lbl_MPrice);
+            this.grB_MInfo.Controls.Add(this.Lbl_MSize);
             this.grB_MInfo.Controls.Add(this.Lbl_MCategory);
             this.grB_MInfo.Controls.Add(this.Lbl_MName);
             this.grB_MInfo.Controls.Add(this.Lbl_MID);
@@ -341,15 +346,15 @@
             this.Cbb_MCategory.Size = new System.Drawing.Size(140, 21);
             this.Cbb_MCategory.TabIndex = 8;
             // 
-            // Txb_MPrice
+            // Txb_MSize
             // 
-            this.Txb_MPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Txb_MSize.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txb_MPrice.Location = new System.Drawing.Point(80, 98);
-            this.Txb_MPrice.Name = "Txb_MPrice";
-            this.Txb_MPrice.Size = new System.Drawing.Size(140, 20);
-            this.Txb_MPrice.TabIndex = 9;
+            this.Txb_MSize.Location = new System.Drawing.Point(80, 98);
+            this.Txb_MSize.Name = "Txb_MSize";
+            this.Txb_MSize.Size = new System.Drawing.Size(140, 20);
+            this.Txb_MSize.TabIndex = 9;
             // 
             // Txb_MName
             // 
@@ -371,16 +376,17 @@
             this.Txb_MID.ReadOnly = true;
             this.Txb_MID.Size = new System.Drawing.Size(140, 20);
             this.Txb_MID.TabIndex = 6;
+            this.Txb_MID.TextChanged += new System.EventHandler(this.Txb_MID_TextChanged);
             // 
-            // Lbl_MPrice
+            // Lbl_MSize
             // 
-            this.Lbl_MPrice.AutoSize = true;
-            this.Lbl_MPrice.Location = new System.Drawing.Point(5, 101);
-            this.Lbl_MPrice.Name = "Lbl_MPrice";
-            this.Lbl_MPrice.Size = new System.Drawing.Size(37, 13);
-            this.Lbl_MPrice.TabIndex = 2;
-            this.Lbl_MPrice.Text = "Price :";
-            this.Lbl_MPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Lbl_MSize.AutoSize = true;
+            this.Lbl_MSize.Location = new System.Drawing.Point(5, 101);
+            this.Lbl_MSize.Name = "Lbl_MSize";
+            this.Lbl_MSize.Size = new System.Drawing.Size(33, 13);
+            this.Lbl_MSize.TabIndex = 2;
+            this.Lbl_MSize.Text = "Size :";
+            this.Lbl_MSize.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Lbl_MCategory
             // 
@@ -446,6 +452,7 @@
             this.Btn_MAdd.TabIndex = 0;
             this.Btn_MAdd.Text = "Add";
             this.Btn_MAdd.UseVisualStyleBackColor = true;
+            this.Btn_MAdd.Click += new System.EventHandler(this.Btn_MAdd_Click);
             // 
             // Btn_MRemove
             // 
@@ -455,6 +462,7 @@
             this.Btn_MRemove.TabIndex = 1;
             this.Btn_MRemove.Text = "Remove";
             this.Btn_MRemove.UseVisualStyleBackColor = true;
+            this.Btn_MRemove.Click += new System.EventHandler(this.Btn_MRemove_Click);
             // 
             // Btn_MEdit
             // 
@@ -464,6 +472,7 @@
             this.Btn_MEdit.TabIndex = 2;
             this.Btn_MEdit.Text = "Edit";
             this.Btn_MEdit.UseVisualStyleBackColor = true;
+            this.Btn_MEdit.Click += new System.EventHandler(this.Btn_MEdit_Click);
             // 
             // Btn_MView
             // 
@@ -473,12 +482,14 @@
             this.Btn_MView.TabIndex = 3;
             this.Btn_MView.Text = "View";
             this.Btn_MView.UseVisualStyleBackColor = true;
+            this.Btn_MView.Click += new System.EventHandler(this.Btn_MView_Click);
             // 
             // Dgv_M
             // 
             this.Dgv_M.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Dgv_M.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Dgv_M.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_M.Location = new System.Drawing.Point(5, 20);
             this.Dgv_M.Name = "Dgv_M";
@@ -513,7 +524,7 @@
             // 
             this.grB_ISelect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grB_ISelect.Controls.Add(this.button6);
+            this.grB_ISelect.Controls.Add(this.Btn_ViewIncome);
             this.grB_ISelect.Controls.Add(this.dTP_From);
             this.grB_ISelect.Controls.Add(this.label5);
             this.grB_ISelect.Controls.Add(this.dTP_To);
@@ -525,15 +536,16 @@
             this.grB_ISelect.TabStop = false;
             this.grB_ISelect.Text = "Select";
             // 
-            // button6
+            // Btn_ViewIncome
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Location = new System.Drawing.Point(450, 22);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 45);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "View";
-            this.button6.UseVisualStyleBackColor = true;
+            this.Btn_ViewIncome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_ViewIncome.Location = new System.Drawing.Point(450, 22);
+            this.Btn_ViewIncome.Name = "Btn_ViewIncome";
+            this.Btn_ViewIncome.Size = new System.Drawing.Size(75, 45);
+            this.Btn_ViewIncome.TabIndex = 2;
+            this.Btn_ViewIncome.Text = "View";
+            this.Btn_ViewIncome.UseVisualStyleBackColor = true;
+            this.Btn_ViewIncome.Click += new System.EventHandler(this.Btn_ViewIncome_Click);
             // 
             // dTP_From
             // 
@@ -572,6 +584,7 @@
             this.Dgv_I.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Dgv_I.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Dgv_I.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_I.Location = new System.Drawing.Point(5, 85);
             this.Dgv_I.Name = "Dgv_I";
@@ -747,6 +760,7 @@
             this.Dgv_T.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Dgv_T.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Dgv_T.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_T.Location = new System.Drawing.Point(5, 20);
             this.Dgv_T.Name = "Dgv_T";
@@ -938,12 +952,33 @@
             this.Dgv_A.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Dgv_A.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Dgv_A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_A.Location = new System.Drawing.Point(5, 20);
             this.Dgv_A.Name = "Dgv_A";
             this.Dgv_A.Size = new System.Drawing.Size(407, 381);
             this.Dgv_A.TabIndex = 0;
             this.Dgv_A.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_A_CellValueChanged);
+            // 
+            // Lbl_MPrice
+            // 
+            this.Lbl_MPrice.AutoSize = true;
+            this.Lbl_MPrice.Location = new System.Drawing.Point(5, 126);
+            this.Lbl_MPrice.Name = "Lbl_MPrice";
+            this.Lbl_MPrice.Size = new System.Drawing.Size(37, 13);
+            this.Lbl_MPrice.TabIndex = 2;
+            this.Lbl_MPrice.Text = "Price :";
+            this.Lbl_MPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // Txb_MPrice
+            // 
+            this.Txb_MPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Txb_MPrice.Location = new System.Drawing.Point(80, 123);
+            this.Txb_MPrice.Name = "Txb_MPrice";
+            this.Txb_MPrice.Size = new System.Drawing.Size(140, 20);
+            this.Txb_MPrice.TabIndex = 9;
             // 
             // fAdmin
             // 
@@ -1014,10 +1049,10 @@
         private System.Windows.Forms.TextBox Txb_MFind;
         private System.Windows.Forms.GroupBox grB_MInfo;
         private System.Windows.Forms.ComboBox Cbb_MCategory;
-        private System.Windows.Forms.TextBox Txb_MPrice;
+        private System.Windows.Forms.TextBox Txb_MSize;
         private System.Windows.Forms.TextBox Txb_MName;
         private System.Windows.Forms.TextBox Txb_MID;
-        private System.Windows.Forms.Label Lbl_MPrice;
+        private System.Windows.Forms.Label Lbl_MSize;
         private System.Windows.Forms.Label Lbl_MCategory;
         private System.Windows.Forms.Label Lbl_MName;
         private System.Windows.Forms.Label Lbl_MID;
@@ -1030,7 +1065,7 @@
         private System.Windows.Forms.DataGridView Dgv_M;
         private System.Windows.Forms.TabPage tP_Income;
         private System.Windows.Forms.DataGridView Dgv_I;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button Btn_ViewIncome;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dTP_To;
@@ -1071,5 +1106,7 @@
         private System.Windows.Forms.DataGridView Dgv_A;
         private System.Windows.Forms.GroupBox grB_ISelect;
         private System.Windows.Forms.GroupBox grB_IInfo;
+        private System.Windows.Forms.TextBox Txb_MPrice;
+        private System.Windows.Forms.Label Lbl_MPrice;
     }
 }

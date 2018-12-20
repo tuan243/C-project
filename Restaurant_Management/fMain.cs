@@ -132,15 +132,16 @@ namespace Restaurant_Management
 
         private void fMain_Load(object sender, EventArgs e)
         {
-            if ((this.Tag as Account).Type == 0)
+            Account account = this.Tag as Account;
+            if (account.Type == 0)
             {
                 adminToolStripMenuItem.Visible = false;
-                staffAccountToolStripMenuItem.Visible = true;
+                staffAccountToolStripMenuItem.Text = "Staff Account ( " + account.DisplayName + " )";
             }
             else
             {
                 adminToolStripMenuItem.Visible = true;
-                staffAccountToolStripMenuItem.Visible = false;
+                staffAccountToolStripMenuItem.Text = "Admin Account ( " + account.DisplayName + " )";
             }
             LoadTable();
             LoadCategory();
@@ -245,7 +246,7 @@ namespace Restaurant_Management
                 if (MessageBox.Show(str, "Check Out "+table.Name, MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     TableDAO.Instance.ChangeTableStatus(table.ID, "Trống");
-                    BillDAO.Instance.CheckOut(idBill, discount);
+                    BillDAO.Instance.CheckOut(idBill, discount, FinalTotal);
                     ShowBill(table.ID);
                     LoadTable();
                 }

@@ -32,29 +32,30 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Btn_ChangePass = new System.Windows.Forms.Button();
             this.Btn_Cancel = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.Lbl_Comfirm = new System.Windows.Forms.Panel();
             this.Txb_Confirm = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.Txb_NewPass = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Lbl_NewPassword = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.Txb_OldPass = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Lbl_Password = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.Txb_UserName = new System.Windows.Forms.TextBox();
             this.Lbl_UserName = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.Txb_Type = new System.Windows.Forms.TextBox();
+            this.Lbl_AccountType = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Txb_DisplayName = new System.Windows.Forms.TextBox();
+            this.Lbl_DisplayName = new System.Windows.Forms.Label();
             this.Btn_Close = new System.Windows.Forms.Button();
+            this.Btn_Update = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.Lbl_Comfirm.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -65,6 +66,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.Btn_Update);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.Btn_Close);
@@ -78,7 +80,7 @@
             // 
             this.groupBox2.Controls.Add(this.Btn_ChangePass);
             this.groupBox2.Controls.Add(this.Btn_Cancel);
-            this.groupBox2.Controls.Add(this.panel4);
+            this.groupBox2.Controls.Add(this.Lbl_Comfirm);
             this.groupBox2.Controls.Add(this.panel7);
             this.groupBox2.Controls.Add(this.panel6);
             this.groupBox2.Location = new System.Drawing.Point(5, 141);
@@ -110,16 +112,16 @@
             this.Btn_Cancel.UseVisualStyleBackColor = true;
             this.Btn_Cancel.Click += new System.EventHandler(this.Btn_Cancel_Click);
             // 
-            // panel4
+            // Lbl_Comfirm
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Lbl_Comfirm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.Txb_Confirm);
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(5, 92);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(415, 30);
-            this.panel4.TabIndex = 3;
+            this.Lbl_Comfirm.Controls.Add(this.Txb_Confirm);
+            this.Lbl_Comfirm.Controls.Add(this.label5);
+            this.Lbl_Comfirm.Location = new System.Drawing.Point(5, 92);
+            this.Lbl_Comfirm.Name = "Lbl_Comfirm";
+            this.Lbl_Comfirm.Size = new System.Drawing.Size(415, 30);
+            this.Lbl_Comfirm.TabIndex = 3;
             // 
             // Txb_Confirm
             // 
@@ -146,7 +148,7 @@
             this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.Controls.Add(this.Txb_NewPass);
-            this.panel7.Controls.Add(this.label4);
+            this.panel7.Controls.Add(this.Lbl_NewPassword);
             this.panel7.Location = new System.Drawing.Point(5, 56);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(415, 30);
@@ -162,22 +164,22 @@
             this.Txb_NewPass.TabIndex = 0;
             this.Txb_NewPass.UseSystemPasswordChar = true;
             // 
-            // label4
+            // Lbl_NewPassword
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 19);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "New Password :";
+            this.Lbl_NewPassword.AutoSize = true;
+            this.Lbl_NewPassword.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_NewPassword.Location = new System.Drawing.Point(4, 4);
+            this.Lbl_NewPassword.Name = "Lbl_NewPassword";
+            this.Lbl_NewPassword.Size = new System.Drawing.Size(120, 19);
+            this.Lbl_NewPassword.TabIndex = 0;
+            this.Lbl_NewPassword.Text = "New Password :";
             // 
             // panel6
             // 
             this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.Controls.Add(this.Txb_OldPass);
-            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.Lbl_Password);
             this.panel6.Location = new System.Drawing.Point(5, 20);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(415, 30);
@@ -193,15 +195,15 @@
             this.Txb_OldPass.TabIndex = 0;
             this.Txb_OldPass.UseSystemPasswordChar = true;
             // 
-            // label2
+            // Lbl_Password
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(4, 4);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 19);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Old Password :";
+            this.Lbl_Password.AutoSize = true;
+            this.Lbl_Password.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Password.Location = new System.Drawing.Point(4, 4);
+            this.Lbl_Password.Name = "Lbl_Password";
+            this.Lbl_Password.Size = new System.Drawing.Size(85, 19);
+            this.Lbl_Password.TabIndex = 0;
+            this.Lbl_Password.Text = "Password :";
             // 
             // groupBox1
             // 
@@ -219,74 +221,12 @@
             // 
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.Controls.Add(this.textBox3);
-            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.Txb_UserName);
+            this.panel5.Controls.Add(this.Lbl_UserName);
             this.panel5.Location = new System.Drawing.Point(5, 91);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(415, 30);
             this.panel5.TabIndex = 2;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(134, 5);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(277, 20);
-            this.textBox3.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 19);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "UserName :";
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(5, 55);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(415, 30);
-            this.panel2.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(134, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(277, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Account Type :";
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.Txb_UserName);
-            this.panel3.Controls.Add(this.Lbl_UserName);
-            this.panel3.Location = new System.Drawing.Point(5, 19);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(415, 30);
-            this.panel3.TabIndex = 4;
             // 
             // Txb_UserName
             // 
@@ -304,9 +244,70 @@
             this.Lbl_UserName.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_UserName.Location = new System.Drawing.Point(4, 4);
             this.Lbl_UserName.Name = "Lbl_UserName";
-            this.Lbl_UserName.Size = new System.Drawing.Size(112, 19);
+            this.Lbl_UserName.Size = new System.Drawing.Size(89, 19);
             this.Lbl_UserName.TabIndex = 0;
-            this.Lbl_UserName.Text = "Display Name :";
+            this.Lbl_UserName.Text = "UserName :";
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.Txb_Type);
+            this.panel2.Controls.Add(this.Lbl_AccountType);
+            this.panel2.Location = new System.Drawing.Point(5, 55);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(415, 30);
+            this.panel2.TabIndex = 3;
+            // 
+            // Txb_Type
+            // 
+            this.Txb_Type.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Txb_Type.Location = new System.Drawing.Point(134, 5);
+            this.Txb_Type.Name = "Txb_Type";
+            this.Txb_Type.ReadOnly = true;
+            this.Txb_Type.Size = new System.Drawing.Size(277, 20);
+            this.Txb_Type.TabIndex = 0;
+            // 
+            // Lbl_AccountType
+            // 
+            this.Lbl_AccountType.AutoSize = true;
+            this.Lbl_AccountType.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_AccountType.Location = new System.Drawing.Point(4, 4);
+            this.Lbl_AccountType.Name = "Lbl_AccountType";
+            this.Lbl_AccountType.Size = new System.Drawing.Size(111, 19);
+            this.Lbl_AccountType.TabIndex = 0;
+            this.Lbl_AccountType.Text = "Account Type :";
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.Txb_DisplayName);
+            this.panel3.Controls.Add(this.Lbl_DisplayName);
+            this.panel3.Location = new System.Drawing.Point(5, 19);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(415, 30);
+            this.panel3.TabIndex = 4;
+            // 
+            // Txb_DisplayName
+            // 
+            this.Txb_DisplayName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Txb_DisplayName.Location = new System.Drawing.Point(134, 5);
+            this.Txb_DisplayName.Name = "Txb_DisplayName";
+            this.Txb_DisplayName.Size = new System.Drawing.Size(277, 20);
+            this.Txb_DisplayName.TabIndex = 0;
+            // 
+            // Lbl_DisplayName
+            // 
+            this.Lbl_DisplayName.AutoSize = true;
+            this.Lbl_DisplayName.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_DisplayName.Location = new System.Drawing.Point(4, 4);
+            this.Lbl_DisplayName.Name = "Lbl_DisplayName";
+            this.Lbl_DisplayName.Size = new System.Drawing.Size(112, 19);
+            this.Lbl_DisplayName.TabIndex = 0;
+            this.Lbl_DisplayName.Text = "Display Name :";
             // 
             // Btn_Close
             // 
@@ -318,6 +319,17 @@
             this.Btn_Close.Text = "Close";
             this.Btn_Close.UseVisualStyleBackColor = true;
             this.Btn_Close.Click += new System.EventHandler(this.Btn_Close_Click);
+            // 
+            // Btn_Update
+            // 
+            this.Btn_Update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_Update.Location = new System.Drawing.Point(265, 299);
+            this.Btn_Update.Name = "Btn_Update";
+            this.Btn_Update.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Update.TabIndex = 6;
+            this.Btn_Update.Text = "Update";
+            this.Btn_Update.UseVisualStyleBackColor = true;
+            this.Btn_Update.Click += new System.EventHandler(this.Btn_Update_Click);
             // 
             // fProfile
             // 
@@ -333,8 +345,8 @@
             this.Load += new System.EventHandler(this.fProfile_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.Lbl_Comfirm.ResumeLayout(false);
+            this.Lbl_Comfirm.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -355,26 +367,27 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox Txb_UserName;
         private System.Windows.Forms.Label Lbl_UserName;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox Txb_Type;
+        private System.Windows.Forms.Label Lbl_AccountType;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox Txb_DisplayName;
+        private System.Windows.Forms.Label Lbl_DisplayName;
         private System.Windows.Forms.Button Btn_Close;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button Btn_ChangePass;
         private System.Windows.Forms.Button Btn_Cancel;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel Lbl_Comfirm;
         private System.Windows.Forms.TextBox Txb_Confirm;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox Txb_NewPass;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Lbl_NewPassword;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox Txb_OldPass;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Lbl_Password;
+        private System.Windows.Forms.Button Btn_Update;
     }
 }
