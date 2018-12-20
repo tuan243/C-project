@@ -48,9 +48,12 @@
             this.Btn_CheckOut = new System.Windows.Forms.Button();
             this.grB_Table = new System.Windows.Forms.GroupBox();
             this.Flp_Tmenu = new System.Windows.Forms.FlowLayoutPanel();
+            this.Flp_SwitchTable = new System.Windows.Forms.FlowLayoutPanel();
             this.Btn_SwitchTable = new System.Windows.Forms.Button();
             this.Cbb_SwitchTable = new System.Windows.Forms.ComboBox();
+            this.Flp_CombineTable = new System.Windows.Forms.FlowLayoutPanel();
             this.Btn_CombineTable = new System.Windows.Forms.Button();
+            this.Cbb_CombineTable = new System.Windows.Forms.ComboBox();
             this.Flp_Table = new System.Windows.Forms.FlowLayoutPanel();
             this.grB_Order = new System.Windows.Forms.GroupBox();
             this.Lv_SelectFood = new System.Windows.Forms.ListView();
@@ -85,9 +88,6 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Booking_menuStrip = new System.Windows.Forms.MenuStrip();
-            this.Cbb_CombineTable = new System.Windows.Forms.ComboBox();
-            this.Flp_SwitchTable = new System.Windows.Forms.FlowLayoutPanel();
-            this.Flp_CombineTable = new System.Windows.Forms.FlowLayoutPanel();
             this.Pnl_Booking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slC_Booking)).BeginInit();
             this.slC_Booking.Panel1.SuspendLayout();
@@ -99,12 +99,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nUD_Discount)).BeginInit();
             this.grB_Table.SuspendLayout();
             this.Flp_Tmenu.SuspendLayout();
+            this.Flp_SwitchTable.SuspendLayout();
+            this.Flp_CombineTable.SuspendLayout();
             this.grB_Order.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUD_UnitCount)).BeginInit();
             this.grB_CustomerInfo.SuspendLayout();
             this.Booking_menuStrip.SuspendLayout();
-            this.Flp_SwitchTable.SuspendLayout();
-            this.Flp_CombineTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // Pnl_Booking
@@ -319,6 +319,15 @@
             this.Flp_Tmenu.Size = new System.Drawing.Size(84, 161);
             this.Flp_Tmenu.TabIndex = 1;
             // 
+            // Flp_SwitchTable
+            // 
+            this.Flp_SwitchTable.Controls.Add(this.Btn_SwitchTable);
+            this.Flp_SwitchTable.Controls.Add(this.Cbb_SwitchTable);
+            this.Flp_SwitchTable.Location = new System.Drawing.Point(3, 3);
+            this.Flp_SwitchTable.Name = "Flp_SwitchTable";
+            this.Flp_SwitchTable.Size = new System.Drawing.Size(78, 61);
+            this.Flp_SwitchTable.TabIndex = 6;
+            // 
             // Btn_SwitchTable
             // 
             this.Btn_SwitchTable.Location = new System.Drawing.Point(3, 3);
@@ -337,6 +346,15 @@
             this.Cbb_SwitchTable.Size = new System.Drawing.Size(75, 21);
             this.Cbb_SwitchTable.TabIndex = 5;
             // 
+            // Flp_CombineTable
+            // 
+            this.Flp_CombineTable.Controls.Add(this.Btn_CombineTable);
+            this.Flp_CombineTable.Controls.Add(this.Cbb_CombineTable);
+            this.Flp_CombineTable.Location = new System.Drawing.Point(3, 70);
+            this.Flp_CombineTable.Name = "Flp_CombineTable";
+            this.Flp_CombineTable.Size = new System.Drawing.Size(78, 61);
+            this.Flp_CombineTable.TabIndex = 7;
+            // 
             // Btn_CombineTable
             // 
             this.Btn_CombineTable.Location = new System.Drawing.Point(3, 3);
@@ -345,6 +363,15 @@
             this.Btn_CombineTable.TabIndex = 4;
             this.Btn_CombineTable.Text = "Combine";
             this.Btn_CombineTable.UseVisualStyleBackColor = true;
+            this.Btn_CombineTable.Click += new System.EventHandler(this.Btn_CombineTable_Click);
+            // 
+            // Cbb_CombineTable
+            // 
+            this.Cbb_CombineTable.FormattingEnabled = true;
+            this.Cbb_CombineTable.Location = new System.Drawing.Point(3, 34);
+            this.Cbb_CombineTable.Name = "Cbb_CombineTable";
+            this.Cbb_CombineTable.Size = new System.Drawing.Size(75, 21);
+            this.Cbb_CombineTable.TabIndex = 5;
             // 
             // Flp_Table
             // 
@@ -426,6 +453,11 @@
             this.nUD_UnitCount.Name = "nUD_UnitCount";
             this.nUD_UnitCount.Size = new System.Drawing.Size(40, 20);
             this.nUD_UnitCount.TabIndex = 6;
+            this.nUD_UnitCount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // Lbl_OrderCategory
             // 
@@ -635,12 +667,12 @@
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(142, 6);
             // 
             // managementToolStripMenuItem
             // 
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
-            this.managementToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.managementToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.managementToolStripMenuItem.Text = "&Management";
             this.managementToolStripMenuItem.Click += new System.EventHandler(this.managementToolStripMenuItem_Click);
             // 
@@ -658,32 +690,6 @@
             this.Booking_menuStrip.Size = new System.Drawing.Size(839, 24);
             this.Booking_menuStrip.TabIndex = 11;
             this.Booking_menuStrip.Text = "menuStrip1";
-            // 
-            // Cbb_CombineTable
-            // 
-            this.Cbb_CombineTable.FormattingEnabled = true;
-            this.Cbb_CombineTable.Location = new System.Drawing.Point(3, 34);
-            this.Cbb_CombineTable.Name = "Cbb_CombineTable";
-            this.Cbb_CombineTable.Size = new System.Drawing.Size(75, 21);
-            this.Cbb_CombineTable.TabIndex = 5;
-            // 
-            // Flp_SwitchTable
-            // 
-            this.Flp_SwitchTable.Controls.Add(this.Btn_SwitchTable);
-            this.Flp_SwitchTable.Controls.Add(this.Cbb_SwitchTable);
-            this.Flp_SwitchTable.Location = new System.Drawing.Point(3, 3);
-            this.Flp_SwitchTable.Name = "Flp_SwitchTable";
-            this.Flp_SwitchTable.Size = new System.Drawing.Size(78, 61);
-            this.Flp_SwitchTable.TabIndex = 6;
-            // 
-            // Flp_CombineTable
-            // 
-            this.Flp_CombineTable.Controls.Add(this.Btn_CombineTable);
-            this.Flp_CombineTable.Controls.Add(this.Cbb_CombineTable);
-            this.Flp_CombineTable.Location = new System.Drawing.Point(3, 70);
-            this.Flp_CombineTable.Name = "Flp_CombineTable";
-            this.Flp_CombineTable.Size = new System.Drawing.Size(78, 61);
-            this.Flp_CombineTable.TabIndex = 7;
             // 
             // fMain
             // 
@@ -710,6 +716,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nUD_Discount)).EndInit();
             this.grB_Table.ResumeLayout(false);
             this.Flp_Tmenu.ResumeLayout(false);
+            this.Flp_SwitchTable.ResumeLayout(false);
+            this.Flp_CombineTable.ResumeLayout(false);
             this.grB_Order.ResumeLayout(false);
             this.grB_Order.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUD_UnitCount)).EndInit();
@@ -717,8 +725,6 @@
             this.grB_CustomerInfo.PerformLayout();
             this.Booking_menuStrip.ResumeLayout(false);
             this.Booking_menuStrip.PerformLayout();
-            this.Flp_SwitchTable.ResumeLayout(false);
-            this.Flp_CombineTable.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

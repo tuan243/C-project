@@ -62,7 +62,10 @@ namespace Restaurant_Management
 
         void LoadComboBoxTable(ComboBox cbb, string status)
         {
-            cbb.DataSource = TableDAO.Instance.LoadTableListByStatus(status);
+            if (status == "")
+                cbb.DataSource = TableDAO.Instance.LoadTableList();
+            else
+                cbb.DataSource = TableDAO.Instance.LoadTableListByStatus(status);
             cbb.DisplayMember = "Name";
         }
 
@@ -128,7 +131,7 @@ namespace Restaurant_Management
 
         private void fMain_Load(object sender, EventArgs e)
         {
-            if((this.Tag as Account).Type == 0)
+            if ((this.Tag as Account).Type == 0)
             {
                 adminToolStripMenuItem.Visible = false;
                 staffAccountToolStripMenuItem.Visible = true;
@@ -141,6 +144,8 @@ namespace Restaurant_Management
             LoadTable();
             LoadCategory();
         }
+
+        #region ToolStripMenu
 
         private void fMain_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -168,31 +173,9 @@ namespace Restaurant_Management
             this.Close();
         }
 
-        private void Lv_Bill_SizeChanged(object sender, EventArgs e)
-        {
-            col_name.Width = (int)(Lv_Bill.Width * 2 / 5);           
-            col_totalprice.Width = (int)(Lv_Bill.Width - 225 - col_name.Width);
-        }
+        #endregion
 
-        private void Btn_Click(object sender, EventArgs e)
-        {
-            Table table = ((Button)sender).Tag as Table;
-            grB_Bill.Text = "Bill of " + table.Name;
-            int tableID = ((sender as Button).Tag as Table).ID;
-            Lv_Bill.Tag = (sender as Button).Tag;
-
-            if(table.Status == "Trống")
-            {
-                Flp_Tmenu.Enabled = false;
-            }
-            else if(table.Status == "Có người")
-            {
-                Flp_Tmenu.Enabled = true;
-                LoadComboBoxTable(Cbb_SwitchTable, "Trống");
-                LoadComboBoxTable(Cbb_CombineTable, "Có người");
-            }
-            ShowBill(tableID);
-        }
+        #region SelectFood
 
         private void cbb_Catergory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -207,6 +190,9 @@ namespace Restaurant_Management
             LoadFoodListByCategory(id);
         }
 
+        #endregion
+
+        #region Billinfo
         private void Btn_AddOrder_Click(object sender, EventArgs e)
         {
             Table table = Lv_Bill.Tag as Table;
@@ -215,7 +201,8 @@ namespace Restaurant_Management
             else
             {
                 int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
-
+                if (table.Status == "Trống")
+                    TableDAO.Instance.ChangeTableStatus(table.ID, "Có người");
                 int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
                 int count = (int)nUD_UnitCount.Value;
 
@@ -260,11 +247,42 @@ namespace Restaurant_Management
 
                 if (MessageBox.Show(str, "Check Out "+table.Name, MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
+                    TableDAO.Instance.ChangeTableStatus(table.ID, "Trống");
                     BillDAO.Instance.CheckOut(idBill, discount);
                     ShowBill(table.ID);
                     LoadTable();
                 }
             }
+        }
+
+        private void Lv_Bill_SizeChanged(object sender, EventArgs e)
+        {
+            col_name.Width = (int)(Lv_Bill.Width * 2 / 5);
+            col_totalprice.Width = (int)(Lv_Bill.Width - 225 - col_name.Width);
+        }
+
+        #endregion
+
+        #region Table
+
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            Table table = ((Button)sender).Tag as Table;
+            grB_Bill.Text = "Bill of " + table.Name;
+            int tableID = ((sender as Button).Tag as Table).ID;
+            Lv_Bill.Tag = (sender as Button).Tag;
+
+            if (table.Status == "Trống")
+            {
+                Flp_Tmenu.Enabled = false;
+            }
+            else if (table.Status == "Có người")
+            {
+                Flp_Tmenu.Enabled = true;
+                LoadComboBoxTable(Cbb_SwitchTable, "");
+                LoadComboBoxTable(Cbb_CombineTable, "Có người");
+            }
+            ShowBill(tableID);
         }
 
         private void Btn_SwitchTable_Click(object sender, EventArgs e)
@@ -282,11 +300,31 @@ namespace Restaurant_Management
                     int idSecondTable = STable.ID;
                     TableDAO.Instance.SwitchTable(idFirstTable, idSecondTable);
 
-
+                    ShowBill(FTable.ID);
                     LoadTable();
                 }
             }
         }
+
+        private void Btn_CombineTable_Click(object sender, EventArgs e)
+        {
+            Table FTable = Lv_Bill.Tag as Table;
+            Table STable = Cbb_CombineTable.SelectedItem as Table;
+            string str = "Combine " + FTable.Name + " and " + STable.Name + " to " + FTable.Name;
+            if (MessageBox.Show(str, "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                int idFirstTable = FTable.ID;
+                int idSecondTable = STable.ID;
+                TableDAO.Instance.CombineTable(idFirstTable, idSecondTable);
+
+                ShowBill(FTable.ID);
+                LoadTable();
+            }
+        }
+
+        #endregion
+
+        #region ViewFull
 
         private void Btn_ViewFBill_Click(object sender, EventArgs e)
         {
@@ -309,6 +347,8 @@ namespace Restaurant_Management
             ShowBill(table.ID);
             LoadTable();
         }
+        #endregion
+
 
         #endregion
 

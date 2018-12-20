@@ -450,8 +450,9 @@ insert into dbo.Bill ( dateCheckin, datecheckout, IDTable, Status ) values ( GET
 
 go
 
+select * from dbo.Bill
+
 --insert BillInfo
-insert into dbo.Billinfo ( IDBill, IDFood, Count ) values ( 1, 1, 2 )
 
 
 

@@ -69,5 +69,17 @@ namespace Restaurant_Management.DAO
             string query = "UserProc_SwitchTable @idFirstTable , @idSecondTable";
             DataProvider.Instance.ExecuteNonQuery(query, new object[] { idFirstTable, idSecondTable });
         }
+
+        public void CombineTable(int idFirstTable, int idSecondTable)
+        {
+            string query = "UserProc_CombineTable @idFirstTable , @idSecondTable";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { idFirstTable, idSecondTable });
+        }
+
+        public void ChangeTableStatus(int id, string status)
+        {
+            string query = "UserProc_ChangeTableStatus @IDTable , @Status";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, status });
+        }
     }
 }

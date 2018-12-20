@@ -138,14 +138,6 @@ begin
 end
 go
 
-create proc UserProc_GetAccountByUsername 
-@username nvarchar(100)
-as
-begin
-	select * from dbo.Account where Username = @username
-end
-go
-
 create proc UserProc_ChangePassWord
 @username nvarchar(100), @newpass nvarchar(100)
 as
@@ -154,78 +146,6 @@ begin
 end
 go
 
-create proc UserProc_SwitchTable
-@idFirstTable int, @idSecondTable int
-as
-begin
-	declare @idFirstBill int
-	declare @idSecondBill int
-	declare @isEmpty int
-
-	select @idFirstBill = ID from dbo.Bill where IDTable = @idFirstTable and status = 0
-	select @idSecondBill = ID from dbo.Bill where IDTable = @idSecondTable and status = 0
-
-	if(@idFirstBill is null)
-	begin
-		@isEmpty = 1
-		insert into  dbo.Bill ( dateCheckIn, dateCheckOut, IDTable, Status, Discount )
-		values ( GETDATE(), null, @idFirstTable, 0, 0 )
-		
-		select @idFirstBill = ID from dbo.Bill where IDTable = @idFirstTable and status = 0
-	end
-
-	if(@idSecondBill is null)
-	begin
-		@isEmpty = 2
-		insert into  dbo.Bill ( dateCheckIn, dateCheckOut, IDTable, Status, Discount )
-		values ( GETDATE(), null, @idSecondTable, 0, 0 )
-		
-		select @idSecondBill = ID from dbo.Bill where IDTable = @idSecondTable and status = 0
-	end
-
-	select ID into IDBillinfoTable from dbo.Billinfo where IDBill = @idSecondBill
-	update dbo.Billinfo set IDBill = @idSecondBill where IDBill = @idFirstBill
-	update dbo.Billinfo set IDBill = @idFirstBill where IDBill in ( select * from dbo.IDBillinfoTable )
-
-	drop table IDBillinfoTable
-end
-go
-
---trigger
-create trigger UserTrigger_UpdateBillInfo
-on dbo.Billinfo for insert, update
-as
-begin
-	declare @idBill int
-	declare @idTable int
-
-	select @idBill = IDBill from inserted
-	select @idTable = IDTable from dbo.Bill where ID = @idBill and Status = 0
-
-	update dbo.ResTable set Status = N'Có người' where ID = @idTable
-end
-go
-
-create trigger UserTrigger_UpdateBill
-on dbo.Bill for update
-as
-begin
-	declare @idBill int 
-	declare @idTable int
-	declare @count int
-
-	select @idBill = ID from inserted
-	select @idTable = IDTable from dbo.Bill where ID = @idBill
-	select @count = count(*) from dbo.Bill where IDTable = @idTable and Status = 0
-	
-	if(@count > 0)
-		update dbo.ResTable set Status = N'Có người' where ID = @idTable
-	else
-		update dbo.ResTable set Status = N'Trống' where ID = @idTable
-end
-go
-
---chưa dùng
 create proc UserProc_ChangeTableStatus
 @IDTable int, @Status nvarchar(100)
 as
@@ -235,27 +155,91 @@ begin
 end
 go
 
-create proc UserProc_changeFName
-@IDFood int, @Name nvarchar(100)
+create proc UserProc_SwitchTable
+@idFirstTable int, @idSecondTable int
 as
 begin
-	update dbo.Food set Name = @Name where ID = @IDFood
+	declare @idFirstBill int
+	declare @idSecondBill int
+	declare @SecondisNULL int = 0
+
+	select @idFirstBill = ID from dbo.Bill where IDTable = @idFirstTable and Status = 0
+	select @idSecondBill = ID from dbo.Bill where IDTable = @idSecondTable and Status = 0
+
+	if(@idSecondBill is null)
+	begin
+		set @SecondisNULL = 1
+		insert into dbo.Bill ( dateCheckIn, dateCheckOut, IDTable, Status, Discount ) values ( GETDATE(), null, @idSecondTable, 0, 0 )
+
+		select @idSecondBill = max(ID) from dbo.Bill where IDTable = @idSecondTable and Status = 0
+	end
+
+	select ID into fIDBillInfo from dbo.Billinfo where IDBill = @idFirstBill
+
+	if(@SecondisNULL > 0)
+	begin
+		update dbo.Billinfo set IDBill = @idSecondBill where ID in ( select * from dbo.fIDBillInfo )
+		update dbo.ResTable set Status = N'Trống' where ID = @idFirstTable
+	end
+	else
+	begin
+		select ID into sIDBillinfo from dbo.Billinfo where IDBill = @idSecondBill
+		update dbo.Billinfo set IDBill = @idFirstBill where ID in ( select * from dbo.sIDBillInfo )
+		update dbo.Billinfo set IDBill = @idSecondBill where ID in ( select * from dbo.fIDBillInfo )
+
+	end
+	drop table dbo.fIDBillinfo
+	drop table dbo.sIDBillInfo
 end
 go
 
-create proc UserProc_changeFPrice
-@IDFood int, @Price float
+exec UserProc_SwitchTable @idFirstTable = 1 , @idSecondTable = 3
+go
+
+create proc UserProc_CombineTable
+@idFirstTable int, @idSecondTable int
 as
 begin
-	update dbo.Food set Price = @Price where ID = @IDFood
+	if(@idFirstTable <> @idSecondTable)
+	begin
+		declare @idFirstBill int
+		declare @idSecondBill int
+
+		select @idFirstBill = ID from dbo.Bill where IDTable = @idFirstTable and Status = 0
+		select @idSecondBill = ID from dbo.Bill where IDTable = @idSecondTable and Status = 0
+
+		select ID into IDBillInfo from dbo.Billinfo where IDBill = @idSecondBill
+		update dbo.Billinfo set IDBill = @idFirstBill where ID in ( select * from dbo.IDBillInfo )
+		delete from dbo.Bill where ID = @idSecondBill and IDTable = @idSecondTable 
+		update dbo.ResTable set Status = N'Trống' where ID = @idSecondTable
+
+		drop table dbo.IDBillInfo
+	end
 end
 go
 
-create proc UserProc_CheckEmptyBill
-@iDTable int 
-as
-begin
-	select count(bi.Count) from dbo.Billinfo as bi, dbo.Bill as b 
-	where  b.Status = 0 and bi.IDBill = b.ID and b.IDTable = @iDTable
-end
-go
+----chưa dùng
+--create proc UserProc_changeFName
+--@IDFood int, @Name nvarchar(100)
+--as
+--begin
+--	update dbo.Food set Name = @Name where ID = @IDFood
+--end
+--go
+
+--create proc UserProc_changeFPrice
+--@IDFood int, @Price float
+--as
+--begin
+--	update dbo.Food set Price = @Price where ID = @IDFood
+--end
+--go
+
+--create proc UserProc_CheckEmptyBill
+--@iDTable int 
+--as
+--begin
+--	select count(bi.Count) from dbo.Billinfo as bi, dbo.Bill as b 
+--	where  b.Status = 0 and bi.IDBill = b.ID and b.IDTable = @iDTable
+--end
+--go
