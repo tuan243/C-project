@@ -55,5 +55,11 @@ namespace Restaurant_Management.DAO
             string query = "UserProc_RemoveItemInBillInfo @IDBill , @IDFood";
             DataProvider.Instance.ExecuteNonQuery(query, new object[] { idBill, idFood });
         }
+
+        public void DeleteBillinfoByFoodID(int id)
+        {
+            string query = "UserProc_DeleteBillinfoByFoodID @id";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
+        }
     }
 }

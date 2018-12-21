@@ -59,5 +59,32 @@ namespace Restaurant_Management.DAO
 
             return ListF;
         }
+
+        public bool InsertFood(string name, string size, int fcategory, float price)
+        {
+            string query = "UserProc_InsertFood @name , @size , @Fcategory , @price";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { name, size, fcategory, price });
+
+            return result > 0;
+        }
+
+        public bool EditFood(int id, string name, string size, int fcategory, float price)
+        {
+            string query = "UserProc_EditFood @id , @name , @size , @Fcategory , @price";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, name, size, fcategory, price });
+
+            return result > 0;
+        }
+
+        public bool DeleteFood(int id)
+        {
+            BillinfoDAO.Instance.DeleteBillinfoByFoodID(id);
+
+            string query = "UserProc_DeleteFood @id";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
+
+            return result > 0;
+        }
+
     }
 }

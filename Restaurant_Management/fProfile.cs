@@ -35,12 +35,12 @@ namespace Restaurant_Management
         {
             Account account = this.Tag as Account;
 
+            Txb_DisplayName.Text = account.DisplayName;
             Txb_UserName.Text = account.Username;
-            textBox3.Text = account.DisplayName;
             if (account.Type == 1)
-                textBox1.Text = "Administrator";
+                Txb_Type.Text = "Administrator";
             else
-                textBox1.Text = "Staff";
+                Txb_Type.Text = "Staff";
         }
 
         private void Btn_ChangePass_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace Restaurant_Management
             {
                 if(Txb_NewPass.Text==Txb_Confirm.Text)
                 {
-                    AccountDAO.Instance.ChangePassword(Txb_UserName.Text, Txb_NewPass.Text);
+                    AccountDAO.Instance.ChangePassword(Txb_DisplayName.Text, Txb_NewPass.Text);
                     MessageBox.Show("Password Changed.", "Notification", MessageBoxButtons.OK);
                     Txb_OldPass.Clear();
                     Txb_NewPass.Clear();
@@ -59,7 +59,35 @@ namespace Restaurant_Management
                 }
                 MessageBox.Show("New Password must be confirm.", "Notification", MessageBoxButtons.OK);
             }
-            MessageBox.Show("Wrong Old Password.", "Notification", MessageBoxButtons.OK);
+            MessageBox.Show("Wrong Password.", "Notification", MessageBoxButtons.OK);
         }
+
+        private void Btn_Update_Click(object sender, EventArgs e)
+        {
+            Account account = this.Tag as Account;
+            if (Txb_DisplayName.Text != account.DisplayName)
+            {
+                if (Txb_OldPass.Text == account.Password)
+                {
+                    AccountDAO.Instance.ChangeDisplayName(account.Username, Txb_DisplayName.Text);
+                    MessageBox.Show("Success", "Notification", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                else
+                {
+                    if (Txb_OldPass.Text == "")
+                        MessageBox.Show("Enter Password to confirm change.", "Notification", MessageBoxButtons.OK);
+                    else
+                        MessageBox.Show("Wrong Password.", "Notification", MessageBoxButtons.OK);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nothing Changed", "Notification", MessageBoxButtons.OK);
+                this.Close();
+            }
+        }
+
+
     }
 }

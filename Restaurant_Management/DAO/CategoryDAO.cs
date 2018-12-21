@@ -42,5 +42,19 @@ namespace Restaurant_Management.DAO
 
             return List;
         }
+
+        public Category GetCategoryByID(int id)
+        {
+            Category category = null;
+            string query = "select * from dbo.Category where ID = " + id;
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                category = new Category(item);
+                
+            }
+
+            return category;
+        }
     }
 }

@@ -38,21 +38,42 @@ namespace Restaurant_Management.DAO
             return result.Rows.Count > 0;
         }
 
+        public List<Account> GetAccount()
+        {
+            List<Account> List = new List<Account>();
+            string query = "select * from dbo.Account";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Account account = new Account(item);
+                List.Add(account);
+            }
+
+            return List;
+        }
+
         public Account GetAccountByUsername(string username)
         {
             string query = "UserProc_GetAccountByUsername @username";
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
-
-            DataRow item = result.Rows[0];
-            Account acc = new Account(item);
-
-            return acc;
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
+            foreach(DataRow item in data.Rows)
+            {
+                return new Account(item);
+            }
+            return null;
         }
 
         public void ChangePassword(string username, string newpassword)
         {
             string query = "UserProc_ChangePassWord @username , @newpass";
             DataProvider.Instance.ExecuteNonQuery(query, new object[] { username, newpassword });
+        }
+
+        public void ChangeDisplayName(string username, string displayname)
+        {
+            string query = "UserProc_ChangeDisplayName @username , @displayname";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { username, displayname });
         }
     }
 }

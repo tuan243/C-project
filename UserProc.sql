@@ -42,13 +42,11 @@ select * from dbo.ResTable
 exec UserProc_GetListTableByStatus @status = N'Trống'
 go
 
-
-
 create proc UserProc_CheckOut
-@IDBill int, @Discount int
+@IDBill int, @Discount int, @Total float
 as
 begin
-	update dbo.Bill set Status = 1, Discount = @Discount where ID = @IDBill
+	update dbo.Bill set dateCheckOut = Getdate() , Status = 1, Discount = @Discount, Total = @Total where ID = @IDBill
 end
 go
 
@@ -99,8 +97,8 @@ create proc UserProc_InsertBill
 @IDTable int
 as
 begin
-	insert into  dbo.Bill ( dateCheckIn, dateCheckOut, IDTable, Status, Discount )
-	values ( GETDATE(), null, @IDTable, 0, 0 )
+	insert into  dbo.Bill ( dateCheckIn, dateCheckOut, IDTable, Status, Discount, Total)
+	values ( GETDATE(), null, @IDTable, 0, 0, 0 )
 end
 go
 
@@ -146,6 +144,14 @@ begin
 end
 go
 
+create proc UserProc_ChangeDisplayName
+@username nvarchar(100), @displayname nvarchar(100)
+as
+begin
+	update dbo.Account set Displayname = @displayname where Username = @username
+end
+go
+
 create proc UserProc_ChangeTableStatus
 @IDTable int, @Status nvarchar(100)
 as
@@ -155,7 +161,7 @@ begin
 end
 go
 
-drop proc UserProc_SwitchTable
+create proc UserProc_SwitchTable
 @idFirstTable int, @idSecondTable int
 as
 begin
@@ -169,7 +175,7 @@ begin
 	if(@idSecondBill is null)
 	begin
 		set @SecondisNULL = 1
-		insert into dbo.Bill ( dateCheckIn, dateCheckOut, IDTable, Status, Discount ) values ( GETDATE(), null, @idSecondTable, 0, 0 )
+		insert into dbo.Bill ( dateCheckIn, dateCheckOut, IDTable, Status, Discount, Total) values ( GETDATE(), null, @idSecondTable, 0, 0, 0)
 
 		select @idSecondBill = max(ID) from dbo.Bill where IDTable = @idSecondTable and Status = 0
 	end
@@ -218,6 +224,51 @@ begin
 	end
 end
 go
+
+create proc UserProc_GetIncome
+@from date, @to date
+as
+begin
+	select t.Name, b.Total, b.dateCheckIn, b.dateCheckOut, b.Discount
+	from dbo.Bill as b, dbo.ResTable as t
+	where b.IDTable = t.ID and b.Status = 1 and b.dateCheckOut >= @from and b.dateCheckOut <= @to
+end
+go
+
+create proc UserProc_InsertFood
+@name nvarchar(100), @size nvarchar(100), @Fcategory int, @price float
+as
+begin
+	insert into dbo.food (Name , size, Fcategory, Price) values ( @name, @size, @Fcategory, @price )
+end
+go
+
+create proc UserProc_EditFood
+@id int, @name nvarchar(100), @size nvarchar(100), @Fcategory int, @price float
+as
+begin
+	update dbo.Food set Name = @name, Size = @size, Fcategory = @Fcategory, Price = @price where ID = @id
+end
+go
+
+
+create proc UserProc_DeleteBillinfoByFoodID
+@id int
+as
+begin
+	delete dbo.Billinfo where IDFood = @id
+end
+go
+
+
+create proc UserProc_DeleteFood
+@id int
+as
+begin
+	delete dbo.Food where ID = @id
+end
+go
+
 
 ----chưa dùng
 --create proc UserProc_changeFName

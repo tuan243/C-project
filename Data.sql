@@ -51,7 +51,8 @@ create table Bill
 	dateCheckOut date,
 	IDTable int not null,
 	Status int not null default 0, -- 1: đã thanh toán || 0: chưa thanh toán
-	Discount int not null default 0
+	Discount int not null default 0,
+	Total float default 0
 
 	foreign key (IDTable) references dbo.ResTable(id)
 )

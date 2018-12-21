@@ -9,13 +9,14 @@ namespace Restaurant_Management.DTO
 {
     public class Bill
     {
-        public Bill(int id, DateTime? dateCheckIn, DateTime? dateCheckOut, int status, int discount)
+        public Bill(int id, DateTime? dateCheckIn, DateTime? dateCheckOut, int status, int discount, float total)
         {
             this.ID = id;
             this.DateCheckIn = dateCheckIn;
             this.DateCheckOut = dateCheckOut;
             this.Status = status;
             this.Discount = discount;
+            this.Total = total;
         }
 
         public Bill(DataRow row)
@@ -29,6 +30,7 @@ namespace Restaurant_Management.DTO
 
             this.Status = (int)row["Status"];
             this.Discount = (int)row["Discount"];
+            this.Total = (float)row["Total"];
         }
 
         private int iD;
@@ -36,11 +38,13 @@ namespace Restaurant_Management.DTO
         private DateTime? dateCheckOut;
         private int status;
         private int discount;
+        private float total;
 
         public int ID { get => iD; set => iD = value; }
         public DateTime? DateCheckIn { get => dateCheckIn; set => dateCheckIn = value; }
         public DateTime? DateCheckOut { get => dateCheckOut; set => dateCheckOut = value; }
         public int Status { get => status; set => status = value; }
         public int Discount { get => discount; set => discount = value; }
+        public float Total { get => total; set => total = value; }
     }
 }

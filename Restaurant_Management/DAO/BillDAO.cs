@@ -62,10 +62,18 @@ namespace Restaurant_Management.DAO
             }
         }
 
-        public void CheckOut(int id, int discount)
+        public void CheckOut(int id, int discount, float total)
         {
-            string query = " UserProc_CheckOut @IDBill , @Discount";
-            DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, discount });
+            string query = " UserProc_CheckOut @IDBill , @Discount , @Total";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, discount, total });
+        }
+
+        public DataTable GetIncome(DateTime from, DateTime to)
+        {
+            string query = "UserProc_GetIncome @from , @to";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { from, to });
+
+            return data;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Restaurant_Management.DAO;
+using Restaurant_Management.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,48 +21,75 @@ namespace Restaurant_Management
 
         #region Method
 
-        void ResizeColumnDGV(DataGridView data)
-        {
-            for (int i = 0; i < data.ColumnCount; i++)
-            {
-                if (i != data.ColumnCount - 1)
-                    data.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                else
-                    data.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            }
-        }
+        BindingSource FoodList = new BindingSource();
+        BindingSource CategoryList = new BindingSource();
+        BindingSource AccountList = new BindingSource();
+        BindingSource TableList = new BindingSource();
+
+        #region Load
 
         void loadAccount()
         {
-            string query = "select * from dbo.Account";
-
-            Dgv_A.DataSource = DataProvider.Instance.ExecuteQuery(query);
-            ResizeColumnDGV(Dgv_A);
+            AccountList.DataSource = AccountDAO.Instance.GetAccount();
         }
 
         void loadTable()
         {
-            string query = "select * from dbo.ResTable";
-
-            Dgv_T.DataSource = DataProvider.Instance.ExecuteQuery(query);
-            ResizeColumnDGV(Dgv_T);
+            TableList.DataSource = TableDAO.Instance.LoadTableList();
         }
 
         void LoadCategory()
         {
-            string query = "select * from dbo.Category";
-
-            Dgv_C.DataSource = DataProvider.Instance.ExecuteQuery(query);
-            ResizeColumnDGV(Dgv_C);
+            CategoryList.DataSource = CategoryDAO.Instance.GetCategory();
         }
 
         void LoadFood()
         {
-            string query = "select * from dbo.food";
-
-            Dgv_M.DataSource = DataProvider.Instance.ExecuteQuery(query);
-            ResizeColumnDGV(Dgv_M);
+            FoodList.DataSource = FoodDAO.Instance.GeAllListFood();
         }
+
+        void LoadListBillByDate(DateTime from, DateTime to)
+        {
+            Dgv_I.DataSource = BillDAO.Instance.GetIncome(from, to);
+        }
+
+        void LoadDateTimePicker()
+        {
+            DateTime today = DateTime.Now;
+            dTP_From.Value = new DateTime(today.Year, today.Month, 1);
+            dTP_To.Value = dTP_From.Value.AddMonths(1).AddDays(-1);
+        }
+
+        #endregion
+
+        #region Binding
+
+        void AddFoodBinding()
+        {
+            Txb_MID.DataBindings.Add(new Binding("Text", Dgv_M.DataSource, "ID", true, DataSourceUpdateMode.Never));
+            Txb_MName.DataBindings.Add(new Binding("Text", Dgv_M.DataSource, "Name", true, DataSourceUpdateMode.Never));
+            Txb_MSize.DataBindings.Add(new Binding("Text", Dgv_M.DataSource, "Size", true, DataSourceUpdateMode.Never));
+            Txb_MPrice.DataBindings.Add(new Binding("Text", Dgv_M.DataSource, "Price", true, DataSourceUpdateMode.Never));
+        }
+
+        void AddCategoryBinding()
+        {
+            Txb_CID.DataBindings.Add(new Binding("Text", Dgv_C.DataSource, "ID", true, DataSourceUpdateMode.Never));
+            Txb_CName.DataBindings.Add(new Binding("Text", Dgv_C.DataSource, "Name", true, DataSourceUpdateMode.Never));
+        }
+
+        void AddTableBinding()
+        {
+            Txb_TID.DataBindings.Add(new Binding("Text", Dgv_T.DataSource, "ID", true, DataSourceUpdateMode.Never));
+            Txb_TName.DataBindings.Add(new Binding("Text", Dgv_T.DataSource, "Name", true, DataSourceUpdateMode.Never));
+        }
+
+        void LoadCategoryIntoComboBox(ComboBox cbb)
+        {
+            cbb.DataSource = CategoryDAO.Instance.GetCategory();
+            cbb.DisplayMember = "Name";
+        }
+        #endregion
 
         #endregion
 
@@ -69,17 +97,124 @@ namespace Restaurant_Management
 
         private void fAdmin_Load(object sender, EventArgs e)
         {
+            //Income
+            LoadDateTimePicker();
+            LoadListBillByDate(dTP_From.Value, dTP_To.Value);
+            //Account
+            Dgv_A.DataSource = AccountList;
             loadAccount();
+            //Table
+            Dgv_T.DataSource = TableList;
             loadTable();
+            AddTableBinding();
+            //Food
+            Dgv_M.DataSource = FoodList;
             LoadFood();
+            AddFoodBinding();
+            LoadCategoryIntoComboBox(Cbb_MCategory);
+            //Category
+            Dgv_C.DataSource = CategoryList;
             LoadCategory();
+            AddCategoryBinding();
         }
-
-        #endregion
 
         private void Dgv_A_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
+        #region Income
+
+        private void Btn_ViewIncome_Click(object sender, EventArgs e)
+        {
+            LoadListBillByDate(dTP_From.Value, dTP_To.Value);
+        }
+
+        #endregion
+
+        #region Food
+
+        private void Txb_MID_TextChanged(object sender, EventArgs e)
+        {
+            if (Dgv_M.SelectedCells.Count > 0)
+            {
+                int id = (int)Dgv_M.SelectedCells[0].OwningRow.Cells["Fcategory"].Value;
+
+                Category category = CategoryDAO.Instance.GetCategoryByID(id);
+                int i = 0;
+                foreach (Category item in Cbb_MCategory.Items)
+                {
+                    if (item.ID == category.ID)
+                    {
+                        Cbb_MCategory.SelectedIndex = i;
+                        break;
+                    }
+                    i++;
+                }
+            }
+        }
+
+        private void Btn_MView_Click(object sender, EventArgs e)
+        {
+            LoadFood();
+        }
+
+        private void Btn_MAdd_Click(object sender, EventArgs e)
+        {
+            string name = Txb_MName.Text;
+            string size = Txb_MSize.Text;
+            int fcategory = (Cbb_MCategory.SelectedItem as Category).ID;
+            float price = float.Parse(Txb_MPrice.Text);
+
+            if (FoodDAO.Instance.InsertFood(name, size, fcategory, price))
+            {
+                MessageBox.Show("Success", "Notification", MessageBoxButtons.OK);
+                LoadFood();
+            }
+            else
+            {
+                MessageBox.Show("Error, Fail", "Notification", MessageBoxButtons.OK);
+            }
+        }
+
+        private void Btn_MEdit_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(Txb_MID.Text);
+            string name = Txb_MName.Text;
+            string size = Txb_MSize.Text;
+            int fcategory = (Cbb_MCategory.SelectedItem as Category).ID;
+            float price = float.Parse(Txb_MPrice.Text);
+
+            if (FoodDAO.Instance.EditFood(id, name, size, fcategory, price))
+            {
+                MessageBox.Show("Success", "Notification", MessageBoxButtons.OK);
+                LoadFood();
+            }
+            else
+            {
+                MessageBox.Show("Error, Fail", "Notification", MessageBoxButtons.OK);
+            }
+        }
+
+        private void Btn_MRemove_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(Txb_MID.Text);
+
+            if (FoodDAO.Instance.DeleteFood(id))
+            {
+                MessageBox.Show("Success", "Notification", MessageBoxButtons.OK);
+                LoadFood();
+            }
+            else
+            {
+                MessageBox.Show("Error, Fail", "Notification", MessageBoxButtons.OK);
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+
     }
 }
