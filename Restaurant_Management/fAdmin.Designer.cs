@@ -238,6 +238,7 @@
             this.Btn_CAdd.TabIndex = 0;
             this.Btn_CAdd.Text = "Add";
             this.Btn_CAdd.UseVisualStyleBackColor = true;
+            this.Btn_CAdd.Click += new System.EventHandler(this.Btn_CAdd_Click);
             // 
             // Btn_CRemove
             // 
@@ -247,6 +248,7 @@
             this.Btn_CRemove.TabIndex = 1;
             this.Btn_CRemove.Text = "Remove";
             this.Btn_CRemove.UseVisualStyleBackColor = true;
+            this.Btn_CRemove.Click += new System.EventHandler(this.Btn_CRemove_Click);
             // 
             // Btn_CEdit
             // 
@@ -256,6 +258,7 @@
             this.Btn_CEdit.TabIndex = 2;
             this.Btn_CEdit.Text = "Edit";
             this.Btn_CEdit.UseVisualStyleBackColor = true;
+            this.Btn_CEdit.Click += new System.EventHandler(this.Btn_CEdit_Click);
             // 
             // Btn_CView
             // 
@@ -265,6 +268,7 @@
             this.Btn_CView.TabIndex = 3;
             this.Btn_CView.Text = "View";
             this.Btn_CView.UseVisualStyleBackColor = true;
+            this.Btn_CView.Click += new System.EventHandler(this.Btn_CView_Click);
             // 
             // Dgv_C
             // 
@@ -771,6 +775,7 @@
             this.Btn_TAdd.TabIndex = 0;
             this.Btn_TAdd.Text = "Add";
             this.Btn_TAdd.UseVisualStyleBackColor = true;
+            this.Btn_TAdd.Click += new System.EventHandler(this.Btn_TAdd_Click);
             // 
             // Btn_TRemove
             // 
@@ -780,6 +785,7 @@
             this.Btn_TRemove.TabIndex = 1;
             this.Btn_TRemove.Text = "Remove";
             this.Btn_TRemove.UseVisualStyleBackColor = true;
+            this.Btn_TRemove.Click += new System.EventHandler(this.Btn_TRemove_Click);
             // 
             // Btn_TEdit
             // 
@@ -789,6 +795,7 @@
             this.Btn_TEdit.TabIndex = 2;
             this.Btn_TEdit.Text = "Edit";
             this.Btn_TEdit.UseVisualStyleBackColor = true;
+            this.Btn_TEdit.Click += new System.EventHandler(this.Btn_TEdit_Click);
             // 
             // Btn_TView
             // 
@@ -798,6 +805,7 @@
             this.Btn_TView.TabIndex = 3;
             this.Btn_TView.Text = "View";
             this.Btn_TView.UseVisualStyleBackColor = true;
+            this.Btn_TView.Click += new System.EventHandler(this.Btn_TView_Click);
             // 
             // Dgv_T
             // 
@@ -964,6 +972,7 @@
             this.Btn_AAdd.TabIndex = 0;
             this.Btn_AAdd.Text = "Add";
             this.Btn_AAdd.UseVisualStyleBackColor = true;
+            this.Btn_AAdd.Click += new System.EventHandler(this.Btn_AAdd_Click);
             // 
             // Btn_ARemove
             // 
@@ -973,6 +982,7 @@
             this.Btn_ARemove.TabIndex = 1;
             this.Btn_ARemove.Text = "Remove";
             this.Btn_ARemove.UseVisualStyleBackColor = true;
+            this.Btn_ARemove.Click += new System.EventHandler(this.Btn_ARemove_Click);
             // 
             // Btn_AEdit
             // 
@@ -982,6 +992,7 @@
             this.Btn_AEdit.TabIndex = 2;
             this.Btn_AEdit.Text = "Edit";
             this.Btn_AEdit.UseVisualStyleBackColor = true;
+            this.Btn_AEdit.Click += new System.EventHandler(this.Btn_AEdit_Click);
             // 
             // Btn_AView
             // 
@@ -991,6 +1002,7 @@
             this.Btn_AView.TabIndex = 3;
             this.Btn_AView.Text = "View";
             this.Btn_AView.UseVisualStyleBackColor = true;
+            this.Btn_AView.Click += new System.EventHandler(this.Btn_AView_Click);
             // 
             // Dgv_A
             // 

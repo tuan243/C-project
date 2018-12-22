@@ -33,6 +33,7 @@
             this.col_Fsize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cbb_Catergory = new System.Windows.Forms.ComboBox();
             this.Lbl_OrderCategory = new System.Windows.Forms.Label();
+            this.col_Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // Lv_SelectFood
@@ -42,7 +43,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Lv_SelectFood.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.col_Fname,
-            this.col_Fsize});
+            this.col_Fsize,
+            this.col_Price});
             this.Lv_SelectFood.FullRowSelect = true;
             this.Lv_SelectFood.GridLines = true;
             this.Lv_SelectFood.Location = new System.Drawing.Point(-2, 39);
@@ -83,6 +85,10 @@
             this.Lbl_OrderCategory.Text = "Category :";
             this.Lbl_OrderCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // col_Price
+            // 
+            this.col_Price.Text = "Price";
+            // 
             // fFullMenuList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,5 +113,6 @@
         private System.Windows.Forms.ColumnHeader col_Fsize;
         private System.Windows.Forms.ComboBox cbb_Catergory;
         private System.Windows.Forms.Label Lbl_OrderCategory;
+        private System.Windows.Forms.ColumnHeader col_Price;
     }
 }

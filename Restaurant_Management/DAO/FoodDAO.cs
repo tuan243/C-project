@@ -44,7 +44,7 @@ namespace Restaurant_Management.DAO
             return ListF;
         }
 
-        public List<Food> GeAllListFood()
+        public List<Food> GetAllListFood()
         {
             List<Food> ListF = new List<Food>();
             string query = "select * from dbo.food";

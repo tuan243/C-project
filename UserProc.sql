@@ -259,7 +259,7 @@ begin
 end
 go
 
-create proc UserProc_EitTable
+create proc UserProc_EditTable
 @id int, @name nvarchar(100), @status nvarchar(100), @size int
 as
 begin
@@ -378,10 +378,13 @@ go
 --end
 --go
 
-create proc UserProc_RemoveBillinfoByFoodID
+create proc UserProc_RemoveTable
 @id int
 as
 begin
-	delete dbo.Bil
+	declare @idBill int 
+	select @idBill = max(ID) from dbo.Bill where IDTable = @id and Status = 0
+	delete dbo.Billinfo where IDBill = @idBill
+	delete dbo.Bill where ID = @idBill 
 end
 go

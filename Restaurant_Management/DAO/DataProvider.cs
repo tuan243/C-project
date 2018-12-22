@@ -29,9 +29,10 @@ namespace Restaurant_Management.DAO
 
         private DataProvider() { }
 
-        private string connectionStr = @"Data Source=SUPER-DELL\SQLEXPRESS;Initial Catalog=RestaurantManagement;Integrated Security=True";
+        private string connectionStr = "Data Source=MINHQUAN;Initial Catalog=RestaurantManagement;Integrated Security=True";
 
-        
+
+
         public DataTable ExecuteQuery(string query, object[] parameter = null) //object parameter to avoid SQL Injection.
         {
             //Create datable.

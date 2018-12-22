@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,10 +31,11 @@ namespace Restaurant_Management
 
         void LoadFoodListByCategory(int id)
         {
+            CultureInfo culture = new CultureInfo("vi-VN");
             List<Food> ListF;
             if (cbb_Catergory.SelectedIndex == 0)
             {
-                ListF = FoodDAO.Instance.GeAllListFood();
+                ListF = FoodDAO.Instance.GetAllListFood();
             }
             else
                 ListF = FoodDAO.Instance.GetListFoodByCategoryID(id);
@@ -41,6 +43,7 @@ namespace Restaurant_Management
             {
                 ListViewItem lsvItem = new ListViewItem(item.Name.ToString());
                 lsvItem.SubItems.Add(item.Size.ToString());
+                lsvItem.SubItems.Add(item.Price.ToString("C0", culture));
 
                 lsvItem.Tag = item;
                 Lv_SelectFood.Items.Add(lsvItem);

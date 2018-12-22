@@ -102,5 +102,28 @@ namespace Restaurant_Management.DAO
             string query = "UserProc_CombineTable @idFirstTable , @idSecondTable";
             DataProvider.Instance.ExecuteNonQuery(query, new object[] { idFirstTable, idSecondTable });
         }
+
+        public bool InsertTable(string name, string status, string size)
+        {
+            string query = "UserProc_InsertTable @name , @status , @size";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { name, status, size });
+            return result > 0;
+        }
+
+        public bool EditTable(int id, string name, string status, string size)
+        {
+            string query = "UserProc_EditTable @id , @name , @status , @size";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, name, status, size });
+
+            return result > 0;
+        }
+
+        public bool RemoveTable(int id)
+        {
+            string query = "UserProc_RemoveTable @id";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
+
+            return result > 0;
+        }
     }
 }

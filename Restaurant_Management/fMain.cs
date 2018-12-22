@@ -112,7 +112,7 @@ namespace Restaurant_Management
             List<Food> ListF;
             if (cbb_Catergory.SelectedIndex == 0)
             {
-                ListF = FoodDAO.Instance.GeAllListFood();
+                ListF = FoodDAO.Instance.GetAllListFood();
             }
             else
                 ListF = FoodDAO.Instance.GetListFoodByCategoryID(id);
@@ -190,29 +190,36 @@ namespace Restaurant_Management
             int id = selected.ID;
 
             LoadFoodListByCategory(id);
+            Lv_SelectFood.Items[0].Selected = true;
         }
 
         #endregion
 
         #region Billinfo
+
         private void Btn_AddOrder_Click(object sender, EventArgs e)
         {
             Table table = Lv_Bill.Tag as Table;
-            int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
-            if (table.Status == "Trống")
-                TableDAO.Instance.ChangeTableStatus(table.ID, "Có người");
-            int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
-            int count = (int)nUD_UnitCount.Value;
-
-            if (idBill == -1)
+            if (table == null)
+                MessageBox.Show("Please select table first !", "Warning", MessageBoxButtons.OK);
+            else
             {
-                BillDAO.Instance.InsertBill(table.ID);
-                idBill = BillDAO.Instance.GetMaxID();
-            }
-            BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
+                int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
+                if (table.Status == "Trống")
+                    TableDAO.Instance.ChangeTableStatus(table.ID, "Có người");
+                int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
+                int count = (int)nUD_UnitCount.Value;
 
-            ShowBill(table.ID);
-            LoadTable();
+                if (idBill == -1)
+                {
+                    BillDAO.Instance.InsertBill(table.ID);
+                    idBill = BillDAO.Instance.GetMaxID();
+                }
+                BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
+
+                ShowBill(table.ID);
+                LoadTable();
+            }
         }
 
         private void Btn_Remove_Click(object sender, EventArgs e)
