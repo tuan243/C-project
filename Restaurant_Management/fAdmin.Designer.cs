@@ -47,9 +47,11 @@
             this.Txb_MFind = new System.Windows.Forms.TextBox();
             this.grB_MInfo = new System.Windows.Forms.GroupBox();
             this.Cbb_MCategory = new System.Windows.Forms.ComboBox();
+            this.Txb_MPrice = new System.Windows.Forms.TextBox();
             this.Txb_MSize = new System.Windows.Forms.TextBox();
             this.Txb_MName = new System.Windows.Forms.TextBox();
             this.Txb_MID = new System.Windows.Forms.TextBox();
+            this.Lbl_MPrice = new System.Windows.Forms.Label();
             this.Lbl_MSize = new System.Windows.Forms.Label();
             this.Lbl_MCategory = new System.Windows.Forms.Label();
             this.Lbl_MName = new System.Windows.Forms.Label();
@@ -104,8 +106,8 @@
             this.Btn_AEdit = new System.Windows.Forms.Button();
             this.Btn_AView = new System.Windows.Forms.Button();
             this.Dgv_A = new System.Windows.Forms.DataGridView();
-            this.Lbl_MPrice = new System.Windows.Forms.Label();
-            this.Txb_MPrice = new System.Windows.Forms.TextBox();
+            this.Lbl_TSize = new System.Windows.Forms.Label();
+            this.Txb_TSize = new System.Windows.Forms.TextBox();
             this.tP_Category.SuspendLayout();
             this.grB_CInfo.SuspendLayout();
             this.grB_C.SuspendLayout();
@@ -346,6 +348,16 @@
             this.Cbb_MCategory.Size = new System.Drawing.Size(140, 21);
             this.Cbb_MCategory.TabIndex = 8;
             // 
+            // Txb_MPrice
+            // 
+            this.Txb_MPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Txb_MPrice.Location = new System.Drawing.Point(80, 123);
+            this.Txb_MPrice.Name = "Txb_MPrice";
+            this.Txb_MPrice.Size = new System.Drawing.Size(140, 20);
+            this.Txb_MPrice.TabIndex = 9;
+            // 
             // Txb_MSize
             // 
             this.Txb_MSize.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -377,6 +389,16 @@
             this.Txb_MID.Size = new System.Drawing.Size(140, 20);
             this.Txb_MID.TabIndex = 6;
             this.Txb_MID.TextChanged += new System.EventHandler(this.Txb_MID_TextChanged);
+            // 
+            // Lbl_MPrice
+            // 
+            this.Lbl_MPrice.AutoSize = true;
+            this.Lbl_MPrice.Location = new System.Drawing.Point(5, 126);
+            this.Lbl_MPrice.Name = "Lbl_MPrice";
+            this.Lbl_MPrice.Size = new System.Drawing.Size(37, 13);
+            this.Lbl_MPrice.TabIndex = 2;
+            this.Lbl_MPrice.Text = "Price :";
+            this.Lbl_MPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Lbl_MSize
             // 
@@ -621,6 +643,8 @@
             // 
             this.grB_TInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grB_TInfo.Controls.Add(this.Txb_TSize);
+            this.grB_TInfo.Controls.Add(this.Lbl_TSize);
             this.grB_TInfo.Controls.Add(this.Cbb_TStatus);
             this.grB_TInfo.Controls.Add(this.Lbl_TStatus);
             this.grB_TInfo.Controls.Add(this.Txb_TName);
@@ -960,25 +984,24 @@
             this.Dgv_A.TabIndex = 0;
             this.Dgv_A.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_A_CellValueChanged);
             // 
-            // Lbl_MPrice
+            // Lbl_TSize
             // 
-            this.Lbl_MPrice.AutoSize = true;
-            this.Lbl_MPrice.Location = new System.Drawing.Point(5, 126);
-            this.Lbl_MPrice.Name = "Lbl_MPrice";
-            this.Lbl_MPrice.Size = new System.Drawing.Size(37, 13);
-            this.Lbl_MPrice.TabIndex = 2;
-            this.Lbl_MPrice.Text = "Price :";
-            this.Lbl_MPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Lbl_TSize.AutoSize = true;
+            this.Lbl_TSize.Location = new System.Drawing.Point(6, 105);
+            this.Lbl_TSize.Name = "Lbl_TSize";
+            this.Lbl_TSize.Size = new System.Drawing.Size(27, 13);
+            this.Lbl_TSize.TabIndex = 11;
+            this.Lbl_TSize.Text = "Size";
             // 
-            // Txb_MPrice
+            // Txb_TSize
             // 
-            this.Txb_MPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Txb_TSize.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txb_MPrice.Location = new System.Drawing.Point(80, 123);
-            this.Txb_MPrice.Name = "Txb_MPrice";
-            this.Txb_MPrice.Size = new System.Drawing.Size(140, 20);
-            this.Txb_MPrice.TabIndex = 9;
+            this.Txb_TSize.Location = new System.Drawing.Point(79, 102);
+            this.Txb_TSize.Name = "Txb_TSize";
+            this.Txb_TSize.Size = new System.Drawing.Size(140, 20);
+            this.Txb_TSize.TabIndex = 12;
             // 
             // fAdmin
             // 
@@ -1108,5 +1131,7 @@
         private System.Windows.Forms.GroupBox grB_IInfo;
         private System.Windows.Forms.TextBox Txb_MPrice;
         private System.Windows.Forms.Label Lbl_MPrice;
+        private System.Windows.Forms.TextBox Txb_TSize;
+        private System.Windows.Forms.Label Lbl_TSize;
     }
 }
