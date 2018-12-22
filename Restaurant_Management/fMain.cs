@@ -240,6 +240,7 @@ namespace Restaurant_Management
                     btn.BackColor = Color.BlueViolet;
                     break;
             }
+            btn.Text = tableOfBtn.Name + " ( " + tableOfBtn.Size + " )" + Environment.NewLine + "( " + tableOfBtn.Status + " )";
         }
 
         private void Btn_Remove_Click(object sender, EventArgs e)
