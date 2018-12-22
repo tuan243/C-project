@@ -263,7 +263,7 @@ create proc UserProc_EitTable
 @id int, @name nvarchar(100), @status nvarchar(100), @size int
 as
 begin
-	update dbo.Restable set ID = @id, Name= @name, Status = @status, Size = @size
+	update dbo.Restable set  Name= @name, Status = @status, Size = @size
 end
 go
 
@@ -297,7 +297,7 @@ create proc User_EditCategory
 @id int, @name nvarchar(100)
 as
 begin
-	update dbo.Category set ID = @id, Name = @name
+	update dbo.Category set  Name = @name
 end
 go
 

@@ -47,7 +47,14 @@ namespace Restaurant_Management.DAO
 
             return tableList;
         }
+        public List<String> LoadTableStatus()
+        {
+            List<String> tablestatus = new List<string>();
+            tablestatus.Add("Còn trống");
+            tablestatus.Add("Có người");
 
+            return tablestatus;
+        }
         public void ChangeTableStatus(int id, string status)
         {
             string query = "UserProc_ChangeTableStatus @IDTable , @Status";

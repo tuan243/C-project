@@ -98,9 +98,9 @@ namespace Restaurant_Management
             cbb.DataSource = CategoryDAO.Instance.GetCategory();
             cbb.DisplayMember = "Name";
         }
-        void LoadTableIntoComboBox(ComboBox cbb)
+        void LoadTableStatusIntoComboBox(ComboBox cbb)
         {
-            cbb.DataSource = TableDAO.Instance.LoadTableList();
+            cbb.DataSource = TableDAO.Instance.LoadTableStatus();
             cbb.DisplayMember = "Name";
 
         }
@@ -130,7 +130,7 @@ namespace Restaurant_Management
             Dgv_T.DataSource = TableList;
             loadTable();
             AddTableBinding();
-            LoadTableIntoComboBox(Cbb_TStatus);
+            LoadTableStatusIntoComboBox(Cbb_TStatus);
             //Food
             Dgv_M.DataSource = FoodList;
             LoadFood();
