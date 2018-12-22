@@ -100,6 +100,7 @@ namespace Restaurant_Management
         }
         void LoadTableStatusIntoComboBox(ComboBox cbb)
         {
+
             cbb.DataSource = TableDAO.Instance.LoadTableList();
             cbb.DisplayMember = "Status";
         }
