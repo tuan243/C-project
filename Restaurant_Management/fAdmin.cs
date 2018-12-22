@@ -88,8 +88,8 @@ namespace Restaurant_Management
 
         void AddAccountBinding()
         {
-            Txb_AUsername.DataBindings.Add(new Binding("Text", Dgv_A.DataSource, "Username", true, DataSourceUpdateMode.Never));
-            Txb_AName.DataBindings.Add(new Binding("Text", Dgv_A.DataSource, "Displayname", true, DataSourceUpdateMode.Never));
+            Txb_AUsername.DataBindings.Add(new Binding("Text", Dgv_A.DataSource, "UserName", true, DataSourceUpdateMode.Never));
+            Txb_AName.DataBindings.Add(new Binding("Text", Dgv_A.DataSource, "DisplayName", true, DataSourceUpdateMode.Never));
             Cbb_AType.DataSource = Dgv_A.DataSource;
         }
 
@@ -98,17 +98,15 @@ namespace Restaurant_Management
             cbb.DataSource = CategoryDAO.Instance.GetCategory();
             cbb.DisplayMember = "Name";
         }
-        void LoadTableIntoComboBox(ComboBox cbb)
+        void LoadTableStatusIntoComboBox(ComboBox cbb)
         {
             cbb.DataSource = TableDAO.Instance.LoadTableList();
-            cbb.DisplayMember = "Name";
-
+            cbb.DisplayMember = "Status";
         }
         void LoadAccountIntoComboBox(ComboBox cbb)
         {
             cbb.DataSource = AccountDAO.Instance.GetAccount();
-            cbb.DisplayMember = "Name";
-
+            cbb.DisplayMember = "Type";
         }
         #endregion
 
@@ -124,13 +122,14 @@ namespace Restaurant_Management
             //Account
             Dgv_A.DataSource = AccountList;
             loadAccount();
+            AddAccountBinding();
             LoadAccountIntoComboBox(Cbb_AType);
 
             //Table
             Dgv_T.DataSource = TableList;
             loadTable();
             AddTableBinding();
-            LoadTableIntoComboBox(Cbb_TStatus);
+            LoadTableStatusIntoComboBox(Cbb_TStatus);
             //Food
             Dgv_M.DataSource = FoodList;
             LoadFood();
@@ -232,6 +231,55 @@ namespace Restaurant_Management
             else
             {
                 MessageBox.Show("Error, Fail", "Notification", MessageBoxButtons.OK);
+            }
+        }
+
+
+        #endregion
+
+        #region Table
+
+        private void Txb_TID_TextChanged(object sender, EventArgs e)
+        {
+            if (Dgv_T.SelectedCells.Count > 0)
+            {
+                int id = (int)Dgv_T.SelectedCells[0].OwningRow.Cells["ID"].Value;
+
+                Table table = TableDAO.Instance.LoadTableListByID(id);
+                int i = 0;
+                foreach (Table item in Cbb_TStatus.Items)
+                {
+                    if (item.ID == table.ID)
+                    {
+                        Cbb_TStatus.SelectedIndex = i;
+                        break;
+                    }
+                    i++;
+                }
+            }
+        }
+
+        #endregion
+
+        #region Account
+
+        private void Txb_AUsername_TextChanged(object sender, EventArgs e)
+        {
+            if (Dgv_A.SelectedCells.Count > 0)
+            {
+                string username = Dgv_A.SelectedCells[0].OwningRow.Cells["UserName"].Value.ToString();
+
+                Account table = AccountDAO.Instance.GetAccountByUsername(username);
+                int i = 0;
+                foreach (Account item in Cbb_AType.Items)
+                {
+                    if (item.Username == table.Username)
+                    {
+                        Cbb_AType.SelectedIndex = i;
+                        break;
+                    }
+                    i++;
+                }
             }
         }
 

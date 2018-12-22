@@ -51,9 +51,7 @@ namespace Restaurant_Management.DAO
             foreach (DataRow item in data.Rows)
             {
                 category = new Category(item);
-                
             }
-
             return category;
         }
     }

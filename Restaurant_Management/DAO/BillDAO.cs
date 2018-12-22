@@ -75,5 +75,11 @@ namespace Restaurant_Management.DAO
 
             return data;
         }
+
+        public void UpdateBillTotal(int id, float total)
+        {
+            string query = "UserProc_ChangeTotal @id , @total";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, total });
+        }
     }
 }
