@@ -16,6 +16,8 @@ namespace Restaurant_Management
 {
     public partial class fMain : Form
     {
+        private int selectedTableID = 1;
+
         public fMain()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace Restaurant_Management
             Flp_Table.Controls.Clear();
             //Load tableList from database.
             List<Table> tableList = TableDAO.Instance.LoadTableList();
-
+            int count = 1;
             foreach (Table item in tableList)
             {
                 //Create button.
@@ -40,6 +42,8 @@ namespace Restaurant_Management
                 btn.Text = item.Name + " ( " + item.Size + " )" + Environment.NewLine + "( " + item.Status + " )";
                 //Event click.
                 btn.Click += Btn_Click;
+                
+                //btn.Name = "Table " + count.ToString();
                 //Tag
                 btn.FlatStyle = FlatStyle.Flat;
                 btn.Tag = item;
@@ -197,10 +201,15 @@ namespace Restaurant_Management
         #region Billinfo
         private void Btn_AddOrder_Click(object sender, EventArgs e)
         {
-            Table table = Lv_Bill.Tag as Table;
+            Button buttonOfSelectedTable = Lv_Bill.Tag as Button;
+            //Table table = Lv_Bill.Tag as Table;
+            Table table = buttonOfSelectedTable.Tag as Table;
             int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
             if (table.Status == "Trống")
+            {
                 TableDAO.Instance.ChangeTableStatus(table.ID, "Có người");
+                table.Status = "Có người";
+            }
             int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
             int count = (int)nUD_UnitCount.Value;
 
@@ -210,9 +219,27 @@ namespace Restaurant_Management
                 idBill = BillDAO.Instance.GetMaxID();
             }
             BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
+            
+            ShowBill(selectedTableID);
+            ChangeTableStatus(buttonOfSelectedTable);
+            //LoadTable();
+        }
 
-            ShowBill(table.ID);
-            LoadTable();
+        private void ChangeTableStatus(Button btn)
+        {
+            Table tableOfBtn = btn.Tag as Table;
+            switch (tableOfBtn.Status)
+            {
+                case "Trống":
+                    btn.BackColor = Color.LightGreen;
+                    break;
+                case "Có người":
+                    btn.BackColor = Color.OrangeRed;
+                    break;
+                default:
+                    btn.BackColor = Color.BlueViolet;
+                    break;
+            }
         }
 
         private void Btn_Remove_Click(object sender, EventArgs e)
@@ -230,7 +257,8 @@ namespace Restaurant_Management
 
         private void Btn_CheckOut_Click(object sender, EventArgs e)
         {
-            Table table = Lv_Bill.Tag as Table;
+            Button buttonOfSelectedTable = Lv_Bill.Tag as Button;
+            Table table = buttonOfSelectedTable.Tag as Table;
             CultureInfo culture = new CultureInfo("vi-VN");
 
             int discount = (int)nUD_Discount.Value;
@@ -246,9 +274,11 @@ namespace Restaurant_Management
                 if (MessageBox.Show(str, "Check Out "+table.Name, MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     TableDAO.Instance.ChangeTableStatus(table.ID, "Trống");
+                    table.Status = "Trống";
                     BillDAO.Instance.CheckOut(idBill, discount, FinalTotal);
                     ShowBill(table.ID);
-                    LoadTable();
+                    //LoadTable();
+                    ChangeTableStatus(buttonOfSelectedTable);
                 }
             }
         }
@@ -267,9 +297,11 @@ namespace Restaurant_Management
         {
             Table table = ((Button)sender).Tag as Table;
             grB_Bill.Text = "Bill of " + table.Name;
-            int tableID = ((sender as Button).Tag as Table).ID;
-            Lv_Bill.Tag = (sender as Button).Tag;
-
+            //int tableID = ((sender as Button).Tag as Table).ID;
+            //Lv_Bill.Tag = (sender as Button).Tag;
+            selectedTableID = table.ID;
+            Lv_Bill.Tag = sender;
+            
             if (table.Status == "Trống")
             {
                 Flp_Tmenu.Enabled = false;
@@ -280,7 +312,7 @@ namespace Restaurant_Management
                 LoadComboBoxTable(Cbb_SwitchTable, "");
                 LoadComboBoxTable(Cbb_CombineTable, "Có người");
             }
-            ShowBill(tableID);
+            ShowBill(selectedTableID);
         }
 
         private void Btn_SwitchTable_Click(object sender, EventArgs e)
