@@ -30,7 +30,7 @@ namespace Restaurant_Management.DTO
 
             this.Status = (int)row["Status"];
             this.Discount = (int)row["Discount"];
-            this.Total = (float)row["Total"];
+            this.Total = (float)Convert.ToDouble(row["TotalPrice"].ToString());
         }
 
         private int iD;
