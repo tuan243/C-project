@@ -252,10 +252,10 @@ end
 go
 
 create proc UserProc_InsertTable
-@id int, @name nvarchar(100), @status nvarchar(100), @size int
+@name nvarchar(100), @status nvarchar(100), @size int
 as
 begin
-	insert into dbo.Restable(ID, Name, Status, Size) values (@id, @name, @status, @size)
+	insert into dbo.Restable( Name, Status, Size) values ( @name, @status, @size )
 end
 go
 
@@ -263,7 +263,7 @@ create proc UserProc_EitTable
 @id int, @name nvarchar(100), @status nvarchar(100), @size int
 as
 begin
-	update dbo.Restable set  Name= @name, Status = @status, Size = @size
+	update dbo.Restable set Name= @name, Status = @status, Size = @size where ID = @id
 end
 go
 
@@ -271,7 +271,7 @@ create proc UserProc_InsertAccount
 @username nvarchar(100), @displayname nvarchar(100), @pass nvarchar(1000), @type int
 as
 begin 
-	insert into dbo.Account(Username, Displayname, Password, Type) values (@username, @displayname, @pass, @type)
+	insert into dbo.Account( Username, Displayname, Password, Type ) values ( @username, @displayname, @pass, @type )
 end 
 go
 
@@ -285,19 +285,20 @@ begin
 end 
 go
 
-create proc User_InsertCategory
-@id int, @name nvarchar(100)
+create proc UserProc_InsertCategory
+@name nvarchar(100)
 as
 begin
-	insert into dbo.Category(ID, Name) values (@id, @name)
+	insert into dbo.Category ( Name ) values ( @name )
 end
 go
 
-create proc User_EditCategory
+create proc UseProcr_EditCategory
 @id int, @name nvarchar(100)
 as
 begin
-	update dbo.Category set  Name = @name
+
+	update dbo.Category set Name = @name where ID = @id
 end
 go
 
@@ -318,6 +319,15 @@ begin
 	delete dbo.Food where ID = @id
 end
 go
+
+create proc UserProc_LoadTableListByID
+@id int
+as
+begin
+	select * from dbo.ResTable where ID = @id
+end
+go
+
 
 
 ----chưa dùng

@@ -75,6 +75,8 @@
             this.tC_Administrator = new System.Windows.Forms.TabControl();
             this.tP_Table = new System.Windows.Forms.TabPage();
             this.grB_TInfo = new System.Windows.Forms.GroupBox();
+            this.Txb_TSize = new System.Windows.Forms.TextBox();
+            this.Lbl_TSize = new System.Windows.Forms.Label();
             this.Cbb_TStatus = new System.Windows.Forms.ComboBox();
             this.Lbl_TStatus = new System.Windows.Forms.Label();
             this.Txb_TName = new System.Windows.Forms.TextBox();
@@ -106,8 +108,6 @@
             this.Btn_AEdit = new System.Windows.Forms.Button();
             this.Btn_AView = new System.Windows.Forms.Button();
             this.Dgv_A = new System.Windows.Forms.DataGridView();
-            this.Lbl_TSize = new System.Windows.Forms.Label();
-            this.Txb_TSize = new System.Windows.Forms.TextBox();
             this.tP_Category.SuspendLayout();
             this.grB_CInfo.SuspendLayout();
             this.grB_C.SuspendLayout();
@@ -658,6 +658,25 @@
             this.grB_TInfo.TabStop = false;
             this.grB_TInfo.Text = "Info";
             // 
+            // Txb_TSize
+            // 
+            this.Txb_TSize.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Txb_TSize.Location = new System.Drawing.Point(79, 102);
+            this.Txb_TSize.Name = "Txb_TSize";
+            this.Txb_TSize.Size = new System.Drawing.Size(140, 20);
+            this.Txb_TSize.TabIndex = 12;
+            // 
+            // Lbl_TSize
+            // 
+            this.Lbl_TSize.AutoSize = true;
+            this.Lbl_TSize.Location = new System.Drawing.Point(6, 105);
+            this.Lbl_TSize.Name = "Lbl_TSize";
+            this.Lbl_TSize.Size = new System.Drawing.Size(27, 13);
+            this.Lbl_TSize.TabIndex = 11;
+            this.Lbl_TSize.Text = "Size";
+            // 
             // Cbb_TStatus
             // 
             this.Cbb_TStatus.FormattingEnabled = true;
@@ -696,6 +715,7 @@
             this.Txb_TID.ReadOnly = true;
             this.Txb_TID.Size = new System.Drawing.Size(140, 20);
             this.Txb_TID.TabIndex = 6;
+            this.Txb_TID.TextChanged += new System.EventHandler(this.Txb_TID_TextChanged);
             // 
             // Lbl_TName
             // 
@@ -888,6 +908,7 @@
             this.Txb_AUsername.ReadOnly = true;
             this.Txb_AUsername.Size = new System.Drawing.Size(135, 20);
             this.Txb_AUsername.TabIndex = 6;
+            this.Txb_AUsername.TextChanged += new System.EventHandler(this.Txb_AUsername_TextChanged);
             // 
             // Lbl_AName
             // 
@@ -983,25 +1004,6 @@
             this.Dgv_A.Size = new System.Drawing.Size(407, 381);
             this.Dgv_A.TabIndex = 0;
             this.Dgv_A.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_A_CellValueChanged);
-            // 
-            // Lbl_TSize
-            // 
-            this.Lbl_TSize.AutoSize = true;
-            this.Lbl_TSize.Location = new System.Drawing.Point(6, 105);
-            this.Lbl_TSize.Name = "Lbl_TSize";
-            this.Lbl_TSize.Size = new System.Drawing.Size(27, 13);
-            this.Lbl_TSize.TabIndex = 11;
-            this.Lbl_TSize.Text = "Size";
-            // 
-            // Txb_TSize
-            // 
-            this.Txb_TSize.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txb_TSize.Location = new System.Drawing.Point(79, 102);
-            this.Txb_TSize.Name = "Txb_TSize";
-            this.Txb_TSize.Size = new System.Drawing.Size(140, 20);
-            this.Txb_TSize.TabIndex = 12;
             // 
             // fAdmin
             // 

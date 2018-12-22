@@ -450,7 +450,9 @@ go
 
 go
 
-select * from dbo.Bill
+update dbo.ResTable set status = N'Trống' 
+delete from dbo.Bill
+delete from dbo.Billinfo
 
 --insert BillInfo
 

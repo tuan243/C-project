@@ -77,6 +77,20 @@ namespace Restaurant_Management.DAO
             return tableList;
         }
 
+        public Table LoadTableListByID(int id)
+        {
+            Table table = null;
+
+            string query = "UserProc_LoadTableListByID @id";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
+
+            foreach (DataRow item in data.Rows)
+            {
+                table = new Table(item);
+            }
+            return table;
+        }
+
         public void SwitchTable(int idFirstTable, int idSecondTable)
         {
             string query = "UserProc_SwitchTable @idFirstTable , @idSecondTable";
