@@ -116,7 +116,7 @@ namespace Restaurant_Management
             List<Food> ListF;
             if (cbb_Catergory.SelectedIndex == 0)
             {
-                ListF = FoodDAO.Instance.GeAllListFood();
+                ListF = FoodDAO.Instance.GetAllListFood();
             }
             else
                 ListF = FoodDAO.Instance.GetListFoodByCategoryID(id);
