@@ -239,7 +239,7 @@ create proc UserProc_InsertFood
 @name nvarchar(100), @size nvarchar(100), @Fcategory int, @price float
 as
 begin
-	insert into dbo.food (Name , size, Fcategory, Price) values ( @name, @size, @Fcategory, @price )
+	insert into dbo.Food (Name , size, Fcategory, Price) values ( @name, @size, @Fcategory, @price )
 end
 go
 
@@ -248,6 +248,56 @@ create proc UserProc_EditFood
 as
 begin
 	update dbo.Food set Name = @name, Size = @size, Fcategory = @Fcategory, Price = @price where ID = @id
+end
+go
+
+create proc UserProc_InsertTable
+@id int, @name nvarchar(100), @status nvarchar(100), @size int
+as
+begin
+	insert into dbo.Restable(ID, Name, Status, Size) values (@id, @name, @status, @size)
+end
+go
+
+create proc UserProc_EitTable
+@id int, @name nvarchar(100), @status nvarchar(100), @size int
+as
+begin
+	update dbo.Restable set ID = @id, Name= @name, Status = @status, Size = @size
+end
+go
+
+create proc UserProc_InsertAccount
+@username nvarchar(100), @displayname nvarchar(100), @pass nvarchar(1000), @type int
+as
+begin 
+	insert into dbo.Account(Username, Displayname, Password, Type) values (@username, @displayname, @pass, @type)
+end 
+go
+
+
+create proc UserProc_EditAccount
+@username nvarchar(100), @displayname nvarchar(100), @pass nvarchar(1000), @type int
+as
+begin 
+	update dbo.Account set Username = @username, Displayname = @displayname, Password= @pass, Type = @type
+
+end 
+go
+
+create proc User_InsertCategory
+@id int, @name nvarchar(100)
+as
+begin
+	insert into dbo.Category(ID, Name) values (@id, @name)
+end
+go
+
+create proc User_EditCategory
+@id int, @name nvarchar(100)
+as
+begin
+	update dbo.Category set ID = @id, Name = @name
 end
 go
 
