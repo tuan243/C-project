@@ -335,12 +335,16 @@ namespace Restaurant_Management
         private void Btn_ViewFMenu_Click(object sender, EventArgs e)
         {
             Table table = Lv_Bill.Tag as Table;
-            fFullMenuList menuList = new fFullMenuList();
-            menuList.Text = "Full Menu List adding to " + table.Name;
-            menuList.Tag = table;
-            menuList.ShowDialog();
-            ShowBill(table.ID);
-            LoadTable();
+            if (table!= null)
+            {
+                fFullMenuList menuList = new fFullMenuList();
+                menuList.Text = "Full Menu List adding to " + table.Name;
+                menuList.Tag = table;
+                menuList.ShowDialog();
+                ShowBill(table.ID);
+                LoadTable();
+
+            }
         }
         #endregion
 

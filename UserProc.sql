@@ -297,6 +297,7 @@ create proc UseProcr_EditCategory
 @id int, @name nvarchar(100)
 as
 begin
+
 	update dbo.Category set Name = @name where ID = @id
 end
 go
