@@ -82,12 +82,33 @@ namespace Restaurant_Management
         {
             Txb_TID.DataBindings.Add(new Binding("Text", Dgv_T.DataSource, "ID", true, DataSourceUpdateMode.Never));
             Txb_TName.DataBindings.Add(new Binding("Text", Dgv_T.DataSource, "Name", true, DataSourceUpdateMode.Never));
+            Txb_TSize.DataBindings.Add(new Binding("Text", Dgv_T.DataSource, "Size", true, DataSourceUpdateMode.Never));
+            Cbb_TStatus.DataSource = Dgv_T.DataSource;
+        }
+
+        void AddAccountBinding()
+        {
+            Txb_AUsername.DataBindings.Add(new Binding("Text", Dgv_A.DataSource, "Username", true, DataSourceUpdateMode.Never));
+            Txb_AName.DataBindings.Add(new Binding("Text", Dgv_A.DataSource, "Displayname", true, DataSourceUpdateMode.Never));
+            Cbb_AType.DataSource = Dgv_A.DataSource;
         }
 
         void LoadCategoryIntoComboBox(ComboBox cbb)
         {
             cbb.DataSource = CategoryDAO.Instance.GetCategory();
             cbb.DisplayMember = "Name";
+        }
+        void LoadTableIntoComboBox(ComboBox cbb)
+        {
+            cbb.DataSource = TableDAO.Instance.LoadTableList();
+            cbb.DisplayMember = "Name";
+
+        }
+        void LoadAccountIntoComboBox(ComboBox cbb)
+        {
+            cbb.DataSource = AccountDAO.Instance.GetAccount();
+            cbb.DisplayMember = "Name";
+
         }
         #endregion
 
@@ -103,10 +124,13 @@ namespace Restaurant_Management
             //Account
             Dgv_A.DataSource = AccountList;
             loadAccount();
+            LoadAccountIntoComboBox(Cbb_AType);
+
             //Table
             Dgv_T.DataSource = TableList;
             loadTable();
             AddTableBinding();
+            LoadTableIntoComboBox(Cbb_TStatus);
             //Food
             Dgv_M.DataSource = FoodList;
             LoadFood();
