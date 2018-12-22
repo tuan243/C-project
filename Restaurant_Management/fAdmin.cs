@@ -142,11 +142,6 @@ namespace Restaurant_Management
             AddCategoryBinding();
         }
 
-        private void Dgv_A_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         #region Income
 
         private void Btn_ViewIncome_Click(object sender, EventArgs e)

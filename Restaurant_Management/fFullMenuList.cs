@@ -48,6 +48,7 @@ namespace Restaurant_Management
                 lsvItem.Tag = item;
                 Lv_SelectFood.Items.Add(lsvItem);
             }
+            Lv_SelectFood.Items[0].Selected = true;
         }
         #region SelectFood
 
@@ -68,7 +69,40 @@ namespace Restaurant_Management
 
         private void fFullMenuList_Load(object sender, EventArgs e)
         {
+            if(this.Tag == null)
+            {
+                Btn_AddOrder.Visible = false;
+                nUD_UnitCount.Visible = false;
+            }
+            else
+            {
+                Btn_AddOrder.Visible = true;
+                nUD_UnitCount.Visible = true;
+            }
             LoadCategory();
+        }
+
+        private void Lv_SelectFood_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CultureInfo culture = new CultureInfo("vi-VN");
+            if (Lv_SelectFood.SelectedItems.Count > 0)
+            {
+                ListViewItem lsvitem = Lv_SelectFood.SelectedItems[0];
+                Food food = lsvitem.Tag as Food;
+                Txb_MID.Text = food.ID.ToString();
+                Txb_MName.Text = food.Name;
+                Txb_MSize.Text = food.Size;
+                Txb_MPrice.Text = food.Price.ToString("C0", culture);
+
+                int idC = food.FCategory;
+                Category category = CategoryDAO.Instance.GetCategoryByID(idC);
+                Txb_MCategory.Text = category.Name;
+            }
+            else
+            {
+                Txb_MID.Text = string.Empty;
+                Txb_MName.Text = string.Empty;
+            }
 
         }
     }

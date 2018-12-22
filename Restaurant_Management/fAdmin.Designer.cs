@@ -165,8 +165,7 @@
             // 
             // Txb_CName
             // 
-            this.Txb_CName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.Txb_CName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Txb_CName.Location = new System.Drawing.Point(80, 47);
             this.Txb_CName.Name = "Txb_CName";
@@ -175,8 +174,7 @@
             // 
             // Txb_CID
             // 
-            this.Txb_CID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.Txb_CID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Txb_CID.Location = new System.Drawing.Point(80, 22);
             this.Txb_CID.Name = "Txb_CID";
@@ -309,6 +307,7 @@
             // 
             // Btn_MFind
             // 
+            this.Btn_MFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_MFind.Location = new System.Drawing.Point(145, 50);
             this.Btn_MFind.Name = "Btn_MFind";
             this.Btn_MFind.Size = new System.Drawing.Size(75, 23);
@@ -318,6 +317,8 @@
             // 
             // Txb_MFind
             // 
+            this.Txb_MFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Txb_MFind.Location = new System.Drawing.Point(5, 25);
             this.Txb_MFind.Name = "Txb_MFind";
             this.Txb_MFind.Size = new System.Drawing.Size(215, 20);
@@ -346,6 +347,8 @@
             // 
             // Cbb_MCategory
             // 
+            this.Cbb_MCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Cbb_MCategory.FormattingEnabled = true;
             this.Cbb_MCategory.Location = new System.Drawing.Point(80, 72);
             this.Cbb_MCategory.Name = "Cbb_MCategory";
@@ -354,8 +357,7 @@
             // 
             // Txb_MPrice
             // 
-            this.Txb_MPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.Txb_MPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Txb_MPrice.Location = new System.Drawing.Point(80, 123);
             this.Txb_MPrice.Name = "Txb_MPrice";
@@ -364,8 +366,7 @@
             // 
             // Txb_MSize
             // 
-            this.Txb_MSize.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.Txb_MSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Txb_MSize.Location = new System.Drawing.Point(80, 98);
             this.Txb_MSize.Name = "Txb_MSize";
@@ -374,8 +375,7 @@
             // 
             // Txb_MName
             // 
-            this.Txb_MName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.Txb_MName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Txb_MName.Location = new System.Drawing.Point(80, 47);
             this.Txb_MName.Name = "Txb_MName";
@@ -384,8 +384,7 @@
             // 
             // Txb_MID
             // 
-            this.Txb_MID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.Txb_MID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Txb_MID.Location = new System.Drawing.Point(80, 22);
             this.Txb_MID.Name = "Txb_MID";
@@ -847,6 +846,7 @@
             // 
             // Btn_AFind
             // 
+            this.Btn_AFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_AFind.Location = new System.Drawing.Point(145, 50);
             this.Btn_AFind.Name = "Btn_AFind";
             this.Btn_AFind.Size = new System.Drawing.Size(75, 23);
@@ -856,6 +856,8 @@
             // 
             // Txb_AFind
             // 
+            this.Txb_AFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Txb_AFind.Location = new System.Drawing.Point(5, 25);
             this.Txb_AFind.Name = "Txb_AFind";
             this.Txb_AFind.Size = new System.Drawing.Size(215, 20);
@@ -1015,7 +1017,6 @@
             this.Dgv_A.Name = "Dgv_A";
             this.Dgv_A.Size = new System.Drawing.Size(407, 381);
             this.Dgv_A.TabIndex = 0;
-            this.Dgv_A.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_A_CellValueChanged);
             // 
             // fAdmin
             // 

@@ -30,7 +30,6 @@ namespace Restaurant_Management
             Flp_Table.Controls.Clear();
             //Load tableList from database.
             List<Table> tableList = TableDAO.Instance.LoadTableList();
-            int count = 1;
             foreach (Table item in tableList)
             {
                 //Create button.
@@ -344,7 +343,9 @@ namespace Restaurant_Management
 
         private void Btn_CombineTable_Click(object sender, EventArgs e)
         {
-            Table FTable = Lv_Bill.Tag as Table;
+            Button buttonOfSelectedTable = Lv_Bill.Tag as Button;
+
+            Table FTable = buttonOfSelectedTable.Tag as Table;
             Table STable = Cbb_CombineTable.SelectedItem as Table;
             string str = "Combine " + FTable.Name + " and " + STable.Name + " to " + FTable.Name;
             if (MessageBox.Show(str, "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -364,9 +365,10 @@ namespace Restaurant_Management
 
         private void Btn_ViewFBill_Click(object sender, EventArgs e)
         {
-            Table table = Lv_Bill.Tag as Table;
-            if (table != null)
+            Button buttonOfSelectedTable = Lv_Bill.Tag as Button;
+            if (buttonOfSelectedTable != null)
             {
+                Table table = buttonOfSelectedTable.Tag as Table;
                 fFullTableBill tableBill = new fFullTableBill();
                 tableBill.Text = "Full Table Bill " + table.Name;
                 tableBill.Tag = table;
@@ -389,6 +391,13 @@ namespace Restaurant_Management
                 ShowBill(table.ID);
                 LoadTable();
 
+            }
+            else
+            {
+                fFullMenuList menuList = new fFullMenuList();
+                menuList.Text = "Full Menu List";
+                menuList.ShowDialog();
+                LoadTable();
             }
         }
         #endregion
