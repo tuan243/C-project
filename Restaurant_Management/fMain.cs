@@ -195,7 +195,6 @@ namespace Restaurant_Management
         #endregion
 
         #region Billinfo
-
         private void Btn_AddOrder_Click(object sender, EventArgs e)
         {
             Table table = Lv_Bill.Tag as Table;
@@ -204,8 +203,6 @@ namespace Restaurant_Management
                 TableDAO.Instance.ChangeTableStatus(table.ID, "Có người");
             int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
             int count = (int)nUD_UnitCount.Value;
-            float Total = (Lv_SelectFood.SelectedItems[0].Tag as Food).Price * count;
-
 
             if (idBill == -1)
             {
@@ -213,7 +210,6 @@ namespace Restaurant_Management
                 idBill = BillDAO.Instance.GetMaxID();
             }
             BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
-            BillDAO.Instance.UpdateBillTotal(idBill, Total);
 
             ShowBill(table.ID);
             LoadTable();
