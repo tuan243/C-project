@@ -50,7 +50,7 @@ namespace Restaurant_Management.DAO
         public List<String> LoadTableStatus()
         {
             List<String> tablestatus = new List<string>();
-            tablestatus.Add("Còn trống");
+            tablestatus.Add("Trống");
             tablestatus.Add("Có người");
 
             return tablestatus;
@@ -110,7 +110,7 @@ namespace Restaurant_Management.DAO
             return result > 0;
         }
 
-        public bool EditTable(int id, string name, string status, string size)
+        public bool EditTable(int id, string name, string status, int size)
         {
             string query = "UserProc_EditTable @id , @name , @status , @size";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, name, status, size });

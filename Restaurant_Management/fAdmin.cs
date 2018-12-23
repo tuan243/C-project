@@ -100,9 +100,7 @@ namespace Restaurant_Management
         }
         void LoadTableStatusIntoComboBox(ComboBox cbb)
         {
-
-            cbb.DataSource = TableDAO.Instance.LoadTableList();
-            cbb.DisplayMember = "Status";
+            cbb.DataSource = TableDAO.Instance.LoadTableStatus();
         }
         void LoadAccountIntoComboBox(ComboBox cbb)
         {
@@ -286,9 +284,9 @@ namespace Restaurant_Management
 
                 Table table = TableDAO.Instance.LoadTableListByID(id);
                 int i = 0;
-                foreach (Table item in Cbb_TStatus.Items)
+                foreach (string item in Cbb_TStatus.Items)
                 {
-                    if (item.ID == table.ID)
+                    if (item == table.Status)
                     {
                         Cbb_TStatus.SelectedIndex = i;
                         break;
@@ -300,8 +298,8 @@ namespace Restaurant_Management
 
         private void Btn_TAdd_Click(object sender, EventArgs e)
         {
-            string name = Txb_MName.Text;
-            string size = Txb_MSize.Text;
+            string name = Txb_TName.Text;
+            string size = Txb_TSize.Text;
             string status = Cbb_TStatus.SelectedItem.ToString();
             if (TableDAO.Instance.InsertTable(name, status, size))
             {
@@ -331,8 +329,8 @@ namespace Restaurant_Management
         private void Btn_TEdit_Click(object sender, EventArgs e)
         {
             int id = int.Parse(Txb_TID.Text);
-            string name = Txb_MName.Text;
-            string size = Txb_MSize.Text;
+            string name = Txb_TName.Text;
+            int size = int.Parse(Txb_TSize.Text);
             string status = Cbb_TStatus.SelectedItem.ToString();
             if (TableDAO.Instance.EditTable(id, name, status, size))
             {

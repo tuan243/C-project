@@ -165,6 +165,7 @@ namespace Restaurant_Management
         {
             fAdmin Admin = new fAdmin();
             Admin.ShowDialog();
+            LoadTable();
         }
 
         private void infomationToolStripMenuItem_Click(object sender, EventArgs e)
