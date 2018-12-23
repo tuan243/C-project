@@ -30,25 +30,24 @@ namespace Restaurant_Management
             Flp_Table.Controls.Clear();
             //Load tableList from database.
             List<Table> tableList = TableDAO.Instance.LoadTableList();
-            int count = 1;
+
             foreach (Table item in tableList)
             {
                 //Create button.
                 Button btn = new Button()
                 {
-                    Width = TableDAO.tableWidth, Height = TableDAO.tableHeight,
+                    Width = TableDAO.tableWidth,
+                    Height = TableDAO.tableHeight,
                 };
                 //Set text for button.
                 btn.Text = item.Name + " ( " + item.Size + " )" + Environment.NewLine + "( " + item.Status + " )";
                 //Event click.
                 btn.Click += Btn_Click;
-                
-                //btn.Name = "Table " + count.ToString();
                 //Tag
                 btn.FlatStyle = FlatStyle.Flat;
                 btn.Tag = item;
                 //Set backcolor.
-                switch(item.Status)
+                switch (item.Status)
                 {
                     case "Trống":
                         btn.BackColor = Color.LightGreen;
@@ -86,7 +85,7 @@ namespace Restaurant_Management
             List<RestaurantMenu> menu = MenuDAO.Instance.GetListMenubyTable(id);
             //Bill total price.
             float total = 0;
-            foreach(RestaurantMenu item in menu)
+            foreach (RestaurantMenu item in menu)
             {
                 ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
                 lsvItem.SubItems.Add(item.Size.ToString());
@@ -120,7 +119,7 @@ namespace Restaurant_Management
             }
             else
                 ListF = FoodDAO.Instance.GetListFoodByCategoryID(id);
-            foreach(Food item in ListF)
+            foreach (Food item in ListF)
             {
                 ListViewItem lsvItem = new ListViewItem(item.Name.ToString());
                 lsvItem.SubItems.Add(item.Size.ToString());
@@ -165,6 +164,7 @@ namespace Restaurant_Management
         {
             fAdmin Admin = new fAdmin();
             Admin.ShowDialog();
+            LoadTable();
         }
 
         private void infomationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -194,35 +194,46 @@ namespace Restaurant_Management
             int id = selected.ID;
 
             LoadFoodListByCategory(id);
+            Lv_SelectFood.Items[0].Selected = true;
         }
 
         #endregion
 
         #region Billinfo
+
         private void Btn_AddOrder_Click(object sender, EventArgs e)
         {
             Button buttonOfSelectedTable = Lv_Bill.Tag as Button;
-            //Table table = Lv_Bill.Tag as Table;
-            Table table = buttonOfSelectedTable.Tag as Table;
-            int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
-            if (table.Status == "Trống")
-            {
-                TableDAO.Instance.ChangeTableStatus(table.ID, "Có người");
-                table.Status = "Có người";
-            }
-            int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
-            int count = (int)nUD_UnitCount.Value;
 
-            if (idBill == -1)
+            if (buttonOfSelectedTable == null)
+                MessageBox.Show("Please select table to add food !", "Warning", MessageBoxButtons.OK);
+            else
             {
-                BillDAO.Instance.InsertBill(table.ID);
-                idBill = BillDAO.Instance.GetMaxID();
+                Table table = buttonOfSelectedTable.Tag as Table;
+                int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
+                if (table.Status == "Trống")
+                {
+                    TableDAO.Instance.ChangeTableStatus(table.ID, "Có người");
+                    table.Status = "Có người";
+                }
+                int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
+                int count = (int)nUD_UnitCount.Value;
+
+                if (idBill == -1)
+                {
+                    BillDAO.Instance.InsertBill(table.ID);
+                    idBill = BillDAO.Instance.GetMaxID();
+                }
+                BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
+
+                ShowBill(selectedTableID);
+                ChangeTableStatus(buttonOfSelectedTable);
+                //LoadTable();
             }
             BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
             
             ShowBill(selectedTableID);
             ChangeTableStatus(buttonOfSelectedTable);
-            //LoadTable();
         }
 
         private void ChangeTableStatus(Button btn)
@@ -272,7 +283,7 @@ namespace Restaurant_Management
                              Environment.NewLine + "Discount is : " + discount + "%" +
                              Environment.NewLine + "Final price is : " + FinalTotal.ToString("C0", culture);
 
-                if (MessageBox.Show(str, "Check Out "+table.Name, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if (MessageBox.Show(str, "Check Out " + table.Name, MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     TableDAO.Instance.ChangeTableStatus(table.ID, "Trống");
                     table.Status = "Trống";
@@ -298,8 +309,6 @@ namespace Restaurant_Management
         {
             Table table = ((Button)sender).Tag as Table;
             grB_Bill.Text = "Bill of " + table.Name;
-            //int tableID = ((sender as Button).Tag as Table).ID;
-            //Lv_Bill.Tag = (sender as Button).Tag;
             selectedTableID = table.ID;
             Lv_Bill.Tag = sender;
             
@@ -336,7 +345,9 @@ namespace Restaurant_Management
 
         private void Btn_CombineTable_Click(object sender, EventArgs e)
         {
-            Table FTable = Lv_Bill.Tag as Table;
+            Button buttonOfSelectedTable = Lv_Bill.Tag as Button;
+
+            Table FTable = buttonOfSelectedTable.Tag as Table;
             Table STable = Cbb_CombineTable.SelectedItem as Table;
             string str = "Combine " + FTable.Name + " and " + STable.Name + " to " + FTable.Name;
             if (MessageBox.Show(str, "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -356,20 +367,25 @@ namespace Restaurant_Management
 
         private void Btn_ViewFBill_Click(object sender, EventArgs e)
         {
-            Table table = Lv_Bill.Tag as Table;
-            fFullTableBill tableBill = new fFullTableBill();
-            tableBill.Text = "Full Table Bill " + table.Name;
-            tableBill.Tag = table;
-            tableBill.ShowDialog();
-            ShowBill(table.ID);
-            LoadTable();
+            Button buttonOfSelectedTable = Lv_Bill.Tag as Button;
+            if (buttonOfSelectedTable != null)
+            {
+                Table table = buttonOfSelectedTable.Tag as Table;
+                fFullTableBill tableBill = new fFullTableBill();
+                tableBill.Text = "Full Table Bill " + table.Name;
+                tableBill.Tag = table;
+                tableBill.ShowDialog();
+                ShowBill(table.ID);
+                LoadTable();
+            }
         }
 
         private void Btn_ViewFMenu_Click(object sender, EventArgs e)
         {
-            Table table = Lv_Bill.Tag as Table;
-            if (table!= null)
+            Button buttonOfSelectedTable = Lv_Bill.Tag as Button;
+            if (buttonOfSelectedTable != null)
             {
+                Table table = buttonOfSelectedTable.Tag as Table;
                 fFullMenuList menuList = new fFullMenuList();
                 menuList.Text = "Full Menu List adding to " + table.Name;
                 menuList.Tag = table;
@@ -378,9 +394,15 @@ namespace Restaurant_Management
                 LoadTable();
 
             }
+            else
+            {
+                fFullMenuList menuList = new fFullMenuList();
+                menuList.Text = "Full Menu List";
+                menuList.ShowDialog();
+                LoadTable();
+            }
         }
         #endregion
-
 
         #endregion
 

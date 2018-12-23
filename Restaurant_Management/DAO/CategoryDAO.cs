@@ -54,5 +54,23 @@ namespace Restaurant_Management.DAO
             }
             return category;
         }
+
+        public bool InsertCategory(string name)
+        {
+            string query = "UserProc_InsertCategory @name";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { name });
+
+            return result > 0;
+        }
+
+
+        public bool EditCategory(int id, string name)
+        {
+            string query = "UseProcr_EditCategory @id , @name";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, name });
+
+            return result > 0;
+        }
+        
     }
 }

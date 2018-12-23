@@ -225,11 +225,11 @@ begin
 end
 go
 
-create proc UserProc_GetIncome
+alter proc UserProc_GetIncome
 @from date, @to date
 as
 begin
-	select t.Name, b.Total, b.dateCheckIn, b.dateCheckOut, b.Discount
+	select t.Name, b.dateCheckIn, b.dateCheckOut, b.Discount, b.Total
 	from dbo.Bill as b, dbo.ResTable as t
 	where b.IDTable = t.ID and b.Status = 1 and b.dateCheckOut >= @from and b.dateCheckOut <= @to
 end
@@ -259,11 +259,11 @@ begin
 end
 go
 
-create proc UserProc_EitTable
+create proc UserProc_EditTable
 @id int, @name nvarchar(100), @status nvarchar(100), @size int
 as
 begin
-	update dbo.Restable set Name= @name, Status = @status, Size = @size where ID = @id
+	update dbo.Restable set Name = @name, Status = @status, Size = @size where ID = @id
 end
 go
 
@@ -328,7 +328,29 @@ begin
 end
 go
 
+create proc UserProc_InsertCategory
+@name nvarchar(100)
+as
+begin
+	insert into dbo.Category ( Name ) values ( @name )
+end
+go
 
+create proc UserProc_EditCategory
+@id int, @name nvarchar(100)
+as
+begin
+	update dbo.Category set Name = @name where ID = @id
+end
+go
+
+create proc UserProc_RemoveCategory
+@name nvarchar(100)
+as
+begin
+	insert into dbo.Category ( Name ) values ( @name )
+end
+go
 
 ----chưa dùng
 --create proc UserProc_changeFName
@@ -356,3 +378,13 @@ go
 --end
 --go
 
+create proc UserProc_RemoveTable
+@id int
+as
+begin
+	declare @idBill int 
+	select @idBill = max(ID) from dbo.Bill where IDTable = @id and Status = 0
+	delete dbo.Billinfo where IDBill = @idBill
+	delete dbo.Bill where ID = @idBill 
+end
+go

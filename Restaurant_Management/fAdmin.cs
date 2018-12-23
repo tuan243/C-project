@@ -45,7 +45,7 @@ namespace Restaurant_Management
 
         void LoadFood()
         {
-            FoodList.DataSource = FoodDAO.Instance.GeAllListFood();
+            FoodList.DataSource = FoodDAO.Instance.GetAllListFood();
         }
 
         void LoadListBillByDate(DateTime from, DateTime to)
@@ -100,9 +100,7 @@ namespace Restaurant_Management
         }
         void LoadTableStatusIntoComboBox(ComboBox cbb)
         {
-
-            cbb.DataSource = TableDAO.Instance.LoadTableList();
-            cbb.DisplayMember = "Status";
+            cbb.DataSource = TableDAO.Instance.LoadTableStatus();
         }
         void LoadAccountIntoComboBox(ComboBox cbb)
         {
@@ -140,11 +138,6 @@ namespace Restaurant_Management
             Dgv_C.DataSource = CategoryList;
             LoadCategory();
             AddCategoryBinding();
-        }
-
-        private void Dgv_A_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         #region Income
@@ -238,6 +231,49 @@ namespace Restaurant_Management
 
         #endregion
 
+        #region Category
+
+        private void Btn_CAdd_Click(object sender, EventArgs e)
+        {
+            string name = Txb_CName.Text;
+            if (CategoryDAO.Instance.InsertCategory(name))
+            {
+                MessageBox.Show("Success", "Notification", MessageBoxButtons.OK);
+                LoadCategory();
+            }
+            else
+            {
+                MessageBox.Show("Error, Fail", "Notification", MessageBoxButtons.OK);
+            }
+        }
+
+        private void Btn_CRemove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_CEdit_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(Txb_CID.Text);
+            string name = Txb_CName.Text;
+            if (CategoryDAO.Instance.EditCategory(id, name))
+            {
+                MessageBox.Show("Success", "Notification", MessageBoxButtons.OK);
+                LoadCategory();
+            }
+            else
+            {
+                MessageBox.Show("Error, Fail", "Notification", MessageBoxButtons.OK);
+            }
+        }
+
+        private void Btn_CView_Click(object sender, EventArgs e)
+        {
+            LoadCategory();
+        }
+
+        #endregion
+
         #region Table
 
         private void Txb_TID_TextChanged(object sender, EventArgs e)
@@ -248,9 +284,9 @@ namespace Restaurant_Management
 
                 Table table = TableDAO.Instance.LoadTableListByID(id);
                 int i = 0;
-                foreach (Table item in Cbb_TStatus.Items)
+                foreach (string item in Cbb_TStatus.Items)
                 {
-                    if (item.ID == table.ID)
+                    if (item == table.Status)
                     {
                         Cbb_TStatus.SelectedIndex = i;
                         break;
@@ -258,6 +294,58 @@ namespace Restaurant_Management
                     i++;
                 }
             }
+        }
+
+        private void Btn_TAdd_Click(object sender, EventArgs e)
+        {
+            string name = Txb_TName.Text;
+            string size = Txb_TSize.Text;
+            string status = Cbb_TStatus.SelectedItem.ToString();
+            if (TableDAO.Instance.InsertTable(name, status, size))
+            {
+                MessageBox.Show("Success", "Notification", MessageBoxButtons.OK);
+                loadTable();
+            }
+            else
+            {
+                MessageBox.Show("Error, Fail", "Notification", MessageBoxButtons.OK);
+            }
+        }
+
+        private void Btn_TRemove_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(Txb_TID.Text);
+            if (TableDAO.Instance.RemoveTable(id))
+            {
+                MessageBox.Show("Success", "Notification", MessageBoxButtons.OK);
+                loadTable();
+            }
+            else
+            {
+                MessageBox.Show("Error, Fail", "Notification", MessageBoxButtons.OK);
+            }
+        }
+
+        private void Btn_TEdit_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(Txb_TID.Text);
+            string name = Txb_TName.Text;
+            int size = int.Parse(Txb_TSize.Text);
+            string status = Cbb_TStatus.SelectedItem.ToString();
+            if (TableDAO.Instance.EditTable(id, name, status, size))
+            {
+                MessageBox.Show("Success", "Notification", MessageBoxButtons.OK);
+                loadTable();
+            }
+            else
+            {
+                MessageBox.Show("Error, Fail", "Notification", MessageBoxButtons.OK);
+            }
+        }
+
+        private void Btn_TView_Click(object sender, EventArgs e)
+        {
+            loadTable();
         }
 
         #endregion
@@ -284,10 +372,29 @@ namespace Restaurant_Management
             }
         }
 
-        #endregion
+        private void Btn_AAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_ARemove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_AEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_AView_Click(object sender, EventArgs e)
+        {
+            loadAccount();
+        }
 
         #endregion
 
+        #endregion
 
     }
 }
