@@ -44,6 +44,7 @@
             this.grB_MInfo = new System.Windows.Forms.GroupBox();
             this.Txb_MPrice = new System.Windows.Forms.TextBox();
             this.Txb_MSize = new System.Windows.Forms.TextBox();
+            this.Txb_MCategory = new System.Windows.Forms.TextBox();
             this.Txb_MName = new System.Windows.Forms.TextBox();
             this.Txb_MID = new System.Windows.Forms.TextBox();
             this.Lbl_MPrice = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.Lbl_MCategory = new System.Windows.Forms.Label();
             this.Lbl_MName = new System.Windows.Forms.Label();
             this.Lbl_MID = new System.Windows.Forms.Label();
-            this.Txb_MCategory = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -178,6 +178,7 @@
             this.Btn_AddOrder.TabIndex = 4;
             this.Btn_AddOrder.Text = "Add";
             this.Btn_AddOrder.UseVisualStyleBackColor = true;
+            this.Btn_AddOrder.Click += new System.EventHandler(this.Btn_AddOrder_Click);
             // 
             // grB_MFind
             // 
@@ -252,6 +253,17 @@
             this.Txb_MSize.Size = new System.Drawing.Size(196, 20);
             this.Txb_MSize.TabIndex = 9;
             // 
+            // Txb_MCategory
+            // 
+            this.Txb_MCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Txb_MCategory.Location = new System.Drawing.Point(80, 72);
+            this.Txb_MCategory.Name = "Txb_MCategory";
+            this.Txb_MCategory.ReadOnly = true;
+            this.Txb_MCategory.Size = new System.Drawing.Size(196, 20);
+            this.Txb_MCategory.TabIndex = 7;
+            // 
             // Txb_MName
             // 
             this.Txb_MName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -323,17 +335,6 @@
             this.Lbl_MID.TabIndex = 2;
             this.Lbl_MID.Text = "ID :";
             this.Lbl_MID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // Txb_MCategory
-            // 
-            this.Txb_MCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txb_MCategory.Location = new System.Drawing.Point(80, 72);
-            this.Txb_MCategory.Name = "Txb_MCategory";
-            this.Txb_MCategory.ReadOnly = true;
-            this.Txb_MCategory.Size = new System.Drawing.Size(196, 20);
-            this.Txb_MCategory.TabIndex = 7;
             // 
             // fFullMenuList
             // 

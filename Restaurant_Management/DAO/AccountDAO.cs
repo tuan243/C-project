@@ -34,7 +34,6 @@ namespace Restaurant_Management.DAO
             string query = "UserProc_Login @username , @password";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username, password });
 
-
             return result.Rows.Count > 0;
         }
 

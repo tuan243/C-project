@@ -63,7 +63,6 @@ namespace Restaurant_Management.DAO
             return result > 0;
         }
 
-
         public bool EditCategory(int id, string name)
         {
             string query = "UseProcr_EditCategory @id , @name";

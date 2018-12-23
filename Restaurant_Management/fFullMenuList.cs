@@ -20,6 +20,21 @@ namespace Restaurant_Management
             InitializeComponent();
         }
 
+        bool CheckListViewIsSelected(ListView listView)
+        {
+            bool selected = false;
+            foreach (ListViewItem item in listView.Items)
+            {
+                if (item.Selected == true)
+                {
+                    selected = true;
+                    break;
+                }
+            }
+
+            return selected;
+        }
+
         void LoadCategory()
         {
             Category AllCategory = new Category(0, "All Category");
@@ -69,7 +84,7 @@ namespace Restaurant_Management
 
         private void fFullMenuList_Load(object sender, EventArgs e)
         {
-            if(this.Tag == null)
+            if (this.Tag == null)
             {
                 Btn_AddOrder.Visible = false;
                 nUD_UnitCount.Visible = false;
@@ -104,6 +119,34 @@ namespace Restaurant_Management
                 Txb_MName.Text = string.Empty;
             }
 
+        }
+
+        private void Btn_AddOrder_Click(object sender, EventArgs e)
+        {
+            bool selected = CheckListViewIsSelected(Lv_SelectFood);
+            Table table = this.Tag as Table;
+
+            if (selected == false)
+                MessageBox.Show("Select food to add first !", "Warning", MessageBoxButtons.OK);
+            else
+            {
+                int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
+                if (table.Status == "Trống")
+                {
+                    TableDAO.Instance.ChangeTableStatus(table.ID, "Có người");
+                    table.Status = "Có người";
+                }
+                int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
+                int count = (int)nUD_UnitCount.Value;
+
+                if (idBill == -1)
+                {
+                    BillDAO.Instance.InsertBill(table.ID);
+                    idBill = BillDAO.Instance.GetMaxID();
+                }
+                BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
+
+            }
         }
     }
 }

@@ -244,10 +244,6 @@ namespace Restaurant_Management
                         idBill = BillDAO.Instance.GetMaxID();
                     }
                     BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
-
-                    ShowBill(selectedTableID);
-                    ChangeTableStatus(buttonOfSelectedTable);
-                    //LoadTable();
                 }
             }
 
@@ -275,13 +271,14 @@ namespace Restaurant_Management
 
         private void Btn_Remove_Click(object sender, EventArgs e)
         {
+            Button buttonOfSelectedTable = Lv_Bill.Tag as Button;
             bool selected = CheckListViewIsSelected(Lv_Bill);
 
             if (selected == false)
                 MessageBox.Show("Select food to remove first !", "Warning", MessageBoxButtons.OK);
             else
             {
-                Table table = Lv_Bill.Tag as Table;
+                Table table = buttonOfSelectedTable.Tag as Table;
                 int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
                 int idFood = (Lv_Bill.SelectedItems[0].Tag as RestaurantMenu).ID;
 
@@ -353,7 +350,8 @@ namespace Restaurant_Management
 
         private void Btn_SwitchTable_Click(object sender, EventArgs e)
         {
-            Table FTable = Lv_Bill.Tag as Table;
+            Button buttonOfSelectedTable = Lv_Bill.Tag as Button;
+            Table FTable = buttonOfSelectedTable.Tag as Table;
             Table STable = Cbb_SwitchTable.SelectedItem as Table;
             string str = "Switch " + FTable.Name + " and " + STable.Name;
             if (MessageBox.Show(str, "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -401,9 +399,10 @@ namespace Restaurant_Management
                 tableBill.Text = "Full Table Bill " + table.Name;
                 tableBill.Tag = table;
                 tableBill.ShowDialog();
-                ShowBill(table.ID);
-                LoadTable();
             }
+
+            ShowBill(selectedTableID);
+            ChangeTableStatus(buttonOfSelectedTable);
         }
 
         private void Btn_ViewFMenu_Click(object sender, EventArgs e)
@@ -416,17 +415,17 @@ namespace Restaurant_Management
                 menuList.Text = "Full Menu List adding to " + table.Name;
                 menuList.Tag = table;
                 menuList.ShowDialog();
-                ShowBill(table.ID);
-                LoadTable();
-
+                ShowBill(selectedTableID);
+                ChangeTableStatus(buttonOfSelectedTable);
             }
             else
             {
                 fFullMenuList menuList = new fFullMenuList();
                 menuList.Text = "Full Menu List";
                 menuList.ShowDialog();
-                LoadTable();
             }
+
+
         }
         #endregion
 
