@@ -263,7 +263,7 @@ create proc UserProc_EditTable
 @id int, @name nvarchar(100), @status nvarchar(100), @size int
 as
 begin
-	update dbo.Restable set Name= @name, Status = @status, Size = @size where ID = @id
+	update dbo.Restable set Name = @name, Status = @status, Size = @size where ID = @id
 end
 go
 
