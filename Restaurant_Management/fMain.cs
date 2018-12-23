@@ -25,6 +25,21 @@ namespace Restaurant_Management
 
         #region Method
 
+        bool CheckListViewIsSelected(ListView listView)
+        {
+            bool selected = false;
+            foreach (ListViewItem item in listView.Items)
+            {
+                if (item.Selected == true)
+                {
+                    selected = true;
+                    break;
+                }
+            }
+
+            return selected;
+        }
+
         void LoadTable()
         {
             Flp_Table.Controls.Clear();
@@ -194,7 +209,6 @@ namespace Restaurant_Management
             int id = selected.ID;
 
             LoadFoodListByCategory(id);
-            Lv_SelectFood.Items[0].Selected = true;
         }
 
         #endregion
@@ -204,34 +218,39 @@ namespace Restaurant_Management
         private void Btn_AddOrder_Click(object sender, EventArgs e)
         {
             Button buttonOfSelectedTable = Lv_Bill.Tag as Button;
+            bool selected = CheckListViewIsSelected(Lv_SelectFood);
 
             if (buttonOfSelectedTable == null)
                 MessageBox.Show("Please select table to add food !", "Warning", MessageBoxButtons.OK);
             else
             {
-                Table table = buttonOfSelectedTable.Tag as Table;
-                int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
-                if (table.Status == "Trống")
+                if (selected == false)
+                    MessageBox.Show("Select food to add first !", "Warning", MessageBoxButtons.OK);
+                else
                 {
-                    TableDAO.Instance.ChangeTableStatus(table.ID, "Có người");
-                    table.Status = "Có người";
-                }
-                int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
-                int count = (int)nUD_UnitCount.Value;
+                    Table table = buttonOfSelectedTable.Tag as Table;
+                    int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
+                    if (table.Status == "Trống")
+                    {
+                        TableDAO.Instance.ChangeTableStatus(table.ID, "Có người");
+                        table.Status = "Có người";
+                    }
+                    int idFood = (Lv_SelectFood.SelectedItems[0].Tag as Food).ID;
+                    int count = (int)nUD_UnitCount.Value;
 
-                if (idBill == -1)
-                {
-                    BillDAO.Instance.InsertBill(table.ID);
-                    idBill = BillDAO.Instance.GetMaxID();
-                }
-                BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
+                    if (idBill == -1)
+                    {
+                        BillDAO.Instance.InsertBill(table.ID);
+                        idBill = BillDAO.Instance.GetMaxID();
+                    }
+                    BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
 
-                ShowBill(selectedTableID);
-                ChangeTableStatus(buttonOfSelectedTable);
-                //LoadTable();
+                    ShowBill(selectedTableID);
+                    ChangeTableStatus(buttonOfSelectedTable);
+                    //LoadTable();
+                }
             }
-            BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
-            
+
             ShowBill(selectedTableID);
             ChangeTableStatus(buttonOfSelectedTable);
         }
@@ -256,15 +275,22 @@ namespace Restaurant_Management
 
         private void Btn_Remove_Click(object sender, EventArgs e)
         {
-            Table table = Lv_Bill.Tag as Table;
-            int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
-            int idFood = (Lv_Bill.SelectedItems[0].Tag as RestaurantMenu).ID;
+            bool selected = CheckListViewIsSelected(Lv_Bill);
 
-            if (idBill != -1)
+            if (selected == false)
+                MessageBox.Show("Select food to remove first !", "Warning", MessageBoxButtons.OK);
+            else
             {
-                BillinfoDAO.Instance.RemoveItemInBillInfo(idBill, idFood);
+                Table table = Lv_Bill.Tag as Table;
+                int idBill = BillDAO.Instance.Get_uncheckOutBillID_by_TableID(table.ID);
+                int idFood = (Lv_Bill.SelectedItems[0].Tag as RestaurantMenu).ID;
+
+                if (idBill != -1)
+                {
+                    BillinfoDAO.Instance.RemoveItemInBillInfo(idBill, idFood);
+                }
+                ShowBill(table.ID);
             }
-            ShowBill(table.ID);
         }
 
         private void Btn_CheckOut_Click(object sender, EventArgs e)
