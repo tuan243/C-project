@@ -28,7 +28,7 @@ namespace Restaurant_Management.DAO
         }
 
         private DataProvider() { }
-        private string connectionStr = @"Server=TUAN\SQLEXPRESS;Database=RestaurantManagement;uid=sa;pwd=sa;integrated security=SSPI;Connect Timeout=5";
+        private string connectionStr = "Data Source=MINHQUAN;Initial Catalog = RestaurantManagement; Integrated Security = True";
 
         public DataTable ExecuteQuery(string query, object[] parameter = null) //object parameter to avoid SQL Injection.
         {
