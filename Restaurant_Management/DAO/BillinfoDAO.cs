@@ -28,22 +28,6 @@ namespace Restaurant_Management.DAO
 
         private BillinfoDAO() { }
 
-        public List<Billinfo> GetListBillinfo(int id)
-        {
-            List<Billinfo> ListBillinfo = new List<Billinfo>();
-
-            string query = "UserProc_GetBillinfo @IDBill";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
-
-            foreach(DataRow item in data.Rows)
-            {
-                Billinfo info = new Billinfo(item);
-                ListBillinfo.Add(info);
-            }
-
-            return ListBillinfo;
-        }
-
         public void InsertBillInfo(int idBill, int idFood, int count)
         {
             string query = "UserProc_InsertBillInfo @IDBill , @IDFood , @Count";

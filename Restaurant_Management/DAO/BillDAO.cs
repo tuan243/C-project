@@ -49,19 +49,6 @@ namespace Restaurant_Management.DAO
             DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
         }
 
-        public int GetMaxID()
-        {
-            string query = "select max(ID) from dbo.Bill";
-            try
-            {
-                return (int)DataProvider.Instance.ExecuteScalar(query);
-            }
-            catch
-            {
-                return 1;
-            }
-        }
-
         public void CheckOut(int id, int discount, float total)
         {
             string query = " UserProc_CheckOut @IDBill , @Discount , @Total";
@@ -76,10 +63,11 @@ namespace Restaurant_Management.DAO
             return data;
         }
 
-        public void UpdateBillTotal(int id, float total)
+        public int GetMaxID()
         {
-            string query = "UserProc_ChangeTotal @id , @total";
-            DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, total });
+            string query = "select max(ID) from dbo.Bill";
+            try { return (int)DataProvider.Instance.ExecuteScalar(query); }
+            catch { return 1; }
         }
     }
 }

@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace Restaurant_Management.DAO
 {
-    //Create Singleton.
+
     public class DataProvider
     {
+        //Create Singleton.
         private static DataProvider instance;
 
         public static DataProvider Instance
