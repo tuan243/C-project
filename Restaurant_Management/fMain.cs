@@ -30,6 +30,7 @@ namespace Restaurant_Management
             Flp_Table.Controls.Clear();
             //Load tableList from database.
             List<Table> tableList = TableDAO.Instance.LoadTableList();
+
             foreach (Table item in tableList)
             {
                 //Create button.
@@ -42,8 +43,6 @@ namespace Restaurant_Management
                 btn.Text = item.Name + " ( " + item.Size + " )" + Environment.NewLine + "( " + item.Status + " )";
                 //Event click.
                 btn.Click += Btn_Click;
-
-                //btn.Name = "Table " + count.ToString();
                 //Tag
                 btn.FlatStyle = FlatStyle.Flat;
                 btn.Tag = item;
@@ -205,8 +204,7 @@ namespace Restaurant_Management
         private void Btn_AddOrder_Click(object sender, EventArgs e)
         {
             Button buttonOfSelectedTable = Lv_Bill.Tag as Button;
-            //Table table = Lv_Bill.Tag as Table;
-            
+
             if (buttonOfSelectedTable == null)
                 MessageBox.Show("Please select table to add food !", "Warning", MessageBoxButtons.OK);
             else
@@ -232,6 +230,10 @@ namespace Restaurant_Management
                 ChangeTableStatus(buttonOfSelectedTable);
                 //LoadTable();
             }
+            BillinfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
+            
+            ShowBill(selectedTableID);
+            ChangeTableStatus(buttonOfSelectedTable);
         }
 
         private void ChangeTableStatus(Button btn)
@@ -249,6 +251,7 @@ namespace Restaurant_Management
                     btn.BackColor = Color.BlueViolet;
                     break;
             }
+            btn.Text = tableOfBtn.Name + " ( " + tableOfBtn.Size + " )" + Environment.NewLine + "( " + tableOfBtn.Status + " )";
         }
 
         private void Btn_Remove_Click(object sender, EventArgs e)
@@ -306,11 +309,9 @@ namespace Restaurant_Management
         {
             Table table = ((Button)sender).Tag as Table;
             grB_Bill.Text = "Bill of " + table.Name;
-            //int tableID = ((sender as Button).Tag as Table).ID;
-            Lv_Bill.Tag = (sender as Button).Tag;
             selectedTableID = table.ID;
             Lv_Bill.Tag = sender;
-
+            
             if (table.Status == "Trống")
             {
                 Flp_Tmenu.Enabled = false;
