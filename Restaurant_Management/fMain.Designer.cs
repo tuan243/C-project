@@ -43,7 +43,6 @@
             this.Flp_Bmenu = new System.Windows.Forms.FlowLayoutPanel();
             this.Btn_ViewFBill = new System.Windows.Forms.Button();
             this.Btn_Remove = new System.Windows.Forms.Button();
-            this.Btn_Discount = new System.Windows.Forms.Button();
             this.nUD_Discount = new System.Windows.Forms.NumericUpDown();
             this.Btn_CheckOut = new System.Windows.Forms.Button();
             this.grB_Table = new System.Windows.Forms.GroupBox();
@@ -71,14 +70,6 @@
             this.Lbl_PhoneNum = new System.Windows.Forms.Label();
             this.Lbl_Name = new System.Windows.Forms.Label();
             this.Lbl_ID = new System.Windows.Forms.Label();
-            this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.changeTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.staffAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.infomationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,6 +79,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Booking_menuStrip = new System.Windows.Forms.MenuStrip();
+            this.Btn_Discount = new System.Windows.Forms.Button();
             this.Pnl_Booking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slC_Booking)).BeginInit();
             this.slC_Booking.Panel1.SuspendLayout();
@@ -269,15 +261,6 @@
             this.Btn_Remove.UseVisualStyleBackColor = true;
             this.Btn_Remove.Click += new System.EventHandler(this.Btn_Remove_Click);
             // 
-            // Btn_Discount
-            // 
-            this.Btn_Discount.Location = new System.Drawing.Point(3, 65);
-            this.Btn_Discount.Name = "Btn_Discount";
-            this.Btn_Discount.Size = new System.Drawing.Size(75, 25);
-            this.Btn_Discount.TabIndex = 14;
-            this.Btn_Discount.Text = "Discount";
-            this.Btn_Discount.UseVisualStyleBackColor = true;
-            // 
             // nUD_Discount
             // 
             this.nUD_Discount.Location = new System.Drawing.Point(3, 96);
@@ -364,14 +347,6 @@
             this.Btn_CombineTable.Text = "Combine";
             this.Btn_CombineTable.UseVisualStyleBackColor = true;
             this.Btn_CombineTable.Click += new System.EventHandler(this.Btn_CombineTable_Click);
-            // 
-            // Cbb_CombineTable
-            // 
-            this.Cbb_CombineTable.FormattingEnabled = true;
-            this.Cbb_CombineTable.Location = new System.Drawing.Point(3, 34);
-            this.Cbb_CombineTable.Name = "Cbb_CombineTable";
-            this.Cbb_CombineTable.Size = new System.Drawing.Size(75, 21);
-            this.Cbb_CombineTable.TabIndex = 5;
             // 
             // Cbb_CombineTable
             // 
@@ -574,60 +549,6 @@
             this.Lbl_ID.Text = "ID :";
             this.Lbl_ID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // optionToolStripMenuItem
-            // 
-            this.optionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator3,
-            this.addToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.changeTableToolStripMenuItem,
-            this.addOrderToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.exitToolStripMenuItem});
-            this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
-            this.optionToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.optionToolStripMenuItem.Text = "&Option";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(143, 6);
-            // 
-            // addToolStripMenuItem
-            // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.addToolStripMenuItem.Text = "&Check Out";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(143, 6);
-            // 
-            // changeTableToolStripMenuItem
-            // 
-            this.changeTableToolStripMenuItem.Name = "changeTableToolStripMenuItem";
-            this.changeTableToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.changeTableToolStripMenuItem.Text = "Change &Table";
-            // 
-            // addOrderToolStripMenuItem
-            // 
-            this.addOrderToolStripMenuItem.Name = "addOrderToolStripMenuItem";
-            this.addOrderToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.addOrderToolStripMenuItem.Text = "&Add Order";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.exitToolStripMenuItem.Text = "&Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
             // staffAccountToolStripMenuItem
             // 
             this.staffAccountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -642,24 +563,24 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(130, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // infomationToolStripMenuItem
             // 
             this.infomationToolStripMenuItem.Name = "infomationToolStripMenuItem";
-            this.infomationToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.infomationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.infomationToolStripMenuItem.Text = "&Infomation";
             this.infomationToolStripMenuItem.Click += new System.EventHandler(this.infomationToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(130, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logOutToolStripMenuItem.Text = "&Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -689,7 +610,6 @@
             this.Booking_menuStrip.AutoSize = false;
             this.Booking_menuStrip.BackColor = System.Drawing.SystemColors.Control;
             this.Booking_menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.optionToolStripMenuItem,
             this.staffAccountToolStripMenuItem,
             this.adminToolStripMenuItem});
             this.Booking_menuStrip.Location = new System.Drawing.Point(0, 0);
@@ -698,6 +618,19 @@
             this.Booking_menuStrip.Size = new System.Drawing.Size(839, 24);
             this.Booking_menuStrip.TabIndex = 11;
             this.Booking_menuStrip.Text = "menuStrip1";
+            // 
+            // Btn_Discount
+            // 
+            this.Btn_Discount.FlatAppearance.BorderSize = 0;
+            this.Btn_Discount.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.Btn_Discount.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.Btn_Discount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Discount.Location = new System.Drawing.Point(3, 65);
+            this.Btn_Discount.Name = "Btn_Discount";
+            this.Btn_Discount.Size = new System.Drawing.Size(75, 25);
+            this.Btn_Discount.TabIndex = 14;
+            this.Btn_Discount.Text = "Discount";
+            this.Btn_Discount.UseVisualStyleBackColor = true;
             // 
             // fMain
             // 
@@ -745,7 +678,6 @@
         private System.Windows.Forms.FlowLayoutPanel Flp_Bmenu;
         private System.Windows.Forms.Button Btn_ViewFBill;
         private System.Windows.Forms.Button Btn_Remove;
-        private System.Windows.Forms.Button Btn_Discount;
         private System.Windows.Forms.NumericUpDown nUD_Discount;
         private System.Windows.Forms.Button Btn_CheckOut;
         private System.Windows.Forms.GroupBox grB_Table;
@@ -765,14 +697,6 @@
         private System.Windows.Forms.Label Lbl_PhoneNum;
         private System.Windows.Forms.Label Lbl_Name;
         private System.Windows.Forms.Label Lbl_ID;
-        private System.Windows.Forms.ToolStripMenuItem optionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem changeTableToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addOrderToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem staffAccountToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem infomationToolStripMenuItem;
@@ -799,6 +723,7 @@
         private System.Windows.Forms.ComboBox Cbb_CombineTable;
         private System.Windows.Forms.FlowLayoutPanel Flp_SwitchTable;
         private System.Windows.Forms.FlowLayoutPanel Flp_CombineTable;
+        private System.Windows.Forms.Button Btn_Discount;
     }
 }
 

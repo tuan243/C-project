@@ -171,6 +171,11 @@
             // 
             // Btn_Discount
             // 
+            this.Btn_Discount.Enabled = false;
+            this.Btn_Discount.FlatAppearance.BorderSize = 0;
+            this.Btn_Discount.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.Btn_Discount.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.Btn_Discount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Discount.Location = new System.Drawing.Point(3, 34);
             this.Btn_Discount.Name = "Btn_Discount";
             this.Btn_Discount.Size = new System.Drawing.Size(75, 25);
