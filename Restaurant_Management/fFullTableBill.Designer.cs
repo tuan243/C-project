@@ -171,7 +171,6 @@
             // 
             // Btn_Discount
             // 
-            this.Btn_Discount.Enabled = false;
             this.Btn_Discount.FlatAppearance.BorderSize = 0;
             this.Btn_Discount.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
             this.Btn_Discount.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
